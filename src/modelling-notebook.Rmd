@@ -1,0 +1,138 @@
+---
+title: "Modelling Notebook"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(patchwork)
+source(here::here('src/dags.R'))
+```
+
+
+# Directed Acyclical Graphing
+
+Using directed acyclical graphs (DAGs), we encode assumptions about variables that might affect the relationship between the dependent variable (functioning) and the independent variable (moral injury).
+
+No one DAG is necessarily correct. They can be simple or more complex, although adding more variables does not always lead to different implications for statistical modelling.  
+
+The simplest DAG is bivariate:
+
+```{r}
+plot_dag_1
+```
+
+
+But it is also possible (if not likely) that other variables may confound the relationship between moral injury and functioning. In particular, other issues may impede functioning, and these issues may have common causes with moral injury. PTSD is one such issue, and its common cause with moral injury is serving in combat.:
+
+```{r}
+plot_dag_2
+```
+
+Besides PTSD and moral injury, there may be other injuries and difficulties caused by combat that impede functioning. Collectively, we can add these to the DAG as occupational stress injuries (OSI).:
+
+```{r}
+plot_dag_3
+```
+
+To add another layer, we can assume that there are demographic factors that can contribute to the likelihood that a service member experiences combat, as well as the experience of moral injury, PTSD, and operational stress injuries.:
+
+
+```{r}
+plot_dag_4
+```
+
+
+```{r}
+plot_dag_5
+```
+
+# Parametric Assumptions
+
+DAGs do not make assumptions about distributions. They are non-parametric. So what distributional assumptions should we put into the model?
+
+The outcome is a continuous variable, albeit one measured on by a psychometric scale that has an upper and lower bound (the brief Inventory of Psychosocial Functioning [bIPF]). Answers to the 7-item scale range from 0 (no difficulty functioning in that area) to 6 (lots of difficulty functioning). Therefore, total scores could range from 0 to 42 (which are then transformed to be 0-100). 
+
+```{r}
+data %>% 
+  ggplot(aes(bipf_total)) +
+  geom_boxplot() +
+  labs(x = 'bIPF Total Score')
+
+```
+
+
+However, not all items are applicable to every respondent. On this survey, respondents could answer any item with Not Applicable. The scoring criteria allow for this, averaging the participant responses over only the questions they answered.:
+
+> "The BIPF is scored by summing the scored items to create a total score,  dividing the total score by the maximum possible score based on the number of items scored, and multiplying by 100. Thus, the B-IPF represents an overall index of functioning, with higher scores indicating greater functional impairment."
+
+Still, it brings into question if someone who only answered one question is comparable to someone who answered all seven. For this reason, we will likely drop responses with too many NAs. 
+
+Another issue that arises from the measure is an abundance of 0s.:
+
+```{r}
+data %>%
+  ggplot(aes(bipf_score)) +
+  geom_histogram() +
+   labs(x = 'bIPF Score', y = 'Count') + 
+  data %>%
+  ggplot(aes(bipf_score)) +
+  geom_density() +
+  labs(x = 'bIPF Score', y = 'Density')
+```
+
+Removing the zeros, we see the distribution is more symmetrical. However, it is either right-skewed or even bimodal:
+
+```{r}
+data %>%
+  filter(bipf_gt_zero == 1) %>% 
+  ggplot(aes(bipf_score)) +
+  geom_histogram(bins = 14) +
+  labs(x = 'bIPF Score', y = 'Count') + 
+  data %>%
+  filter(bipf_gt_zero == 1) %>% 
+  ggplot(aes(bipf_score)) +
+  geom_density() +
+  labs(x = 'bIPF Score', y = 'Density')
+```
+
+Let's start simply and model this as a normal distribution. 
+
+We can also model it as a binomial outcome: those with no difficulty and those with at least some difficulty.:
+
+```{r}
+data %>%
+  ggplot(aes(bipf_gt_zero)) +
+  geom_histogram() +
+  data %>%
+  count(bipf_gt_zero) %>% 
+  ggplot(aes(factor(bipf_gt_zero), n)) +
+  geom_col()
+```
+
+Or even as a discrete outcome with more than two possibilities. We will use the categories given in the validation paper (Kleiman et al., 2020)
+
+```{r}
+data %>%
+  filter(bipf_gt_zero == 1) %>% 
+  ggplot(aes(bipf_score)) +
+  geom_histogram(bins = 40) +
+  labs(x = 'bIPF Score',
+       y = 'Count') +
+data %>%
+  count(bipf_category) %>% 
+  ggplot(aes(bipf_category, n)) +
+  geom_col() +
+  labs(x = 'bIPF Categorical',
+       y = 'Count')
+```
+
+
+
+
+
+
+
+
+# References
+Kleiman, S. E., Bovin, M. J., Black, S. K., Rodriguez, P., Brown, L. G., Brown, M. E., Lunney, C. A., Weathers, F. W., Schnurr, P. P., Spira, J., Keane, T. M., & Marx, B. P. (2020). Psychometric properties of a brief measure of posttraumatic stress disorder–related impairment: The Brief Inventory of Psychosocial Functioning. Psychological Services, 17(2), 187–194. https://doi.org/10.1037/ser0000306
