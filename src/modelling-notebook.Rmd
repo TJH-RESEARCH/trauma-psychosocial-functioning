@@ -128,6 +128,16 @@ data %>%
 ```
 
 
+# Tranformations?
+
+What about a log transformation?
+```{r}
+data %>% 
+  mutate(bipf_log = log(bipf_score + 1)) %>% 
+  ggplot(aes(bipf_log)) +
+  geom_density()
+
+```
 
 
 
@@ -136,3 +146,27 @@ data %>%
 
 # References
 Kleiman, S. E., Bovin, M. J., Black, S. K., Rodriguez, P., Brown, L. G., Brown, M. E., Lunney, C. A., Weathers, F. W., Schnurr, P. P., Spira, J., Keane, T. M., & Marx, B. P. (2020). Psychometric properties of a brief measure of posttraumatic stress disorder–related impairment: The Brief Inventory of Psychosocial Functioning. Psychological Services, 17(2), 187–194. https://doi.org/10.1037/ser0000306
+
+
+
+# Ordered Logistic Regression
+
+Models an ordinal frequency distribution of an outcome dependent on predictor variable. 
+
+The priors are on log odds:
+
+$$Functioning_i \sim OrderedLogit(\phi_i) \\ 
+\phi_i = \beta_{MI} MI_i \\
+\beta \sim Normal(0, .5) \\
+\alpha_j \sim Normal(0,1)
+$$
+
+$$ log { {Pr(R_i \le k)} \over {1 - Pr(R_i \ge k)} } = \alpha_k + \phi_i $$
+
+
+$$ \phi_i = \beta X_i $$ 
+
+
+As phi increases, the lower values become more likely. 
+
+Results are in the cumulative log odds scale. 

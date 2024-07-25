@@ -34,7 +34,7 @@ priors <-
   tibble(
     alpha_prior = rnorm(100000, mean = 0, sd = 5),
     beta_mios_prior = rnorm(100000, mean = 0, sd = 5),
-    sigma_prior = rexp(100000, rate = .5),
+    sigma_prior = rexp(100000, rate = 1),
     id = c(1:100000)
   ) 
 
@@ -73,7 +73,7 @@ model_bipf_multi <-
     // Priors
     alpha ~ normal(0, 5);
     beta ~ normal(0, 5);
-    sigma ~ exponential(.5);
+    sigma ~ exponential(1);
     
     // Linear Model
     y ~ normal(alpha + x * beta, sigma);

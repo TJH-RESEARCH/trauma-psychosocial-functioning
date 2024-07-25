@@ -63,7 +63,7 @@ data <-
           case_when(
             bipf_score <= 10 ~ 0, 
             bipf_score > 10 & bipf_score <= 30 ~ 1,
-            bipf_score > 30 & bipf_score <= 40 ~ 2,
+            bipf_score > 30 & bipf_score <= 50 ~ 2,
             bipf_score > 50 & bipf_score <= 80 ~ 3,
             bipf_score > 80 ~ 4
           ),
@@ -73,7 +73,7 @@ data <-
         )
     )
 
-data %>% count(bipf_category)
+data %>% count(bipf_category, bipf_score) %>% print(n = 300)
 
 # Missing Data ------------------------------------------------------------
 data %>% count(bipf_NAs)
@@ -90,5 +90,11 @@ data <-
   mutate(bipf_gt_zero = if_else(bipf_mean == 0, 0, 1)
   )
 
+# Create a dummy variable for 0s and non-zeros ----------------------------
+data <-
+  data %>% 
+  mutate(bipf_zero = if_else(bipf_mean == 0, 1, 0)
+  )
 
-
+data %>% count(bipf_category)
+data %>% count(bipf_score) %>% print(n = 340)
