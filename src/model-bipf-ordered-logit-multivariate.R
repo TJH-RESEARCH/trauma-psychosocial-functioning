@@ -18,16 +18,20 @@ data_list$n_predictors <- 7
 data_list$x    <-
   with(data,
          model.matrix(
-           bipf_mean ~ 
+           bipf_category ~ 
              mios_total + 
              military_exp_combat +
+             pc_ptsd_positive_screen +
+             # MOS +
              service_era_post_911 + 
              service_era_persian_gulf +
              sex_female +
              race_black +
-             race_white)[,2:8]
+             race_white
+           )[,2:8]
     )
-data_list %>% str()
+
+
 
 # PLOT PRIORS
 ## Consider the scale of the data. 
@@ -79,9 +83,9 @@ model_ord_log_multivariate <-
   model {
   
     // Priors
-    beta ~ normal(0, 5);
+    beta ~ cauchy(0, 2.5);
     
-    // Logit Model
+    // Logit Model1
       bipf_category ~ ordered_logistic(log_prob, cutpoints);
   
   }
@@ -109,6 +113,18 @@ model_ord_log_multivariate <-
 
 ## Ensure computer has enough cores
 cores <- ifelse(parallel::detectCores() < 4, 1, 4)
+
+
+## Sample the posterior
+fit_ord_log_multivariate <- 
+  stan(file = here::here('src/bipf-ordered-logit-multivariate.stan'),
+       data = data_list, 
+       chains = 4,
+       warmup = 2000, 
+       iter = 4000, 
+       cores = cores,
+       seed = 4020)
+
 
 ## Sample the posterior
 fit_ord_log_multivariate <- 
@@ -261,30 +277,13 @@ bayesplot::mcmc_rank_overlay(fit_ord_log_multivariate,
 draws_ord_log_multivariate %>%
   pivot_longer(-c(.chain, .iteration, .draw)) %>% 
   ggplot(aes(x = value, y = name)) +
-  stat_halfeye()
+  tidybayes::stat_halfeye()
 
 draws_ord_log_multivariate %>%
+  select(!contains('beta')) %>% 
   pivot_longer(-c(.chain, .iteration, .draw)) %>% 
-  filter(name != 'beta') %>% 
   ggplot(aes(x = value, fill = name)) +
-  geom_density(alpha = .2) +
-  facet_wrap(~name)
-
-draws_ord_log_multivariate %>% 
-  ggplot(aes(alpha_cut_1)) +
-  geom_density(alpha = .2, fill = 'green')
-
-draws_ord_log_multivariate %>% 
-  ggplot(aes(alpha_cut_2)) +
-  geom_density(alpha = .2, fill = 'green')
-
-draws_ord_log_multivariate %>% 
-  ggplot(aes(alpha_cut_3)) +
-  geom_density(alpha = .2, fill = 'green')
-
-draws_ord_log_multivariate %>% 
-  ggplot(aes(alpha_cut_4)) +
-  geom_density(alpha = .2, fill = 'green')
+  geom_density(alpha = .2)
 
 draws_ord_log_multivariate %>% 
   ggplot(aes(beta_1)) +
@@ -333,6 +332,16 @@ bayesplot::ppc_dens_overlay(y = as.numeric(data$bipf_category), yrep = y_predict
 ## Histogram of errors 
 bayesplot::ppc_error_hist(y = as.numeric(data$bipf_category), yrep = y_predictions[101:150, ])
 
+
+predictions <- 
+  fit_ord_log_multivariate %>% 
+  tidybayes::spread_draws(y_pred[1:nrow(data)]) %>%
+  pivot_wider(names_from = `1:nrow(data)`, values_from = y_pred, names_prefix = 'y_pred_')
+
+fit_ord_log_multivariate %>% 
+  tidybayes::spread_draws(y_pred[1:nrow(data)]) %>%
+  ggplot(aes(y_pred)) +
+  geom_histogram()
 
 
 

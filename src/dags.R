@@ -276,6 +276,74 @@ coordinates(dag_6) <- list(
 # -------------------------------------------------------------------------
 
 
+dag_7 <- 
+  dagify(
+         
+         
+         'Era' ~ 'Age',
+         'Rank' ~~ 'Education',
+         
+         'Income' ~~ 'Rank' + 'Education',
+         'n_child' ~ 'Marital',
+         
+         'MOS' ~    'Branch' + 'Gender' + 'Race' + 'Marital' + 'n_child',
+         
+         'Combat' ~ 'Branch' + 'Gender' + 'Race' + 'Marital' + 'n_child' + 'Era' + 'MOS' + 'Rank',
+         
+         'Leadership' ~~ 'Cohesion',
+         
+         'PTSD' ~ 'Combat' + 'Era' + 'Gender' + 'Race' + 'MOS' + 'Cohesion' + 'Leadership',
+         'MI' ~ 'Combat' + 'Era' + 'Gender' + 'Race' + 'Cohesion' + 'Leadership' + 'MOS',
+         'OSI' ~ 'Combat' + 'Era' + 'Gender' + 'Race' + 'MOS',
+         
+         
+         'PF' ~ 'MI' + 'PTSD' + 'OSI' + 'Combat' + 'Era' + 'Gender' + 'Race' + 'Education' + 'Rank' + 'Income' + 'Marital' + 'n_child' + 'non-OHI MH',
+         
+         'Particpate' ~ 'Branch' + 'Era' + 'MOS' + 'Gender' + 'Race' + 'Marital' + 'n_child' +  'Rank' + 'Age' + 'Income' + 'Education',
+         
+         exposure = 'MI', 
+         outcome = 'PF')
+
+
+
+(plot_dag_7 <-
+    ggdag(dag_7) +
+    geom_dag_point(fill = 'white', color = 'white') +
+    geom_dag_edges() +
+    geom_dag_text(color = 'black', size = 3) +
+    theme_dag() +
+    labs(title = 'DAG 7')
+)
+
+#ggsave(here::here('output/dags/dag-7.jpeg'), plot = plot_dag_7)
+
+
+(dag_7_adj <-  
+    ggdag_adjustment_set(dag_7, 
+                         text_size = 3,
+                         shadow = T,
+                         text_col = 'black',
+    ) + 
+    theme_dag() +
+    ggsci::scale_color_bmj() + 
+    labs(title = 'Adjustment Sets: DAG 7')
+)
+
+adjustmentSets(dag_7)
+
+#ggsave(here::here('output/dags/dag-7-adj.jpeg'), plot = dag_7_adj)
+
+
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+
+
+
+
 plot_dag_2
 plot_dag_3
 plot_dag_4

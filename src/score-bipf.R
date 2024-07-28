@@ -1,7 +1,4 @@
-
 library(tidyverse)
-data <- read_csv(here::here('data/data_clean.csv'))
-
 
 # bIPF allows for NAs, so instead take the average of the answered items
 # "The BIPF is scored by summing the scored items to create a total score, 
@@ -97,4 +94,4 @@ data <-
   )
 
 data %>% count(bipf_category)
-data %>% count(bipf_score) %>% print(n = 340)
+
