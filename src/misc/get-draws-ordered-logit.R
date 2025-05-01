@@ -1,8 +1,8 @@
 
 
 
-draws_multi <-
-  model_multi %>% 
+draws_hurdle_1 <-
+  model_hurdle_1 %>% 
   spread_draws(
     b_Intercept[1:4], 
     b_mios_scaled, 

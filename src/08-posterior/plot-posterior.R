@@ -1,10 +1,12 @@
 ## PLOT POSTERIOR ----------------------------------------------------------
-draws_ord_log_multivariate %>%
-  select(!contains('alpha')) %>% 
+draws_hurdle_1 %>%
+  select(.chain, .iteration, .draw, b_PCL_TOT) %>% 
   pivot_longer(-c(.chain, .iteration, .draw)) %>% 
   ggplot(aes(x = value, y = name)) +
   tidybayes::stat_halfeye()
 
+    
+?stat_halfeye
 draws_ord_log_multivariate %>%
   select(!contains('beta')) %>% 
   pivot_longer(-c(.chain, .iteration, .draw)) %>% 

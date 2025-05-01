@@ -1,0 +1,42 @@
+---
+title: "Mathematical Notation"
+output: html_document
+---
+
+# Model 1: Gaussian
+$$
+y \sim \text{Normal}(\mu, \sigma) \\
+\mu = \\
+\mu = \\
+$$
+
+
+# Model 2: Zero-Inflated Hurdle-Gamma
+
+$$ f(y) = 
+  \begin{cases}
+      \pi & \text{if } y = 0 \\
+      (1 - \pi) \text{Gamma} (\mu_i, \theta) & \text{if } y > 0\\
+  \end{cases} $$
+  
+Where $\mu = E[y_i]$ is mean of the response.  
+
+$\theta$ is dispersion/shape parameter of the gamma distribution.   
+  
+The mean-variance relationship for the gamma distribution is: $\text{Var}(y_i) = \theta \mu_i^2$
+
+The mean $\mu_i$ is modeled via a log link function and a linear predictor.:
+$$\text{log}(\mu_i) = \eta_i =  \alpha + \beta x_i $$
+
+Where $\alpha$ is the intercept, $\beta$ is a vector of regression coefficients, $x_i$ is the vector of covariates for observation $i$, and $\eta_i$ is the linear predictor.
+
+$$
+y_i \sim \text{Gamma}(\mu_i, \theta) \\ 
+\text{log}(\mu_i) = \alpha + \beta x_i 
+$$
+
+# Model 3: Gamma model
+
+$$ y \sim \text{Gamma}(\mu_i, shape) \\ 
+\text{log}(\mu_i) = intercept + \beta_1 * x_i$$
+

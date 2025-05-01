@@ -27,11 +27,13 @@ source(here::here('src/02-pre-processing/score-bipf.R'))
 
 
 # === # === # === # === # === # === # === # === # === # === # === # === #
-### Multivariate Model -----
-recipe_multi <-
+### Multivariate Model on Total bIPF -----
+recipe_total <-
   recipes::recipe(bipf_category ~ 
                   mios_total +
                   pc_ptsd_positive_screen + 
+                  military_exp_combat +
+                  #MOS +
                   service_era_post_911 +
                   service_era_persian_gulf +
                   sex_male +
@@ -41,9 +43,9 @@ recipe_multi <-
   step_center(all_numeric_predictors()) %>% 
   step_scale(mios_total, factor = 2)
 
-recipe_multi %>% prep(., data) 
+recipe_total %>% prep(., data) 
 
-data_baked_multi <- recipe_multi %>% prep(., data) %>% bake(., NULL)
+data_baked_multi <- recipe_total %>% prep(., data) %>% bake(., NULL)
 
 
 # === # === # === # === # === # === # === # === # === # === # === # === #
@@ -138,10 +140,10 @@ models <-
   workflow_set(
     preproc = list(
       normal = recipe_normal,
-      multivariate = recipe_multi,
-      multivariate = recipe_multi,
-      multivariate = recipe_multi,
-      multivariate = recipe_multi
+      multivariate = recipe_total,
+      multivariate = recipe_total,
+      multivariate = recipe_total,
+      multivariate = recipe_total
                    ),
     models = list(
       normal = model_normal,
@@ -202,7 +204,7 @@ fit_nonbayes           <- fit_nonbayes           %>% parsnip::extract_fit_engine
 
 loo_compare(
   loo(fit_normal),
-  loo(fit_multivariate_flat),
+  #loo(fit_multivariate_flat),
   loo(fit_ologit_multi)
 )
 
@@ -279,6 +281,17 @@ pp_check(fit_ologit_multi_prior, type = 'dens_overlay', ndraws = 50) +
        y = 'Density')
 pp_check(fit_ologit_multi_prior, type = 'hist', ndraws = 11)
 
+pp_check(fit_ologit_multi, type = 'hist', ndraws = 11)
+pp_check(fit_ologit_multi, type = 'dens_overlay', ndraws = 50) + 
+  labs(title = 'Posterior Predictive Check',
+       x = 'Response Categories',
+       y = 'Density')
+
+
+pp_check(fit_normal, type = 'dens_overlay', ndraws = 50) + 
+  labs(title = 'Posterior Predictive Check',
+       x = 'Response',
+       y = 'Density')
 
 
 # === # === # === # === # === # === # === # === # === # === # === # === #

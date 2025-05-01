@@ -229,3 +229,37 @@ mean(data_scaled$mios_scaled)
 sd(data_scaled$mios_scaled)
 
 ```
+
+
+
+
+
+
+
+
+# Brian's Dissertation: PTSD
+data_1 %>% 
+  lm(bipf_score ~ pcl_total, data = .) %>% 
+  lm.beta::lm.beta() %>% 
+  summary()
+## Resiliency Cognition
+## Authenticity
+## Self-efficacy
+
+
+# Tommy's Dissertation: Moral Injury
+data_2 %>% 
+  lm(bipf_score ~ mios_total, data = .) %>% 
+  lm.beta::lm.beta() %>% 
+  summary()
+## Self-Concept Clarity
+
+
+# First Year Scholars: Moral Injury x PTSD
+data_3 %>% 
+  lm(bipf_score ~ pcl_total + mios_total + pcl_total * mios_total, data = .) %>% 
+  lm.beta::lm.beta() %>% 
+  summary()
+## Resiliency Cognition
+## Self-Concept Clarity
+## identity, cultural orientation (values)
