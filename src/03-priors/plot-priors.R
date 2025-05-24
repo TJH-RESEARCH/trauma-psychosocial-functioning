@@ -1,34 +1,42 @@
 
 # Plot Prior Distributions
-  
+
+n <- 1e5
+
 # Data Set 1 -------------------------------------------------------------------
 ## Generate random distributions and save in a table
 priors <-
   tibble(
-    student_t = rstudent_t(n = 1e5, mu = 0, df = 5, sigma = 1.75),
-    beta = rbeta(n = 1e5, shape1 = 1, shape2 = 1.25),
-    shape = rgamma(n = 1e5, 2, 1),
-    id = rep(1, 1e5)
+    normal07 = rnorm(n, mean = 0, sd = .7),
+    normal05 = rnorm(n, mean = 0, sd = .5),
+    logistic = rlogis(n, 0, 1),
+    gamma = rgamma(n, .01, .01)
   ) 
   
 
-## Plot Beta (Linear Predictor) Parameter Prior
+## Plot Beta (Linear Predictor) Parameter Prior: Normal
 priors %>% 
-  ggplot(aes(student_t)) +
+  ggplot(aes(normal07)) +
   geom_density(fill = 'red', alpha = .25) +
-  lims(x = c(-10, 10))
+  lims(x = c(-5, 5))
 
-## Plot Pi (Logistic Regression) Prior
+## Plot Hurdle Intercept Prior
 priors %>% 
-  ggplot(aes(beta)) +
-  geom_density(fill = 'green', alpha = .25) +
-  lims(x = c(-.5, 1.5))
-
-## Plot Gamma Shape Parameter Prior
-priors %>% 
-  ggplot(aes(shape)) +
+  ggplot(aes(normal05)) +
   geom_density(fill = 'blue', alpha = .25) +
-  lims(x = c(-5, 10))
+  lims(x = c(-5, 5))
+
+
+## Plot Hurdle Shape Prior
+priors %>% 
+  ggplot(aes(logistic)) +
+  geom_density(fill = 'green', alpha = .25)
+
+
+## Plot Hurdle Shape Prior: Default
+priors %>% 
+  ggplot(aes(gamma)) +
+  geom_density(fill = 'purple', alpha = .25)
 
 
 

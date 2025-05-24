@@ -6,6 +6,8 @@ library(tidyverse)
 ## Parallel Processing
 cores <- ifelse(parallel::detectCores() < 4, parallel::detectCores(), 4) ## Ensure computer has enough cores
 
+## Plot themes
+source(here::here('src/0-theme.R'))
 
 # 1. GENERATIVE MODELS ---------------------------------------------------------
 ## Draw DAGs 
@@ -45,70 +47,50 @@ data_3 %>% count(bipf_NAs, bipf_answered) # Data 3 has various numbers of NAs. A
 data_3 <- data_3 %>% filter(bipf_answered >= 4) # remove the 15 results that did not answer at least 4 bIPF items 
 
 
-## Standardize the data and center the predictors
+## Prepare the Data by Standardizing continuous variables, removing non-variance, centering dummy variables
 source(here::here('src/02-pre-processing/scale-data.R'))
 
 
 
-# STUDY 1 --------------------------------------------------------------------
-
-
+# PREPARE MCMC SAMPLING ---------------------------------------------------
 ## Set global Stan options
 CHAINS <- 4
-ITER <- 2000
-WARMUP <- 1000
+ITER <- 6000
+WARMUP <- 2000
 SEED <- 999888777
-
-## Priors
-
+options(mc.cores = parallel::detectCores())
 
 
-## PLOT PRIORS -----------------------------------------------------------------
+# STUDY 1 ----------------------------------------------------------------------
+
+## PRIORS ----------------------------------------------------------------------
+
+### Plot the priors
 source(here::here('src/03-priors/plot-priors.R'))
     
-## SPECIFY PRIORS --------------------------------------------------------------
-source(here::here('src/03-priors/specify-priors.R'))
+### Prior Predictive Check
+source(here::here('src/03-priors/prior-predictive-check.R'))
 
 
+## FIT MODELS  -----------------------------------------------------------------
 
+### Fit the model 
+source(here::here('src/04-models/study-1/01-fit-models-hurdle.R'))
 
+### Check the MCMC diagnostics
+source(here::here('src/04-models/study-1/02-diagnostics.R'))
 
+### Posterior predictive check
+source(here::here('src/04-models/study-1/03-posterior-predictive-check.R'))
 
-# MODELLING ---------------------------------------------------------------
-
-
-
-
-
-# POST PROCESSING ---------------------------------------------------------
-source(here::here('src/05-post-processing/spread-draws-multivariate.R'))
-
-
-
-
-
-# MCMC DIAGNOSTICS ---------------------------------------------------------
-source(here::here('src/06-mcmc-diagnostics/diagnostics.R'))
-
-
-
-
-
-# POSTERIOR PREDICTIVE CHECK ----------------------------------------------
-
-  
-
-
+### Sensitivity Analysis & Model Comparison
 
 
 # POSTERIOR DISTRIBUTION ----------------------------------------------------
 
+### Plot the posterior probability
 
-## PLOT POSTERIOR ----------------------------------------------------------
-
-
-## SUMMARIZE POSTERIOR -----------------------------------------------------
-
+### Summarize the posterior probability
 
 
 

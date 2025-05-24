@@ -1,9 +1,9 @@
 
  
-pp_check(model_hurdle_1,ndraws = 100)
-pp_check(model_hurdle_1, type = "hist", ndraws = 11)
-pp_check(model_hurdle_1, type = "error_hist", ndraws = 12)
-pp_check(model_hurdle_1, type = "scatter_avg", ndraws = 100)
+pp_check(model_1_hurdle, ndraws = 100)
+pp_check(model_1_hurdle, type = "hist", ndraws = 11)
+pp_check(model_1_hurdle, type = "error_hist", ndraws = 12)
+pp_check(model_1_hurdle, type = "scatter_avg", ndraws = 100)
 
 ## The Hurdle model is okay, but it is not constrained at the highest end
 ## So there is error at the high range.
