@@ -23,7 +23,12 @@ Coming soon.
 Coming soon. 
 
 ## Description of programs/code
-Coming soon. 
+
+| Folder                                | File                              | Purpose                                                                   |
+|---------------------------------------|-----------------------------------|---------------------------------------------------------------------------|
+| src/                                  | 0-replicate.R                     | Runs all of the scripts to replicate the analysis.                        |
+| src/                                  | 0-themes.R                        | Set the style of the visualizations.                                      |
+
 
 ### List of tables and programs
 Coming soon. 

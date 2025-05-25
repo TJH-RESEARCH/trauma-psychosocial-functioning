@@ -54,6 +54,8 @@ plot_slopes(
     caption = "At the lowest end of PCL scores, a 1-SD increase in \n PCL reduces the log-odds of having no difficulty by 0.2."
     ) +
   theme_custom
+# The average marginal effects being around -.2 indicates that an increase in PCL at those levels are associated with about a decrease in the log-odds of being a zero. That is more PCL (PTSD symptoms) leads to less chance of having no difficulty functioning, by a log-odds of -.2. But as PTSD symptoms increases, this marginal effect tapers off. So that at higher levels, the impact of a change is less extreme. In other words, if having mild-to-moderate symptoms doesn't lead to some difficulty, then having extreme symptoms wont either. But the AME is never zero, it only approaches 0, so increases in PTSD symptoms still increase the chance of having some difficulty, only this increased chance is less at higher values of PCL. 
+
 
 # Marginal Effects at the mean
 model_1_hurdle %>% marginaleffects::avg_slopes(newdata = 'mean')

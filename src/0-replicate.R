@@ -1,13 +1,39 @@
-# CONFIGURATION ----------------------------------------------------------------
 
-## Packages
+# Run this entire script to replicate the analysis
+
+
+
+# 0. CONFIGURATION -------------------------------------------------------------
+
+## Load packages: 
 library(tidyverse)
 
-## Parallel Processing
-cores <- ifelse(parallel::detectCores() < 4, parallel::detectCores(), 4) ## Ensure computer has enough cores
+## Loads the themes for visualizations:
+source(here::here('src/00-config/0-theme.R'))
 
-## Plot themes
-source(here::here('src/0-theme.R'))
+## Set global Stan Monte Carlo Markov Chain (MCMC) options:
+CHAINS <- 4                                  # Number of sample chains for MCMC
+ITER <- 6000                                 # Number of samples for MCMC
+WARMUP <- 2000                               # Number of warm-up samples for MCMC
+SEED <- 999888777                            # Random seed to replicate MCMC sampling
+options(mc.cores = parallel::detectCores())  # Detects the number of cores on your computer for parallel processing
+
+## Load the data sets:
+data_1 <- 
+  read_csv(here::here('data/data-brians-dissertation.csv')) |> 
+  filter(civilian != 1) ### remove non-military results
+data_2 <- read_csv(here::here('data/data-dissertation-main.csv'))
+data_3 <- read_csv(here::here('data/data-first-year-scholars-cleaned.csv'))
+
+## Score and categorize the bIPF in each of the 3 data sets:
+source(here::here('src/00-config/score-bipf.R'))
+
+
+
+# 1. DESCRIBE THE SAMPLES ------------------------------------------------------
+## Create demographic tables for the 3 samples
+
+
 
 # 1. GENERATIVE MODELS ---------------------------------------------------------
 ## Draw DAGs 
@@ -19,33 +45,6 @@ source(here::here('src/0-theme.R'))
 
 # 2. DATA PREP -----------------------------------------------------------------
 
-## Load the data and score the bIPF:
-
-### Load functions to score and categorize the bIPF
-source(here::here('src/02-pre-processing/score-bipf.R'))
-
-### Dataset 1
-data_1 <- read_csv(here::here('data/data-brians-dissertation.csv'))
-data_1 <- data_1 %>% categorize_bipf() # calculate the categories for the outcome variable
-data_1 %>% count(bipf_category) # print to show scoring/categorization worked
-data_1 %>% count(bipf_NAs, bipf_answered) # Data 1 has no NAs
-
-### Dataset 2
-data_2 <- read_csv(here::here('data/data-dissertation-main.csv'))
-data_2 <- data_2 %>% score_bipf() # calculate the scores for the outcome variable
-data_2 <- data_2 %>% categorize_bipf() # calculate the categories for the outcome variable
-data_2 %>% count(bipf_category) # print to show scoring/categorization worked
-data_2 %>% count(bipf_NAs, bipf_answered) # Data 2 has various numbers of NAs. About 15 did not answer 4 or more.
-data_2 <- data_2 %>% filter(bipf_answered >= 4) # remove the 15 results that did not answer at least 4 bIPF items 
-
-### Dataset 3
-data_3 <- read_csv(here::here('data/data-first-year-scholars-cleaned.csv'))
-data_3 <- data_3 %>% score_bipf() # calculate the scores for the outcome variable
-data_3 <- data_3 %>% categorize_bipf() # calculate the categories for the outcome variable
-data_3 %>% count(bipf_category) # print to show scoring/categorization worked
-data_3 %>% count(bipf_NAs, bipf_answered) # Data 3 has various numbers of NAs. About 15 did not answer 4 or more.
-data_3 <- data_3 %>% filter(bipf_answered >= 4) # remove the 15 results that did not answer at least 4 bIPF items 
-
 
 ## Prepare the Data by Standardizing continuous variables, removing non-variance, centering dummy variables
 source(here::here('src/02-pre-processing/scale-data.R'))
@@ -53,12 +52,6 @@ source(here::here('src/02-pre-processing/scale-data.R'))
 
 
 # PREPARE MCMC SAMPLING ---------------------------------------------------
-## Set global Stan options
-CHAINS <- 4
-ITER <- 6000
-WARMUP <- 2000
-SEED <- 999888777
-options(mc.cores = parallel::detectCores())
 
 
 # STUDY 1 ----------------------------------------------------------------------

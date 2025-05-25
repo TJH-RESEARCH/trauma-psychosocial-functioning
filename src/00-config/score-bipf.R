@@ -9,10 +9,11 @@
 
 
 # SCORE THE TOTAL BIPF ----------------------------------------------------
+## Creates a function to score the bIPF
 score_bipf <-
   function(data_x){
   
-  # Calculate the number of NAs and number of answered Items
+  ## Calculate the number of NAs and number of answered Items
   data_x <-
     data_x %>% 
     select(bipf_children,
@@ -28,7 +29,7 @@ score_bipf <-
     ) %>% 
     bind_cols(data_x)
   
-  # Sum together the item scores without regard for NAs
+  ## Sum together the item scores without regard for NAs
   data_x <-
     data_x %>% 
     rowwise() %>% 
@@ -43,7 +44,7 @@ score_bipf <-
            ) %>% 
     ungroup()
     
-  # Score the scale as the mean per answered item x 100
+  ## Score the scale as the mean per answered item x 100
   data_x <-
     data_x %>% 
     mutate(
@@ -62,6 +63,7 @@ score_bipf <-
 ## 51-80, severe impairment; 
 ## 81-100, extreme impairment."
 
+## Creates a function to categorize the bIPF scores
 categorize_bipf <-
   function(data_x){
     data_x <-
@@ -83,6 +85,28 @@ categorize_bipf <-
         )
 }
 
+
+
+# Now apply the functions to the 3 data sets ------------------------------
+
+## Dataset 1
+data_1 <- data_1 %>% categorize_bipf() # calculate the categories for the outcome variable
+data_1 %>% count(bipf_category) # print to show scoring/categorization worked
+data_1 %>% count(bipf_NAs, bipf_answered) # Data 1 has no NAs
+
+## Dataset 2
+data_2 <- data_2 %>% score_bipf() # calculate the scores for the outcome variable
+data_2 <- data_2 %>% categorize_bipf() # calculate the categories for the outcome variable
+data_2 %>% count(bipf_category) # print to show scoring/categorization worked
+data_2 %>% count(bipf_NAs, bipf_answered) # Data 2 has various numbers of NAs. About 15 did not answer 4 or more.
+data_2 <- data_2 %>% filter(bipf_answered >= 4) # remove the 15 results that did not answer at least 4 bIPF items 
+
+## Dataset 3
+data_3 <- data_3 %>% score_bipf() # calculate the scores for the outcome variable
+data_3 <- data_3 %>% categorize_bipf() # calculate the categories for the outcome variable
+data_3 %>% count(bipf_category) # print to show scoring/categorization worked
+data_3 %>% count(bipf_NAs, bipf_answered) # Data 3 has various numbers of NAs. About 15 did not answer 4 or more.
+data_3 <- data_3 %>% filter(bipf_answered >= 4) # remove the 15 results that did not answer at least 4 bIPF items 
 
 
 
