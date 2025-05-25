@@ -75,14 +75,16 @@ model_1_hurdle <-
     
     # PRIOR OPTIONS
     prior = c(
-      # for the linear part
-      prior(normal(0, .75), class = b),
-      prior(normal(0, .75), class = Intercept),
+      # for the non-zero process, in log for 0-100 outcome
+      prior(normal(0, 2), class = b),
+      prior(normal(2.3, 1), class = Intercept), # baseline around 10 on the 0-100 scale
       
-      # for the logistic part: probability of being 0. 
-      prior(normal(0, .5), class = Intercept, dpar = hu), # hurdle intercept. 
-      prior(normal(0, .75), class = b, dpar = hu), # logistic coefficients
-      prior(logistic(0, 1), class = shape)
+      # for the zero process: probability of being 0. Log odds intercept, log variables, for binary outcome
+      prior(normal(0, 1), class = Intercept, dpar = hu),  # hurdle intercept. 
+      prior(normal(0, 1), class = b, dpar = hu),          # logistic coefficients
+      
+      # Shape
+      prior(lognormal(log(20), 0.5), class = shape)
     ),
     sample_prior = 'no',
     
@@ -108,6 +110,6 @@ bayestestR::diagnostic_draws(model_1_hurdle)
 broom.mixed::tidy(model_1_hurdle)
 
 
-
-
-
+# exp(3.95)
+exp(0.323)
+exp(0.323) * 2

@@ -11,7 +11,7 @@ source(here::here('src/0-theme.R'))
 
 # 1. GENERATIVE MODELS ---------------------------------------------------------
 ## Draw DAGs 
-source(here::here('src/01-generative-models/dags.R'))
+#source(here::here('src/01-generative-models/dags.R'))
 
 ## Simulations
 
@@ -75,7 +75,7 @@ source(here::here('src/03-priors/prior-predictive-check.R'))
 ## FIT MODELS  -----------------------------------------------------------------
 
 ### Fit the model 
-source(here::here('src/04-models/study-1/01-fit-models-hurdle.R'))
+source(here::here('src/04-models/study-1/01-fit-model-hurdle.R'))
 
 ### Check the MCMC diagnostics
 source(here::here('src/04-models/study-1/02-diagnostics.R'))
@@ -84,6 +84,16 @@ source(here::here('src/04-models/study-1/02-diagnostics.R'))
 source(here::here('src/04-models/study-1/03-posterior-predictive-check.R'))
 
 ### Sensitivity Analysis & Model Comparison
+
+#### fit same model but with improper flat priors
+source(here::here('src/04-models/study-1/04-fit-improper-hurdle.R'))
+
+#### try to fit the same model but with a vague prior
+source(here::here('src/04-models/study-1/05-fit-vague-hurdle.R'))
+
+#### Compare the preferred model to the vague and flat prior models
+source(here::here('src/04-models/study-1/06-compare-models.R'))
+
 
 
 # POSTERIOR DISTRIBUTION ----------------------------------------------------

@@ -1,5 +1,6 @@
 library(brms)
 library(cmdstanr)
+library(modelr)
 
 
 # Hurdle gamma model: Priors  --------------------------------------------------
@@ -78,14 +79,16 @@ model_1_hurdle_prior <-
     
     # PRIOR OPTIONS
     prior = c(
-      # for the linear part
-      prior(normal(0, .75), class = b),
-      prior(normal(0, .75), class = Intercept),
+      # for the non-zero process, in log for 0-100 outcome
+      prior(normal(0, 2), class = b),
+      prior(normal(2.3, 1), class = Intercept), # baseline around 10 on the 0-100 scale
       
-      # for the logistic part: probability of being 0. 
-      prior(normal(0, .5), class = Intercept, dpar = hu), # hurdle intercept. 
-      prior(normal(0, .75), class = b, dpar = hu), # logistic coefficients
-      prior(logistic(0, 1), class = shape)
+      # for the zero process: probability of being 0. Log odds intercept, log variables, for binary outcome
+      prior(normal(0, 1), class = Intercept, dpar = hu),  # hurdle intercept. 
+      prior(normal(0, 1), class = b, dpar = hu),          # logistic coefficients
+      
+      # Shape
+      prior(lognormal(log(20), 0.5), class = shape)
     ),
     sample_prior = 'only',
     
@@ -133,17 +136,42 @@ data_sim <-
   sample_n(size = 3000, replace = FALSE)
 
 
-# Run Predictions
-preds_prior <-
-  bind_cols(
-    data_sim,
-    predict(object = model_1_hurdle_prior, newdata = data_sim)
-  )
+# Get linear predictor on log scale
+linpred_mat <- posterior_linpred(model_1_hurdle_prior, 
+                                 newdata = data_sim, 
+                                 dpar = "mu", 
+                                 transform = FALSE)
 
-# Plot Predictions
-preds_prior %>% 
-  ggplot(aes(pcl_total, Estimate)) + 
-  geom_point(alpha = .75, position = 'jitter')
+# Summarize across draws to get a single estimate per row (mean of the posterior)
+data_sim$log_mu <- colMeans(linpred_mat)
+
+# compute posterior mean on outcome scale
+data_sim$mu <- exp(data_sim$log_mu)
+
+# Plot linear predictor (log-mu)
+ggplot(data_sim, aes(x = pcl_total, y = log_mu)) +
+  geom_point(alpha = 0.75) +
+  labs(y = "Linear Predictor (log-mu)")
+
+# Plot linear predictor (log-mu)
+ggplot(data_sim, aes(x = pcl_total, y = mu)) +
+  geom_point(alpha = 0.75) +
+  labs(y = "Linear Predictor (outcome scale)")
+
+## Prior draws for coefficients. 
+as_draws_df(model_1_hurdle_prior) %>%
+  select(starts_with("b_")) %>%
+  pivot_longer(cols = everything(), names_to = "term", values_to = "value") %>%
+  ggplot(aes(x = value)) +
+  geom_histogram(bins = 50) +
+  facet_wrap(~term, scales = "free") +
+  labs(title = "Prior Draws for Coefficients")
+
+
+
+
+
+
 
 ## prior predictive produced about 5 extreme outliers; change from a student t to a normal for less density in the tails
 ## a normal(0,2) still produces lots of extreme preds
@@ -170,5 +198,21 @@ preds_prior %>%
 ## I may try to bring the coefficient in slightly N(0, .7). that reduced the outliers. now everything is under 10, with only five of three thousand preds between 7 and 10.
  
 
+## OK so I was working on the wrong scale before...not 0 to 7 but 0 to 100
+## And I didn't understand the shape parameter well enough
+## So let's start over. 
 
+# b N(0,2), int N(1, 2), zero int N(0,1), b (0,1), shape lognormal(log(20), .5))
+## neutral relationships between linear predicted outcomes and PCL total: good
+## but the center is too low: 2.6 to 2.9 when the outcome scale is 0 to 100
+## So I'll move the intercept up from around 0 to around 50 (4 in log) N(4,2)
+## The outcomes scale moved up, to around 54. That's good. A slight negative relationship tho. 
+## Now it isn't necessarily bad that the previous outcomes were around 0, since most of the coefficients should have been around 0. 
+## so maybe I'll move the intercept to around 10 -- this assumes that a baseline for people without zero scores is around 20, with demos and PCL moving it around
+
+## So I'll try int N(2.3, 1) which gives 95% of mass between 1 and 74. 
+
+## Ok I went with the N(0,2). Feeling confident enough to progress, I fit the model to the data. But I'm a little skeptical of the results. The intercept for the non-zero process is 3.95 (which is about 52 on the outcome scale, right?). And the coefficient of my explanatory variable is 0.323, which would mean that one standard deviation change only moves the outcome about 1.3 on a scale from 0-100. That seems a little too weak. Obviously I don't want to bake hypothesis into the result, but it seems too weak.
+### actually, I think I am misinterpreting the coefficient with the log shift. It isn't additive but multiplicative. So that's actually about a 20 point swing per SD:
+#### $$ \Delta \mu = \mu \cdot \left( e^{\beta} - 1 \right) = 52 \cdot \left( e^{0.323} - 1 \right) \approx 52 \cdot \left( 1.381 - 1  \right) \approx 19.8 $$
 

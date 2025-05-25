@@ -1,35 +1,48 @@
 
-library(brms)
 library(modelr)
 library(patchwork)
 library(gganimate)
 library(gifski)
+library(MetBrewer)
 
 # Hypothetical Outcomes Plot ----------------------------------------------
 #http://mjskay.github.io/tidybayes/articles/tidy-brms.html
 
 # NOTE: using a small number of draws to keep this example
 # small, but in practice you probably want 50 or 100
-ndraws = 50
+ndraws <- 50
 
 
-fit_plot <-
-  data_scaled %>%
-  data_grid(mios_scaled = seq_range(mios_scaled, n = 101)) %>%
-  add_epred_draws(model_ologit, 
-                  value = "P(bipf_category | mios_total)", 
-                  category = "bipf_category") %>%
-  ggplot(aes(x = mios_scaled, 
-             y = `P(bipf_category | mios_scaled)`, 
-             color = bipf_category)) +
-  stat_lineribbon(aes(fill = bipf_category), alpha = 1/5) +
-  scale_color_brewer(palette = "Dark2") +
-  scale_fill_brewer(palette = "Dark2")
-fit_plot
-
+#fit_plot <-
+  data_baked_1 %>%   
+  data_grid(data_baked_1, .model = model_1_hurdle) %>% 
+  add_epred_draws(model_1_hurdle, 
+                  value = "P(bipf_score | pcl_total)") %>%
+  ggplot(aes(x = pcl_total, 
+             y = `P(bipf_score | pcl_total)`)) +
+  stat_lineribbon(aes(y = `P(bipf_score | pcl_total)`), 
+                  .width = c(.99, .95, .8, .5), 
+                  color = met.brewer(name = 'Austria', n = 1)) +
+    theme_custom
 
 # Hypothetical Outcomes Plot ----------------------------------------------
-p <-
+  data_baked_1 %>%   
+    data_grid(data_baked_1, .model = model_1_hurdle, n = 51) %>% 
+    add_epred_draws(model_1_hurdle) %>%
+    ggplot(aes(x = pcl_total, 
+               y = .epred)) +
+    stat_lineribbon(aes(y = .epred), 
+                    .width = c(.99, .95, .8, .5), 
+                    alpha = .8, 
+                    color = met.brewer(name = 'VanGogh3', n = 1)) +
+    labs(x = 'PCL',
+         y = 'bIPF',
+         title = 'Posterior Predictions') +
+    scale_fill_met_d(name = 'VanGogh3') +
+    theme_custom
+  
+  
+  p <-
   data_scaled %>%
   data_grid(mios_scaled = seq_range(mios_scaled, n = 101)) %>%
   add_epred_draws(model_ologit, 

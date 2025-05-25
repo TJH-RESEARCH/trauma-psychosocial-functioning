@@ -3,12 +3,37 @@ title: "Mathematical Notation"
 output: html_document
 ---
 
-# Model 1: Gaussian
+## Zero-Inflated Hurdle-Gamma
+
+### Likelihood Function
+
 $$
-y \sim \text{Normal}(\mu, \sigma) \\
-\mu = \\
-\mu = \\
+\begin{equation*}
+    f(y) = \begin{cases}
+        \pi & \text{if } y = 0\\
+        (1-\pi)\text{Gamma}(\mu,\phi) & \text{if } y > 0
+    \end{cases}
+\end{equation*}
 $$
+
+$$ Y_i \sim \text{ZeroGamma}(\pi_i, \mu_i, \phi)$$
+
+Where $/pi$ is the probability of a zero. $\alpha$ is the intercept and $X$ is a vector of predictor variables.:
+
+$$ \text{log} \frac{\pi_i}{1 - \pi_i} = \alpha + \beta X_i$$
+
+And $\mu$ is the mean of the non-zero values.: 
+
+$$ \text{log}\mu_i = \alpha + \beta X_i$$
+
+And the gamma's shape parameter a positive constant $\phi$.: 
+
+$$ \phi > 0 $$
+
+The variance of the model is defined as:
+
+$$ \text{Variance} = \mu^2 / \phi$$
+
 
 
 # Model 2: Zero-Inflated Hurdle-Gamma
@@ -35,8 +60,8 @@ y_i \sim \text{Gamma}(\mu_i, \theta) \\
 \text{log}(\mu_i) = \alpha + \beta x_i 
 $$
 
-# Model 3: Gamma model
+$$ \Delta \mu = \mu \cdot \left( e^{\beta} - 1 \right) $$
 
-$$ y \sim \text{Gamma}(\mu_i, shape) \\ 
-\text{log}(\mu_i) = intercept + \beta_1 * x_i$$
+$$ \Delta \mu = \mu \cdot \left( e^{\beta} - 1 \right) = 52 \cdot \left( e^{0.323} - 1 \right) \approx 52 \cdot \left( 1.381 - 1  \right) \approx 19.8 $$
+
 

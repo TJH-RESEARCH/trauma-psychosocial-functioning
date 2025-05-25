@@ -13,3 +13,5 @@ pp_check(model_1_hurdle, type = "scatter_avg", ndraws = 100)
 ## Second, try to model the censoring.
 ## Third, we perform a transformation on the data.
 ## Fourth, we use the categories and model an ordered logit -- this will capture the high and low boundaries, but lose information. Indeed, the model will almost certainly fit better because we are getting rid of variance in the dependent variable.
+
+

@@ -47,12 +47,11 @@ recipe_1 <-
   ## Remove variables with zero variance
   step_zv(all_numeric_predictors()) %>% 
   
-  ## Center only the binary variables, not the dummy coded categorical variables
-  step_center(deployed) %>% 
+  ## Center the continuous predictors and only the binary variables, not the dummy coded categorical variables
+  step_center(pcl_total, deployed) %>% 
   
   ## Scale the continuous predictors
   step_scale(pcl_total,
-             bipf_score,
              factor = 1)
 
 ## Print the recipe
@@ -112,17 +111,17 @@ recipe_2 <-
   ## Remove variables with zero variance
   step_zv(all_numeric_predictors()) %>% 
   
-  ## Center only the binary variables, not the dummy coded categorical variables
-  step_center(pc_ptsd_positive_screen,
+  ## Center the continuous predictor and only the binary variables, not the dummy coded categorical variables
+  step_center(mios_total,
+              pc_ptsd_positive_screen,
               military_exp_combat,
               military_exp_noncombat,
               military_exp_support,
               military_exp_peacekeeping,
               ) %>% 
   
-  ## Scale both the predictors and outcome
+  ## Scale the continuous predictor
   step_scale(mios_total, 
-             bipf_score,
              factor = 1)
 
 ## Print the recipe
@@ -182,16 +181,17 @@ recipe_3 <-
   step_zv(all_numeric_predictors()) %>% 
   
   
-  ## Center only the binary variables, not the dummy coded categorical variables
-  step_center(military_exp_combat,
+  ## Center the continuous predictors and only the binary variables, not the dummy coded categorical variables
+  step_center(pcl_total,
+              mios_total,
+              military_exp_combat,
               military_exp_noncombat,
               military_exp_support,
               military_exp_peacekeeping) %>% 
   
-  ## Scale both the predictors and outcome
+  ## Scale the continuous predictors
   step_scale(pcl_total,
-             mios_total,
-             bipf_score)
+             mios_total)
 
 
 ## Print the recipe
