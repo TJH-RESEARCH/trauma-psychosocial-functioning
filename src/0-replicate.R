@@ -9,7 +9,7 @@
 library(tidyverse)
 
 ## Loads the themes for visualizations:
-source(here::here('src/00-config/0-theme.R'))
+source(here::here('src/00-config/themes.R'))
 
 ## Set global Stan Monte Carlo Markov Chain (MCMC) options:
 CHAINS <- 4                                  # Number of sample chains for MCMC
@@ -19,9 +19,7 @@ SEED <- 999888777                            # Random seed to replicate MCMC sam
 options(mc.cores = parallel::detectCores())  # Detects the number of cores on your computer for parallel processing
 
 ## Load the data sets:
-data_1 <- 
-  read_csv(here::here('data/data-brians-dissertation.csv')) |> 
-  filter(civilian != 1) ### remove non-military results
+data_1 <- read_csv(here::here('data/data-moore-dissertation.csv'))
 data_2 <- read_csv(here::here('data/data-dissertation-main.csv'))
 data_3 <- read_csv(here::here('data/data-first-year-scholars-cleaned.csv'))
 
