@@ -12,8 +12,7 @@ contributors:
 - bivariate plots: what story should be told with these? Consider their presentation more carefully.
 - update 3rd dag to include participation
 - consolidate and clean up the generative model folder
-- 
-
+- recipes looks good, although study 1 has 6 combos which is a little unruly
 
 
 ## Overview

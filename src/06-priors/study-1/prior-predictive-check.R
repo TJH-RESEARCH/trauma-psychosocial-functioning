@@ -1,4 +1,5 @@
 library(modelr)
+library(brms)
 
 # Prior Predictive -------------------------------------------------------------
 
@@ -12,7 +13,7 @@ data_sim <-
     trauma = c(0,1)
   ) %>% 
   
-  # Dummary Dummy Variables for Categorical
+  # Dummy Variables for Categorical
   mutate(
     veteran = ifelse(status == 'veteran', 1, 0),
     civilian = ifelse(status == 'civilian', 1, 0),
@@ -24,7 +25,7 @@ data_sim <-
 
 
 # Get linear predictor on log scale
-linpred_mat <- posterior_linpred(model_1_milandciv_pcl0, 
+linpred_mat <- posterior_linpred(model_1_milandciv_pcl0_prior, 
                                  newdata = data_sim, 
                                  dpar = "mu", 
                                  transform = FALSE)
@@ -43,10 +44,15 @@ ggplot(data_sim, aes(x = pcl_total, y = log_mu)) +
 # Plot linear predictor (log-mu)
 ggplot(data_sim, aes(x = pcl_total, y = mu)) +
   geom_point(alpha = 0.75) +
-  labs(y = "Linear Predictor (outcome scale)")
+  labs(
+    title = "Sample from weakly informative prior",
+    subtitle = "With beta around 0, the effect should be flat. Assume most people have a baseline functioning around 10 without any PTSD",
+    y = "Linear Predictor (outcome scale)") +
+  lims(y = c(0,100)) + # to put on the scale of the outcome variable 0-100
 
+  
 ## Prior draws for coefficients. 
-as_draws_df(model_1_hurdle_prior) %>%
+as_draws_df(model_1_milandciv_pcl0_prior) %>%
   select(starts_with("b_")) %>%
   pivot_longer(cols = everything(), names_to = "term", values_to = "value") %>%
   ggplot(aes(x = value)) +

@@ -2,11 +2,11 @@
 # Run this entire script to replicate the analysis
 
 
-
 # 0. CONFIGURATION -------------------------------------------------------------
 
-## Load packages: 
+## Load packages:
 library(tidyverse)
+library(cmdstanr)
 
 ## Loads the themes for visualizations:
 source(here::here('src/00-config/themes.R'))
@@ -18,7 +18,7 @@ WARMUP <- 2000                               # Number of warm-up samples for MCM
 SEED <- 999888777                            # Random seed to replicate MCMC sampling
 options(mc.cores = parallel::detectCores())  # Detects the number of cores on your computer for parallel processing
 
-# Set MCMC sampler to cmdstanr if it is available on your machine. If not, it will use rstan. 
+## Set MCMC sampler to cmdstanr if it is available on your machine. If not, it will use rstan.
 if ("cmdstanr" %in% rownames(installed.packages()) &
     cmdstanr::cmdstan_version() >= "2.30") {
   options(brms.backend = "cmdstanr")
@@ -27,6 +27,7 @@ if ("cmdstanr" %in% rownames(installed.packages()) &
   options(brms.backend = "rstan")
 }
 
+## if you get an error about missing a path to cmnstan, try re-installing with install_cmdstan()
 
 ## Load the data sets:
 data_1 <- read_csv(here::here('data/data-moore-dissertation.csv'))
@@ -54,7 +55,6 @@ source(here::here('src/02-examine-measures/impute.R'))
 source(here::here('src/03-examine-variables/plot-univariate.R'))
 source(here::here('src/03-examine-variables/count-zeros.R'))
 source(here::here('src/03-examine-variables/plot-bivariate.R'))
-source(here::here('src/03-examine-variables/correlations.R'))
 
 
 # 4. GENERATIVE MODELS -------------------------------------------------------
@@ -71,7 +71,7 @@ source(here::here('src/03-examine-variables/correlations.R'))
 ## Select the needed variables, scale the data, and handle issues such as non-variance and missingness
 
 ## Prepare the Data by Standardizing continuous variables, removing non-variance, centering dummy variables
-source(here::here('src/05-pre-processing/scale-data.R'))
+source(here::here('src/05-pre-processing/recipes.R'))
 
 
 
@@ -79,12 +79,19 @@ source(here::here('src/05-pre-processing/scale-data.R'))
 
 # 6. PRIORS ----------------------------------------------------------------------
 ## Specify priors and adjust them through prior predictive checks
+## in practice, this was an iterative process
 
 ### Plot the priors
-source(here::here('src/06-priors/plot-priors.R'))
-    
+source(here::here('src/06-priors/study-1/plot-priors.R'))
+
+### Specify the priors
+source(here::here("src/06-priors/study-1/specify-priors.R"))
+
+### Sample from the Prior Distributions
+source(here::here("src/06-priors/study-1/sample-priors.R"))
+  
 ### Prior Predictive Check
-source(here::here('src/06-priors/prior-predictive-check.R'))
+source(here::here('src/06-priors/study-1/prior-predictive-check.R'))
 
 
 ## FIT MODELS  -----------------------------------------------------------------
