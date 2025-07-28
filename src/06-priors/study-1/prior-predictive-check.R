@@ -1,143 +1,30 @@
-library(brms)
-library(cmdstanr)
 library(modelr)
 
-
-# Hurdle gamma model: Priors  --------------------------------------------------
-model_1_hurdle_prior <- 
-  brm(
-    bf(
-      
-      # Linear Model to Predict outcomes for non-zero values
-      bipf_score ~ 
-        pcl_total + 
-        deployed + 
-        # gender_male + # REFERENCE GROUP
-        gender_female + 
-        race_asian +
-        race_black +
-        race_native +
-        #race_pacific + # removed for non-variance i.e., all 0s
-        #race_latinx + # removed for non-variance i.e., all 0s
-        race_other +
-        # race_white + # REFERENCE GROUP
-        rank_e1_e4 + 
-        # rank_e5_e6 + # REFERENCE GROUP
-        rank_e7_e9 + 
-        rank_o1_o3_w1_cw2 + 
-        rank_o4_o6_cw3_cw5 + 
-        mos_combat +
-        mos_combat_support + 
-        mos_combat_service_support + 
-        mos_operations + 
-        mos_logistics + 
-        mos_support + 
-        mos_medical +
-        # mos_acquisitions + # removed for non-variance i.e., all 0s
-        branch_airforce +
-        #branch_army + # REFERENCE GROUP
-        branch_marines,
-      #branch_navy # removed for non-variance i.e., all 0s
-      
-      
-      # Logistic Model to Predict 0 values
-      hu ~ 
-        pcl_total + 
-        deployed + 
-        # gender_male + # REFERENCE GROUP
-        gender_female + 
-        race_asian +
-        race_black +
-        race_native +
-        #race_pacific + # removed for non-variance i.e., all 0s
-        #race_latinx + # removed for non-variance i.e., all 0s
-        race_other +
-        # race_white + # REFERENCE GROUP
-        rank_e1_e4 + 
-        # rank_e5_e6 + # REFERENCE GROUP
-        rank_e7_e9 + 
-        rank_o1_o3_w1_cw2 + 
-        rank_o4_o6_cw3_cw5 + 
-        mos_combat +
-        mos_combat_support + 
-        mos_combat_service_support + 
-        mos_operations + 
-        mos_logistics + 
-        mos_support + 
-        mos_medical +
-        # mos_acquisitions + # removed for non-variance i.e., all 0s
-        branch_airforce +
-        #branch_army + # REFERENCE GROUP
-        branch_marines
-    ),
-    
-    # DATA SET
-    data = data_baked_1,
-    
-    # MODEL
-    family = hurdle_gamma(),
-    
-    # PRIOR OPTIONS
-    prior = c(
-      # for the non-zero process, in log for 0-100 outcome
-      prior(normal(0, 2), class = b),
-      prior(normal(2.3, 1), class = Intercept), # baseline around 10 on the 0-100 scale
-      
-      # for the zero process: probability of being 0. Log odds intercept, log variables, for binary outcome
-      prior(normal(0, 1), class = Intercept, dpar = hu),  # hurdle intercept. 
-      prior(normal(0, 1), class = b, dpar = hu),          # logistic coefficients
-      
-      # Shape
-      prior(lognormal(log(20), 0.5), class = shape)
-    ),
-    sample_prior = 'only',
-    
-    # Stan options
-    chains = CHAINS, iter = ITER, warmup = WARMUP, seed = SEED,
-    backend = "cmdstanr"
-  )
-
-prior_summary(model_1_hurdle_prior)
-
-# Prior Predictive
+# Prior Predictive -------------------------------------------------------------
 
 ## Simulate some data
 data_sim <-
   expand_grid(
     pcl_total = seq(0, 3.75, by = .05), 
-    deployed = c(0,1),
+    status = c('service_member', 'veteran', 'civilian'),
     gender_female = c(0,1),
-    race = c('asian', 'black', 'native', 'other', 'white'),
-    rank = c('e1_e4', 'e5_e6', 'e7_e9', 'o1_o3_w1_cw2', 'o4_o6_cw3_cw5'),
-    mos = c('combat', 'combat_support', 'combat_service_support', 'operations', 'logistics', 'support', 'medical'),
-    branch = c('airforce', 'army', 'marines')
+    birth_year = c('born_79_84', 'born_85_89', 'born_90_95', 'born_96_01', 'born_other'), 
+    trauma = c(0,1)
   ) %>% 
   
   # Dummary Dummy Variables for Categorical
   mutate(
-    race_asian = ifelse(race == 'asian', 1, 0),
-    race_black = ifelse(race == 'black', 1, 0),
-    race_native = ifelse(race == 'native', 1, 0),
-    race_other = ifelse(race == 'other', 1, 0),
-    rank_e1_e4 = ifelse(rank == 'e1_e4', 1, 0),
-    rank_e7_e9 = ifelse(rank == 'e7_e9', 1, 0),
-    rank_o1_o3_w1_cw2 = ifelse(rank == 'o1_o3_w1_cw2', 1, 0),
-    rank_o4_o6_cw3_cw5 = ifelse(rank == 'o4_o6_cw3_cw5', 1, 0),
-    mos_combat = ifelse(mos == 'combat', 1, 0),
-    mos_combat_support = ifelse(mos == 'combat_support', 1, 0),
-    mos_combat_service_support = ifelse(mos == 'combat_service_support', 1, 0),
-    mos_operations = ifelse(mos == 'operations', 1, 0),
-    mos_logistics = ifelse(mos == 'logistics', 1, 0),
-    mos_support = ifelse(mos == 'support', 1, 0),
-    mos_medical = ifelse(mos == 'medical', 1, 0),
-    branch_airforce = ifelse(branch == 'airforce', 1, 0),
-    branch_marines = ifelse(branch == 'marines', 1, 0)
-  ) %>% 
-  sample_n(size = 3000, replace = FALSE)
+    veteran = ifelse(status == 'veteran', 1, 0),
+    civilian = ifelse(status == 'civilian', 1, 0),
+    born_79_84 = ifelse(birth_year == 'born_79_84', 1, 0),
+    born_85_89 = ifelse(birth_year == 'born_85_89', 1, 0),
+    born_90_95 = ifelse(birth_year == 'born_90_95', 1, 0),
+    born_96_01 = ifelse(birth_year == 'born_96_01', 1, 0)
+  )
 
 
 # Get linear predictor on log scale
-linpred_mat <- posterior_linpred(model_1_hurdle_prior, 
+linpred_mat <- posterior_linpred(model_1_milandciv_pcl0, 
                                  newdata = data_sim, 
                                  dpar = "mu", 
                                  transform = FALSE)

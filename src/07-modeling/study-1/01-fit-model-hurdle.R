@@ -9,62 +9,47 @@ model_1_hurdle <-
     bf(
       bipf_score ~ 
         pcl_total + 
-        deployed + 
+        
+        # MILITARY STATUS
+        # service_member + # REFERENCE GROUP
+        veteran +
+        civilian +
+        
+        # GENDER
         # gender_male + # REFERENCE GROUP
         gender_female + 
-        race_asian +
-        race_black +
-        race_native +
-        #race_pacific + # removed for non-variance i.e., all 0s
-        #race_latinx + # removed for non-variance i.e., all 0s
-        race_other +
-        # race_white + # REFERENCE GROUP
-        rank_e1_e4 + 
-        # rank_e5_e6 + # REFERENCE GROUP
-        rank_e7_e9 + 
-        rank_o1_o3_w1_cw2 + 
-        rank_o4_o6_cw3_cw5 + 
-        mos_combat +
-        mos_combat_support + 
-        mos_combat_service_support + 
-        mos_operations + 
-        mos_logistics + 
-        mos_support + 
-        mos_medical +
-        # mos_acquisitions + # removed for non-variance i.e., all 0s
-        branch_airforce +
-        #branch_army + # REFERENCE GROUP
-        branch_marines,
-      #branch_navy # removed for non-variance i.e., all 0s
+        
+        # AGE
+        born_79_84 +
+        born_85_89 + 
+        born_90_95 +
+        born_96_01 +
+        #born_other + # REFERENCE GROUP
+        
+        # TRAUMA
+        trauma,
       
       hu ~ 
         pcl_total + 
-        deployed + 
+        
+        # MILITARY STATUS
+        # service_member + # REFERENCE GROUP
+        veteran +
+        civilian +
+        
+        # GENDER
         # gender_male + # REFERENCE GROUP
         gender_female + 
-        race_asian +
-        race_black +
-        race_native +
-        #race_pacific + # removed for non-variance i.e., all 0s
-        #race_latinx + # removed for non-variance i.e., all 0s
-        race_other +
-        # race_white + # REFERENCE GROUP
-        rank_e1_e4 + 
-        # rank_e5_e6 + # REFERENCE GROUP
-        rank_e7_e9 + 
-        rank_o1_o3_w1_cw2 + 
-        rank_o4_o6_cw3_cw5 + 
-        mos_combat +
-        mos_combat_support + 
-        mos_combat_service_support + 
-        mos_operations + 
-        mos_logistics + 
-        mos_support + 
-        mos_medical +
-        # mos_acquisitions + # removed for non-variance i.e., all 0s
-        branch_airforce +
-        #branch_army + # REFERENCE GROUP
-        branch_marines
+        
+        # AGE
+        born_79_84 +
+        born_85_89 + 
+        born_90_95 +
+        born_96_01 +
+        #born_other + # REFERENCE GROUP
+        
+        # TRAUMA
+        trauma
     ),
     
     # DATA SET

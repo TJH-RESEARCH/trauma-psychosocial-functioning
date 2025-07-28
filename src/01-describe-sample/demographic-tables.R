@@ -36,9 +36,9 @@ data_1 |>
 
 # Birth_Year ------------------------------------------------------------------
 data_1 |> 
-  count(Birth_Year) |> 
+  count(birth_year) |> 
   mutate(`%` = n / sum(n) * 100,
-         Variable = 'Annual Income') |> 
+         Variable = 'birth_year') |> 
   rename(Category = 1)
 
 # Income ------------------------------------------------------------------

@@ -18,6 +18,16 @@ WARMUP <- 2000                               # Number of warm-up samples for MCM
 SEED <- 999888777                            # Random seed to replicate MCMC sampling
 options(mc.cores = parallel::detectCores())  # Detects the number of cores on your computer for parallel processing
 
+# Set MCMC sampler to cmdstanr if it is available on your machine. If not, it will use rstan. 
+if ("cmdstanr" %in% rownames(installed.packages()) &
+    cmdstanr::cmdstan_version() >= "2.30") {
+  options(brms.backend = "cmdstanr")
+} else {
+  message("CmdStan not installed. Falling back to rstan.")
+  options(brms.backend = "rstan")
+}
+
+
 ## Load the data sets:
 data_1 <- read_csv(here::here('data/data-moore-dissertation.csv'))
 data_2 <- read_csv(here::here('data/data-dissertation-main.csv'))
@@ -27,13 +37,29 @@ data_3 <- read_csv(here::here('data/data-first-year-scholars-cleaned.csv'))
 source(here::here('src/00-config/score-bipf.R'))
 
 
-
 # 1. DESCRIBE THE SAMPLES ------------------------------------------------------
 ## Create demographic tables for the 3 samples
+source(here::here('src/01-describe-sample/demographic-tables.R'))
 
 
+# 2. EXAMINE MEASURES -----------------------------------------------------
+## Examine the internal consistency of the PCL-5 and bIPF measures
+source(here::here('src/02-examine-measures/consistency.R'))
+source(here::here('src/02-examine-measures/impute.R'))
 
-# 1. GENERATIVE MODELS ---------------------------------------------------------
+
+# 3. EXAMINE VARIABLES ----------------------------------------------------
+## Examine the univariate and bivariate distributions of the variables
+
+source(here::here('src/03-examine-variables/plot-univariate.R'))
+source(here::here('src/03-examine-variables/count-zeros.R'))
+source(here::here('src/03-examine-variables/plot-bivariate.R'))
+source(here::here('src/03-examine-variables/correlations.R'))
+
+
+# 4. GENERATIVE MODELS -------------------------------------------------------
+## Create graphical causal models and simulate fake data from them
+
 ## Draw DAGs 
 #source(here::here('src/01-generative-models/dags.R'))
 
@@ -41,26 +67,24 @@ source(here::here('src/00-config/score-bipf.R'))
 
 
 
-# 2. DATA PREP -----------------------------------------------------------------
-
+# 5. DATA PRE-PROCESSING -----------------------------------------------------------------
+## Select the needed variables, scale the data, and handle issues such as non-variance and missingness
 
 ## Prepare the Data by Standardizing continuous variables, removing non-variance, centering dummy variables
-source(here::here('src/02-pre-processing/scale-data.R'))
+source(here::here('src/05-pre-processing/scale-data.R'))
 
-
-
-# PREPARE MCMC SAMPLING ---------------------------------------------------
 
 
 # STUDY 1 ----------------------------------------------------------------------
 
-## PRIORS ----------------------------------------------------------------------
+# 6. PRIORS ----------------------------------------------------------------------
+## Specify priors and adjust them through prior predictive checks
 
 ### Plot the priors
-source(here::here('src/03-priors/plot-priors.R'))
+source(here::here('src/06-priors/plot-priors.R'))
     
 ### Prior Predictive Check
-source(here::here('src/03-priors/prior-predictive-check.R'))
+source(here::here('src/06-priors/prior-predictive-check.R'))
 
 
 ## FIT MODELS  -----------------------------------------------------------------

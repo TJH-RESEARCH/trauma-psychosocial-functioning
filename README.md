@@ -6,6 +6,14 @@ contributors:
 # Replication Code: Predicting the Harm of Military Trauma on Functioning: Bayesian Models of Moral Injury and PTSD Related Psychosocial Functioning
 
 
+## To Do
+- Demographics table: add study 2 and 3. Create output file.
+- Univariate plots: edit to ensure they tell the story of zero-inflation
+- bivariate plots: what story should be told with these? Consider their presentation more carefully.
+- update 3rd dag to include participation
+- consolidate and clean up the generative model folder
+- 
+
 
 
 ## Overview
