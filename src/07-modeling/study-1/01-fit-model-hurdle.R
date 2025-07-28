@@ -94,7 +94,3 @@ bayestestR::diagnostic_draws(model_1_hurdle)
 
 broom.mixed::tidy(model_1_hurdle)
 
-
-# exp(3.95)
-exp(0.323)
-exp(0.323) * 2

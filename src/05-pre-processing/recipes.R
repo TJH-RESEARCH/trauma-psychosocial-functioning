@@ -10,8 +10,9 @@ library(recipes) # We'll use the recipes package to manage the preprocessing
 ### 2. How to code the PCL score for people who did not endorse a trauma? Either leave as is, code as 0, or code as NA
 ### Our approach is to try all of these, then compare how they change the results. This means 3x2=6 combinations for study 1.  
 
-## Recipe 1, Variation 1 -------------------------------------------------------
-### Variation 1: Include military and civilian respondents; Leave PCL as it is.
+
+## Recipe 1 basic. ---------------------------------------------------------
+### Create a basic recipe to modify
 ### Declare the outcome variable and explanatory variables:
 recipe_1 <- 
   recipes::recipe(
@@ -23,8 +24,24 @@ recipe_1 <-
       trauma,                                                           
     data =  data_1) %>% 
   step_zv(all_numeric_predictors())                       # Remove variables with zero variance
-recipe_1 %>% prep(., data_1)                      # Print the recipe:
-data_baked_1 <- recipe_1 %>% prep(., data_1) %>% bake(., NULL) # "Bake" the recipe i.e., save a prepared dataset with the above transformations:
+
+
+## Recipe 1, Variation 1 -------------------------------------------------------
+### Variation 1: Include military and civilian respondents; Leave PCL as it is.
+
+### Print the recipe:
+recipe_1 %>% 
+  step_center(pcl_total) %>% 
+  step_scale(pcl_total, factor = 1) %>% 
+  prep(., data_1)                      
+
+### "Bake" the recipe i.e., save a prepared dataset with the above transformations:
+### Center the continuous predictors and only the binary variables, not the dummy coded categorical variables
+data_baked_1 <- 
+  recipe_1  %>% 
+  step_center(pcl_total) %>% 
+  step_scale(pcl_total, factor = 1) %>% 
+  prep(., data_1) %>% bake(., NULL) 
 
 
 ## Recipe 1, Variation 2 -------------------------------------------------------
