@@ -97,13 +97,13 @@ source(here::here('src/06-priors/study-1/prior-predictive-check.R'))
 ## FIT MODELS  -----------------------------------------------------------------
 
 ### Fit the model 
-source(here::here('src/04-models/study-1/01-fit-model-hurdle.R'))
+source(here::here('src/07-modeling/study-1/01-fit-model-hurdle.R'))
 
 ### Check the MCMC diagnostics
-source(here::here('src/04-models/study-1/02-diagnostics.R'))
+source(here::here('src/07-modeling/study-1/02-diagnostics.R'))
 
 ### Posterior predictive check
-source(here::here('src/04-models/study-1/03-posterior-predictive-check.R'))
+source(here::here('src/07-modeling/study-1/03-posterior-predictive-check.R'))
 
 ### Sensitivity Analysis & Model Comparison
 

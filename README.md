@@ -27,7 +27,7 @@ Coming soon.
 Coming soon. 
 
 ## Computational requirements
-Coming soon. 
+Coming soon.
 
 ## Description of programs/code
 
