@@ -44,7 +44,7 @@ draws_hurdle_2 %>%
   annotate(geom = "text", label = "66%", x = 1.475, y = .035, color = "black", fontface = "bold", size = 3) +
   annotate(geom = "text", label = "95%", x = 1.27, y = .035, color = "black", fontface = "bold", size = 3) +
   annotate(geom = "text", label = "95%", x = 1.6, y = .035, color = "black", fontface = "bold", size = 3) +
-  # geom_text(x = 3.5, y = 10, label = "66%") +
+  
   theme(
     legend.position = 'none',
     panel.background = element_rect(fill = "white"),

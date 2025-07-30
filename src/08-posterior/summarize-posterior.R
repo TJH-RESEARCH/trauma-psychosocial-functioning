@@ -28,3 +28,10 @@ draws_hurdle_3 %>%
 ## Mode
 draws_hurdle_3 %>% tidybayes::mode_hdci(b_mios_total) %>% mutate(across(where(is.numeric), exp))
 draws_hurdle_3 %>% tidybayes::mode_hdci(b_pcl_total) %>% mutate(across(where(is.numeric), exp))
+
+## Interaction
+draws_hurdle_3_interact %>% 
+  tidybayes::summarise_draws() %>% 
+  filter(variable == "b_pcl_total_x_mios_total") %>% 
+  mutate(across(where(is.numeric), exp)) 
+draws_hurdle_3_interact %>% tidybayes::mode_hdci(b_pcl_total_x_mios_total) %>% mutate(across(where(is.numeric), exp))
