@@ -18,16 +18,16 @@ draws_hurdle_2 %>%
              )
          ) + 
   stat_slab(point_interval = mode_hdci, aes(fill = after_stat(level)), .width = c(.66, .95, 1)) +
-  stat_spike(at = "Mode", linetype = "dotted", color = "#9cc184") +
+  stat_spike(at = "Mode", linetype = "dotted", color = "#4692b0") +
   stat_spike(
     at = function(x) hdci(x, .width = .95),
-    size = 0, color = "black", linewidth = 0.75,
+    size = 0, color = "black", linewidth = 0.5,
   ) +
   #tidybayes::stat_halfeye(fill = MetPalettes$Peru1[[1]][5]) +
   labs(y = "Posterior Density", 
        x = 'Gamma Coefficient (Moral Injury Symptoms)', 
-       title = 'Moral Injury associated with greater difficulty',
-       subtitle = "<span style = 'color:#1f5b25'> **Posterior distribution of regression coefficient**</span> (Study 2)",
+       title = 'Veterans with worse Moral Injury had more difficulty',
+       subtitle = "<span style = 'color:#0a3351'> **Posterior distribution of regression coefficient**</span> (Study 2)",
        caption = "Note: Gamma coefficients are multiplicative, not additive. A coefficient of 1.44, the posterior mean,<br>means a one-unit increase in the predictor is associated with a 144% increase in the outcome.<br>The coefficients have been exponentiated from the log scale to the original outcome scale."
        ) + 
   # I can't get stat_spike to add the dots to the end of the HDCI line segements.... maybe a way to do this programmatically instead of annotating, but for now: 
@@ -35,15 +35,15 @@ draws_hurdle_2 %>%
   annotate(geom = "point", x = 1.67175, y = .14625, color = "black") + # right
  
    # Label the stat at the intervals
-  annotate(geom = "text", label = "1.42", x = 1.415, y = .955, color = "#192813", fontface = "bold") +
-  annotate(geom = "text", label = "1.22", x = 1.19, y = .205, color = "#1f5b25", fontface = "bold") +
-  annotate(geom = "text", label = "1.68", x = 1.7, y = .205, color = "#1f5b25", fontface = "bold") +
+  annotate(geom = "text", label = "1.42", x = 1.415, y = .955, color = "#0a3351", fontface = "bold") +
+  annotate(geom = "text", label = "1.22", x = 1.19, y = .205, color = "#2f70a1", fontface = "bold") +
+  annotate(geom = "text", label = "1.68", x = 1.7, y = .205, color = "#2f70a1", fontface = "bold") +
   
   # Label the intervals
-  annotate(geom = "text", label = "66%", x = 1.37, y = .035, color = "black", fontface = "bold", size = 3) +
-  annotate(geom = "text", label = "66%", x = 1.475, y = .035, color = "black", fontface = "bold", size = 3) +
-  annotate(geom = "text", label = "95%", x = 1.27, y = .035, color = "black", fontface = "bold", size = 3) +
-  annotate(geom = "text", label = "95%", x = 1.6, y = .035, color = "black", fontface = "bold", size = 3) +
+  annotate(geom = "text", label = "66%", x = 1.35, y = .035, color = "black", fontface = "bold", size = 3) +
+  annotate(geom = "text", label = "66%", x = 1.5, y = .035, color = "black", fontface = "bold", size = 3) +
+  annotate(geom = "text", label = "95%", x = 1.2475, y = .035, color = "black", fontface = "bold", size = 3) +
+  annotate(geom = "text", label = "95%", x = 1.64, y = .035, color = "black", fontface = "bold", size = 3) +
   
   theme(
     legend.position = 'none',
@@ -59,15 +59,15 @@ draws_hurdle_2 %>%
     plot.subtitle = element_markdown(size = 12, color = "#3e3e3e"),
     plot.caption = element_markdown(hjust = 0, color = "#7e7e7e")
   ) + 
-  MetBrewer::scale_fill_met_d(name = "VanGogh3") +
+  MetBrewer::scale_fill_met_d(name = "Hokusai2") +
   scale_x_continuous(breaks = seq(1, 2, .5), limits = c(1, 2)) +
   scale_thickness_shared()
 ggsave(here::here("output/plot-posterior-2.jpg"), width = 6, height = 4)
 
 # MetBrewer::colorblind_palettes
 # MetBrewer::display_all()
-# MetBrewer::MetPalettes$VanGogh3[[1]]
-"#e7e5cc" "#c2d6a4" "#9cc184" "#669d62" "#3c7c3d" "#1f5b25" "#1e3d14" "#192813"
+# MetBrewer::MetPalettes$Hokusai2[[1]]
+c("#abc9c8", "#72aeb6", "#4692b0", "#2f70a1", "#134b73", "#0a3351")
 
 
 
