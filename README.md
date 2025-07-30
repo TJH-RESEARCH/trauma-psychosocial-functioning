@@ -7,12 +7,13 @@ contributors:
 
 
 ## To Do
-- Demographics table: add study 2 and 3. Create output file.
-- Univariate plots: edit to ensure they tell the story of zero-inflation
+- Demographics table: add study 2 and 3. All on same table? Create output file.
+- Univariate plots: theme to ensure they tell the story of zero-inflation
 - bivariate plots: what story should be told with these? Consider their presentation more carefully.
 - update 3rd dag to include participation
 - consolidate and clean up the generative model folder
 - recipes looks good, although study 1 has 6 combos which is a little unruly
+- Assess model fits
 
 
 ## Overview

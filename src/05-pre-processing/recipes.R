@@ -155,8 +155,7 @@ recipe_2 <-
   ) %>% 
   
   ## Scale the continuous predictor
-  step_scale(mios_total, 
-             factor = 1)
+  step_scale(mios_total, factor = 1)
 
 ## Print the recipe
 recipe_2 %>% prep(., data_2) 

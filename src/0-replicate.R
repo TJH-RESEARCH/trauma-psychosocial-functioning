@@ -81,17 +81,33 @@ source(here::here('src/05-pre-processing/recipes.R'))
 ## Specify priors and adjust them through prior predictive checks
 ## in practice, this was an iterative process
 
-### Plot the priors
+### Study 1
+#### Plot the priors
 source(here::here('src/06-priors/study-1/plot-priors.R'))
 
-### Specify the priors
+#### Specify the priors
 source(here::here("src/06-priors/study-1/specify-priors.R"))
 
-### Sample from the Prior Distributions
+#### Sample from the Prior Distributions
 source(here::here("src/06-priors/study-1/sample-priors.R"))
   
-### Prior Predictive Check
+#### Prior Predictive Check
 source(here::here('src/06-priors/study-1/prior-predictive-check.R'))
+
+
+### Study 2
+#### Plot the priors
+source(here::here('src/06-priors/study-2/plot-priors.R'))
+
+#### Specify the priors
+source(here::here("src/06-priors/study-2/specify-priors.R"))
+
+#### Sample from the Prior Distributions
+source(here::here("src/06-priors/study-2/sample-priors.R"))
+
+#### Prior Predictive Check
+source(here::here('src/06-priors/study-2/prior-predictive-check.R'))
+
 
 
 ## FIT MODELS  -----------------------------------------------------------------
