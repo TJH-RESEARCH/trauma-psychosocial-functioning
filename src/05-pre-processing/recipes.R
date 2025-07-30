@@ -231,3 +231,12 @@ recipe_3 %>% prep(., data_3)
 ## "Bake" the recipe i.e., save a prepared dataset with the above transformations
 data_baked_3 <- recipe_3 %>% prep(., data_3) %>% bake(., NULL)
 
+
+
+
+# Variation: Interaction --------------------------------------------------
+recipe_3_interact <-
+  recipe_3 %>% 
+  step_interact(terms = ~ pcl_total:mios_total)
+recipe_3_interact %>% prep(., data_3)
+data_baked_3_interact <- recipe_3_interact %>% prep(., data_3) %>% bake(., NULL)
