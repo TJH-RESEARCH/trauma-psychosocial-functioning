@@ -112,13 +112,14 @@ source(here::here('src/06-priors/study-2/prior-predictive-check.R'))
 
 ## FIT MODELS  -----------------------------------------------------------------
 
-### Fit the model 
+### Study 1
+#### Fit the model 
 source(here::here('src/07-modeling/study-1/01-fit-model-hurdle.R'))
 
-### Check the MCMC diagnostics
+#### Check the MCMC diagnostics
 source(here::here('src/07-modeling/study-1/02-diagnostics.R'))
 
-### Posterior predictive check
+#### Posterior predictive check
 source(here::here('src/07-modeling/study-1/03-posterior-predictive-check.R'))
 
 ### Sensitivity Analysis & Model Comparison
@@ -131,6 +132,18 @@ source(here::here('src/04-models/study-1/05-fit-vague-hurdle.R'))
 
 #### Compare the preferred model to the vague and flat prior models
 source(here::here('src/04-models/study-1/06-compare-models.R'))
+
+
+### Study 2
+#### Fit the model 
+source(here::here('src/07-modeling/study-2/01-fit-model-hurdle.R'))
+
+
+### Study 3
+#### Fit the model 
+source(here::here('src/07-modeling/study-3/01-fit-model-hurdle.R'))
+source(here::here('src/07-modeling/study-3/01-fit-model-interact.R'))
+
 
 
 

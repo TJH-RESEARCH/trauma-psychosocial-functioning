@@ -1,6 +1,6 @@
 
-
-
+library(marginaleffects)
+library(ggtext)
 
 # Non-Zero Process Conditional Predictions --------------------------------
 
@@ -44,8 +44,8 @@ data_plot_preds %>%
   labs(
     x = 'Posttraumatic Symptoms (SD)',
     y = "Difficulty Functioning", 
-    title = 'Veterans with worse PTSD have more difficulty functioning',
-    subtitle = "<span style = 'color:#b5361c'> **Predicted difficulty conditional on PTSD symptoms**</span> (Study 1)",
+    title = 'Veterans with worse PTSD had more difficulty functioning',
+    subtitle = "<span style = 'color:#b5361c'> **Predicted level of difficulty conditional on PTSD symptoms**</span> (Study 1)",
     caption = "Predicted values conditional on PTSD Symptoms from the gamma regression model.<br>Fit to the non-zero outcome cases only. Calculated using a representative combination of<br>covariates using marginaleffects::plot_predictions() in R."
   ) + 
   theme(
@@ -115,7 +115,7 @@ data_plot_preds_zero %>%
   labs(
     x = 'Posttraumatic Symptoms (SD)',
     y = "Probability", 
-    title = '**Veterans with PTSD have lower chance of functioning well**',
+    title = '**Veterans with PTSD had a lower chance of functioning well**',
     subtitle = "<span style = 'color:#e35e28'> **Predicted probability of difficulty conditional on PTSD**</span> (Study 1)",
     caption = "Predicted values conditional on PTSD Symptoms from the logistic regression model.<br>Fit to the zero outcome cases only. Calculated using a representative combination of<br>covariates using marginaleffects::plot_predictions() in R. Values are shown at<br>the mean (0) and -1SD, +1SD, and +1.9SD"
   ) + 

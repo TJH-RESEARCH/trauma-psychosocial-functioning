@@ -25,7 +25,7 @@ draws_hurdle_2 %>%
   ) +
   #tidybayes::stat_halfeye(fill = MetPalettes$Peru1[[1]][5]) +
   labs(y = "Posterior Density", 
-       x = 'Gamma Coefficient (Moral Injury Symptoms)', 
+       x = 'Gamma Coefficient<br>(Moral Injury Symptoms)', 
        title = 'Veterans with worse Moral Injury had more difficulty',
        subtitle = "<span style = 'color:#0a3351'> **Posterior distribution of regression coefficient**</span> (Study 2)",
        caption = "Note: Gamma coefficients are multiplicative, not additive. A coefficient of 1.44, the posterior mean,<br>means a one-unit increase in the predictor is associated with a 144% increase in the outcome.<br>The coefficients have been exponentiated from the log scale to the original outcome scale."

@@ -17,8 +17,8 @@ draws_hurdle_3_interact %>%
   ) +
   labs(y = "Posterior Density", 
        x = 'Gamma Coefficient<br>(PTSD x Moral Injury Interaction)', 
-       title = 'Interaction is not associated with intensified difficulty',
-       subtitle = "<span style = 'color:#454a74'> **Posterior distribution of interaction term coefficient**</span> (Study 3)",
+       title = 'PTSD and Moral Injury did not interact to intensify difficulty',
+       subtitle = "<span style = 'color:#454a74'> **Posterior distribution of interaction coefficient**</span> (Study 3)",
        caption = "Note: Gamma coefficients are multiplicative, not additive. A coefficient less than 1 indicates an expected<br>decrease in difficulty for a one-unit increase in the predictor. A coefficient of 1 represents no change.<br>The coefficients have been exponentiated from the log scale to the original outcome scale."
        ) + 
   
@@ -55,7 +55,7 @@ draws_hurdle_3_interact %>%
   ) + 
   scale_fill_manual(values = c("#808fe1", "#5c66a8", "#454a74")) +
   #MetBrewer::scale_fill_met_d(name = "Derain") +
-  scale_x_continuous(breaks = seq(.65, 1.15, .1), limits = c(.65, 1.15)) +
+  scale_x_continuous(breaks = seq(.65, 1.15, .25), limits = c(.65, 1.15)) +
   scale_thickness_shared()
 ggsave(here::here("output/plot-posterior-3-interact.jpg"), width = 6, height = 4)
 
