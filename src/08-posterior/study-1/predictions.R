@@ -87,31 +87,36 @@ data_plot_preds_zero <-
          # subtracting .1 makes the dots center on the loess line better
          ame_sd =
            case_when(
-             pcl_sd == 1.9 ~ estimate,
-             pcl_sd == 1 ~ estimate,
-             pcl_sd == 0 ~ estimate,
-             pcl_sd == -1 ~ estimate + .005,
+             pcl_sd == 1.9 ~ (1 - estimate),
+             pcl_sd == 1 ~ (1 - estimate), # reverse the probability up here too
+             pcl_sd == 0 ~ (1 - estimate),
+             pcl_sd == -1 ~ (1 - estimate - .005), # to make the plot not give a prob = 1 after rounding and instead .99
              .default = NA
-           )
+           ),
+         ame_sd_label = 
+           str_replace(as.character(round(ame_sd, 2)), 
+                       pattern = "0.", replacement = " ."),
+         ame_sd_label = ifelse(pcl_sd == 1.9, ".99", ame_sd_label)
   )
 
 
 
 
 data_plot_preds_zero %>% 
+  mutate(estimate = 1 - estimate) %>% # flip the probability to be the chance of having >0 difficulty
   ggplot(aes(pcl_total, estimate)) +
   geom_smooth(method = "loess", 
               formula = "y ~ x",
               color = MetPalettes$Peru1[[1]][2],
               linewidth = 2) +
   geom_point(aes(pcl_sd, ame_sd), size = 4, color = MetPalettes$Peru1[[1]][2]) +
-  geom_text(aes(pcl_sd, ame_sd, label = str_replace(as.character(round(ame_sd, 2)), pattern = "0.", replacement = " .")), nudge_x = 0.1, nudge_y = 0.015, color = MetPalettes$Peru1[[1]][2], fontface = "bold") +
-  lims(y = c(0, .3)) +
+  geom_text(aes(pcl_sd, ame_sd, label = ame_sd_label), nudge_x = 0.1, nudge_y = -0.015, color = MetPalettes$Peru1[[1]][2], fontface = "bold") +
+  lims(y = c(.7, 1)) +
   labs(
     x = 'Posttraumatic Symptoms (SD)',
     y = "Probability", 
     title = '**Veterans with PTSD have lower chance of functioning well**',
-    subtitle = "<span style = 'color:#e35e28'> **Predicted probability of no difficulty conditional on PTSD**</span> (Study 1)",
+    subtitle = "<span style = 'color:#e35e28'> **Predicted probability of difficulty conditional on PTSD**</span> (Study 1)",
     caption = "Predicted values conditional on PTSD Symptoms from the logistic regression model.<br>Fit to the zero outcome cases only. Calculated using a representative combination of<br>covariates using marginaleffects::plot_predictions() in R. Values are shown at<br>the mean (0) and -1SD, +1SD, and +1.9SD"
   ) + 
   theme(
