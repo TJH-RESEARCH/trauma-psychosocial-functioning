@@ -5,7 +5,11 @@ library(ggtext)
 # Non-Zero Process Conditional Predictions --------------------------------
 
 
-## Create the data
+## Create the new data on which to make preductions
+## This data is based on the observed data. There are several ways to do this. 
+## The covariates in this case are representative, i think
+## The condition variable is a range from the observed min to observed max, with values evenly spaced. It is not the observed data, but it is in the observed ranged.. 
+
 data_plot_preds <-
   plot_predictions(
     model_1_hurdle,
@@ -46,7 +50,12 @@ data_plot_preds %>%
     y = "Difficulty Functioning", 
     title = 'Veterans with worse PTSD had more difficulty functioning',
     subtitle = "<span style = 'color:#b5361c'> **Predicted level of difficulty conditional on PTSD symptoms**</span> (Study 1)",
-    caption = "Predicted values conditional on PTSD Symptoms from the gamma regression model.<br>Fit to the non-zero outcome cases only. Calculated using a representative combination of<br>covariates using marginaleffects::plot_predictions() in R."
+    caption = 
+    'Model predictions or "fitted values." Predictions were caluculated for a different values of PTSD<br>
+     Symptoms ranging from the observed minimum to the observed maximum. Averaged over a <br> 
+     representative grid of covariates. Covariates were gender, age, prior trauma, and military status.<br>
+     Study 1 included active duty service members, veteran, and non-military civilians. <br>
+     Gamma Regression fit to the non-zero outcome cases only. N = 222.'
   ) + 
   theme(
     panel.grid.major = element_blank(),

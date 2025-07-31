@@ -47,7 +47,7 @@ data_plot_ame_1 <-
              rowid == 9 ~ -1,
              .default = NA
                ),
-         # subtracting .1 makes the dots center on the loess line better
+         # subtracting a little bit makes the dots center on the loess line better
          ame_sd =
            case_when(
              pcl_sd == 1.9 ~ estimate - .15,
@@ -92,8 +92,6 @@ ggsave(here::here("output/plot-ame-1.jpg"), width = 6, height = 4)
 
 
 # Zero process ------------------------------------------------------------
-
-
 data_plot_ame_1_zero <-
   plot_slopes(
       model_1_hurdle,
