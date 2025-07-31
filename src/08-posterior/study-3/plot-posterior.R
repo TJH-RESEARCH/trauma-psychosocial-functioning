@@ -9,17 +9,20 @@ draws_hurdle_3_interact %>%
   pivot_longer(-c(.chain, .iteration, .draw)) %>% 
   mutate(value = exp(value)) %>%  # transform from log scale to something easier to understand:
   ggplot(aes(x = value)) + 
-  stat_slab(point_interval = mode_hdci, aes(fill = after_stat(level)), .width = c(.66, .95, 1)) +
-  stat_spike(at = "Mode", linetype = "dotted", color = "#6f9969") +
+  stat_slab(point_interval = mode_hdci, aes(fill = after_stat(level)), color = "black", linewidth = .1, .width = c(.95, 1)) +
+  stat_spike(at = "Mode", linetype = "dotted", color = "black", linewidth = 0.35) +
   stat_spike(
     at = function(x) hdci(x, .width = .95),
-    size = 0, color = "black", linewidth = 0.5,
+    size = 0, color = "black", linewidth = 0.35, linetype = "dotted"
   ) +
   labs(y = "Posterior Density", 
        x = 'Gamma Coefficient<br>(PTSD x Moral Injury Interaction)', 
-       title = 'PTSD and Moral Injury did not interact to intensify difficulty',
-       subtitle = "<span style = 'color:#454a74'> **Posterior distribution of interaction coefficient**</span> (Study 3)",
-       caption = "Note: Gamma coefficients are multiplicative, not additive. A coefficient less than 1 indicates an expected<br>decrease in difficulty for a one-unit increase in the predictor. A coefficient of 1 represents no change.<br>The coefficients have been exponentiated from the log scale to the original outcome scale."
+       title = 'PTSD & Moral Injury did not interact to intensify dysfunction',
+       subtitle = "<span style = 'color:#238B45'> **Posterior distribution of interaction coefficient**</span> (Study 3)",
+       caption = 
+       "Density of posterior probability distribution of the interaction term coefficient (exponentiated).<br>
+       Gamma Regression fit to the non-zero outcome cases. Gamma coefficients are multiplicative.<br>
+       A coefficient of .89 indicates a decrease in the outcome for an increase in the predictor."
        ) + 
   
   # I can't get stat_spike to add the dots to the end of the HDCI line segements.... maybe a way to do this programmatically instead of annotating, but for now: 
@@ -27,15 +30,13 @@ draws_hurdle_3_interact %>%
   annotate(geom = "point", x = 1.016, y = .143, color = "black") + # right
   
   # Label the stat at the intervals
-  annotate(geom = "text", label = ".89", x = .89, y = .96, color = "#454a74", fontface = "bold") +
-  annotate(geom = "text", label = ".78", x = .75, y = .175, color = "#5c66a8", fontface = "bold") +
-  annotate(geom = "text", label = "1.03", x = 1.04, y = .175, color = "#5c66a8", fontface = "bold") +
+  annotate(geom = "text", label = ".89", x = .89, y = .96, color = "#238B45", fontface = "bold") +
+  annotate(geom = "text", label = ".78", x = .75, y = .175, color = "#238B45", fontface = "bold") +
+  annotate(geom = "text", label = "1.03", x = 1.04, y = .175, color = "#238B45", fontface = "bold") +
   
   # Label the intervals
-  annotate(geom = "text", label = "66%", x = .8425, y = .035, color = "black", fontface = "bold", size = 3) +
-  annotate(geom = "text", label = "66%", x = .93, y = .035, color = "black", fontface = "bold", size = 3) +
-  annotate(geom = "text", label = "95%", x = .785, y = .035, color = "black", fontface = "bold", size = 3) +
-  annotate(geom = "text", label = "95%", x = 1, y = .035, color = "black", fontface = "bold", size = 3) +
+  annotate(geom = "text", label = "95%", x = .785, y = .035, color = "#A1D99B", fontface = "bold", size = 3) +
+  annotate(geom = "text", label = "95%", x = 1, y = .035, color = "#A1D99B", fontface = "bold", size = 3) +
   
   
   # geom_text(x = 3.5, y = 10, label = "66%") +
@@ -53,17 +54,23 @@ draws_hurdle_3_interact %>%
     plot.subtitle = element_markdown(size = 12, color = "#3e3e3e"),
     plot.caption = element_markdown(hjust = 0, color = "#7e7e7e")
   ) + 
-  scale_fill_manual(values = c("#808fe1", "#5c66a8", "#454a74")) +
+  scale_fill_manual(values = c("#A1D99B", "#31A354")) +
   #MetBrewer::scale_fill_met_d(name = "Derain") +
   scale_x_continuous(breaks = seq(.65, 1.15, .25), limits = c(.65, 1.15)) +
   scale_thickness_shared()
 ggsave(here::here("output/plot-posterior-3-interact.jpg"), width = 6, height = 4)
 
 #MetBrewer::MetPalettes$Derain[[1]]
-#c("#efc86e", "#97c684", "#6f9969", "#aab5d5", "#808fe1", "#5c66a8", "#454a74")
+#MetBrewer::MetPalettes$Archambault[[1]]
+c("#88a0dc", "#381a61", "#7c4b73", "#ed968c", "#ab3329", "#e78429", "#f9d14a")
+c("#efc86e", "#97c684", "#6f9969", "#aab5d5", "#808fe1", "#5c66a8", "#454a74")
 
 #MetBrewer::colorblind_palettes
 #MetBrewer::display_all()
+# RColorBrewer::display.brewer.all()
+# RColorBrewer::brewer.pal(n = 9, name = "Greens")
+"#E5F5E0" "#A1D99B" "#31A354" "#EDF8E9" "#BAE4B3" "#74C476" "#238B45"
+
 
 # Hurdle: Zero Process --------------------------------------------------------
 draws_hurdle_3_interact %>%

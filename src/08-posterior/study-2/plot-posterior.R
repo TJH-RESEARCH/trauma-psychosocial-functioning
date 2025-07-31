@@ -27,7 +27,7 @@ draws_hurdle_2 %>%
   #tidybayes::stat_halfeye(fill = MetPalettes$Peru1[[1]][5]) +
   labs(y = "Posterior Density", 
        x = 'Gamma Coefficient<br>(Moral Injury Symptoms)', 
-       title = 'Veterans with worse Moral Injury had more difficulty',
+       title = 'Veterans with worse Moral Injury had more dysfunction',
        subtitle = "<span style = 'color:#0a3351'> **Posterior distribution of regression coefficient**</span> (Study 2)",
        caption = "Note: Gamma coefficients are multiplicative, not additive. A coefficient of 1.44, the posterior mean,<br>means a one-unit increase in the predictor is associated with a 144% increase in the outcome.<br>The coefficients have been exponentiated from the log scale to the original outcome scale."
        ) + 
@@ -53,14 +53,14 @@ draws_hurdle_2 %>%
     #panel.grid.minor = element_blank(),
     axis.line = element_line(color = "#3e3e3e"),
     axis.title = element_markdown(size = 10, face = "bold"),
-    axis.title.y = element_markdown(margin = margin(r = 17)),
+    axis.title.y = element_markdown(margin = margin(r = 20)),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
     plot.title = element_markdown(size = 14, face = "bold"),
     plot.subtitle = element_markdown(size = 12, color = "#3e3e3e"),
     plot.caption = element_markdown(hjust = 0, color = "#7e7e7e")
   ) + 
-  scale_fill_manual(values = c("#3182BD" "#08519C", "#72aeb6", "#4692b0")) +
+  scale_fill_manual(values = c("#9ECAE1", "#6BAED6", "#3182BD", "#08519C", "#72aeb6", "#4692b0")) +
   #MetBrewer::scale_fill_met_d(name = "Hokusai2") +
   scale_x_continuous(breaks = seq(1, 2, .5), limits = c(1, 2)) +
   scale_thickness_shared()
@@ -69,10 +69,9 @@ ggsave(here::here("output/plot-posterior-2.jpg"), width = 6, height = 4)
 # MetBrewer::colorblind_palettes
 # MetBrewer::display_all()
 # MetBrewer::MetPalettes$Hokusai2[[1]]
-c("#abc9c8", "#72aeb6", "#4692b0", "#2f70a1", "#134b73", "#0a3351")
-
-RColorBrewer::brewer.pal(6, name = 'Blues')
-"#EFF3FF" "#C6DBEF" "#9ECAE1" "#6BAED6" "#3182BD" "#08519C"
+#c("#abc9c8", "#72aeb6", "#4692b0", "#2f70a1", "#134b73", "#0a3351")
+# RColorBrewer::brewer.pal(6, name = 'Blues')
+#"#EFF3FF" "#C6DBEF" "#9ECAE1" "#6BAED6" "#3182BD" "#08519C"
 
 # Hurdle: Log Odds --------------------------------------------------------
 draws_hurdle_2 %>%
