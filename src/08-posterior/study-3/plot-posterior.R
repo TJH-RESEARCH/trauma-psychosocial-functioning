@@ -17,7 +17,7 @@ draws_hurdle_3_interact %>%
   ) +
   labs(y = "Posterior Density", 
        x = 'Gamma Coefficient<br>(PTSD x Moral Injury Interaction)', 
-       title = 'PTSD & Moral Injury did not interact to intensify dysfunction',
+       title = 'PTSD & Moral Injury did not interact to worsen dysfunction',
        subtitle = "<span style = 'color:#238B45'> **Posterior distribution of interaction coefficient**</span> (Study 3)",
        caption = 
        "Density of posterior probability distribution of the interaction term coefficient (exponentiated).<br>

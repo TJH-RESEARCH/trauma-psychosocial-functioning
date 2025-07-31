@@ -65,7 +65,7 @@ data_plot_preds_3 %>%
     x = 'PTSD',
     y = "Difficulty Functioning", 
     title = 'Veterans with PTSD & Moral Injury had worse dysfunction',
-    subtitle = "<span style = 'color:#454a74'> **Predicted difficulty conditional on PTSD and Moral Injury**</span> (Study 3)",
+    subtitle = "<span style = 'color:#808fe1'> **Predicted difficulty conditional on PTSD and Moral Injury**</span> (Study 3)",
     caption = "Predicted values conditional on PTSD Symptoms, stratified by Moral Injury symptoms, from the<br>gamma regression model. Fit to the non-zero outcome cases only. Calculated using a representative<br>combination of covariates with marginaleffects::plot_predictions() in R."
   ) + 
   theme(
