@@ -1,0 +1,76 @@
+variable,category,n,perc
+Education Level,Less than high school degree,36,16.216216216216218
+Education Level,High school graduate,35,15.765765765765765
+Education Level,Associate degree,34,15.315315315315313
+Education Level,Bachelor's degree,31,13.963963963963963
+Education Level,Some college,61,27.47747747747748
+Education Level,Master's degree,15,6.756756756756757
+Education Level,Professional degree,4,1.8018018018018018
+Education Level,Doctoral degree,6,2.7027027027027026
+Employment Status,Full Time,123,55.4054054054054
+Employment Status,Part Time,36,16.216216216216218
+Employment Status,No regular employment,20,9.00900900900901
+Employment Status,Unemployment,40,18.01801801801802
+Employment Status,NA,3,1.3513513513513513
+Gender,Female,101,45.4954954954955
+Gender,Male,121,54.5045045045045
+Marital Status,Currently married,98,44.14414414414414
+Marital Status,"Never married, not in a relationship now",68,30.630630630630627
+Marital Status,Not married but currently in a relationship and not living with a partner,20,9.00900900900901
+Marital Status,Not married but currently in a relationship and living with a partner,18,8.108108108108109
+Marital Status,Currently separated or divorced,14,6.306306306306306
+Marital Status,Widowed,1,0.45045045045045046
+Marital Status,NA,3,1.3513513513513513
+Birth Year,1979 - 1984,61,27.47747747747748
+Birth Year,1985 - 1989,49,22.07207207207207
+Birth Year,1990 - 1995,30,13.513513513513514
+Birth Year,1996 - 2001,48,21.62162162162162
+Birth Year,Other,34,15.315315315315313
+Annual Income,"$10,000 - $20,000",18,8.108108108108109
+Annual Income,"$20,000 - $35,000",22,9.90990990990991
+Annual Income,"$35,000 - $50,000",50,22.52252252252252
+Annual Income,"$50,000 - $100,000",38,17.117117117117118
+Annual Income,"< $10,000",52,23.423423423423422
+Annual Income,"> $100,000",40,18.01801801801802
+Annual Income,NA,2,0.9009009009009009
+Military Status,Veteran,62,27.927927927927925
+Military Status,Service Member,67,30.180180180180184
+Military Status,Civilian,93,41.891891891891895
+Time in Service,10-15 years,11,4.954954954954955
+Time in Service,15-20 years,9,4.054054054054054
+Time in Service,2-4 years,36,16.216216216216218
+Time in Service,20+ years,9,4.054054054054054
+Time in Service,5-10 years,31,13.963963963963963
+Time in Service,< 1 year,16,7.207207207207207
+Time in Service,NA,110,49.549549549549546
+Branch,Air Force,7,3.153153153153153
+Branch,Army,83,37.38738738738739
+Branch,Marine Corps,10,4.504504504504505
+Branch,Navy,13,5.8558558558558556
+Branch,Never Served,93,41.891891891891895
+Branch,Other,16,7.207207207207207
+Highest Paygrade Achieved,E-1 to E-3,33,14.864864864864865
+Highest Paygrade Achieved,E-4 to E-6,27,12.162162162162163
+Highest Paygrade Achieved,E-7 to E-9,22,9.90990990990991
+Highest Paygrade Achieved,Never served,116,52.25225225225225
+Highest Paygrade Achieved,O-1 (WO-1) to O-3 (CW-2),13,5.8558558558558556
+Highest Paygrade Achieved,O-4 (CWO-3) to O-6 (CW-5),11,4.954954954954955
+Times Deployed,1,21,9.45945945945946
+Times Deployed,2,22,9.90990990990991
+Times Deployed,3,12,5.405405405405405
+Times Deployed,4,6,2.7027027027027026
+Times Deployed,5 or more,5,2.2522522522522523
+Times Deployed,Not applicable,154,69.36936936936937
+Times Deployed,NA,2,0.9009009009009009
+MOS,"Combat Arms (i.e., Infantry, Armor, Field Artillery, Special Forces)",29,13.063063063063062
+MOS,"Combat Service Support (i.e, Quartermaster, Transportation, Finance)",11,4.954954954954955
+MOS,"Combat Support (i.e., Engineer, Military Police including Security Forces, Signal Corps)",29,13.063063063063062
+MOS,"Logistics & Maintenance (Maintenance, Fuels, Logistics, Transportation, Munitions)",7,3.153153153153153
+MOS,Medical - Other,15,6.756756756756757
+MOS,Not Applicable,119,53.6036036036036
+MOS,"Operations (i.e., Aircrew, Cyber, Command & Control, Intel, Safety, Weather)",7,3.153153153153153
+MOS,"Support (Cyber Support, Engineering, Force Support, Public Affairs, Security Forces)",5,2.2522522522522523
+History of Head Injury,No,67,30.180180180180184
+History of Head Injury,Yes,155,69.81981981981981
+Previous Deployment,No,67,30.180180180180184
+Previous Deployment,Yes,155,69.81981981981981

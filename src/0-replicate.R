@@ -40,7 +40,10 @@ source(here::here('src/00-config/score-bipf.R'))
 
 # 1. DESCRIBE THE SAMPLES ------------------------------------------------------
 ## Create demographic tables for the 3 samples
-source(here::here('src/01-describe-sample/demographic-tables.R'))
+source(here::here('src/01-describe-sample/demographic-table-1.R'))
+source(here::here('src/01-describe-sample/demographic-table-2.R'))
+source(here::here('src/01-describe-sample/demographic-table-3.R'))
+source(here::here('src/01-describe-sample/demographic-tables-combine.R'))
 
 
 # 2. EXAMINE MEASURES -----------------------------------------------------
