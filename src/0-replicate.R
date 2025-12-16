@@ -11,24 +11,6 @@ library(cmdstanr)
 ## Loads the themes for visualizations:
 source(here::here('src/00-config/themes.R'))
 
-## Set global Stan Monte Carlo Markov Chain (MCMC) options:
-CHAINS <- 4                                  # Number of sample chains for MCMC
-ITER <- 6000                                 # Number of samples for MCMC
-WARMUP <- 2000                               # Number of warm-up samples for MCMC
-SEED <- 999888777                            # Random seed to replicate MCMC sampling
-options(mc.cores = parallel::detectCores())  # Detects the number of cores on your computer for parallel processing
-
-## Set MCMC sampler to cmdstanr if it is available on your machine. If not, it will use rstan.
-if ("cmdstanr" %in% rownames(installed.packages()) &
-    cmdstanr::cmdstan_version() >= "2.30") {
-  options(brms.backend = "cmdstanr")
-} else {
-  message("CmdStan not installed. Falling back to rstan.")
-  options(brms.backend = "rstan")
-}
-
-## if you get an error about missing a path to cmnstan, try re-installing with install_cmdstan()
-
 ## Load the data sets:
 data_1 <- read_csv(here::here('data/data-moore-dissertation.csv'))
 data_2 <- read_csv(here::here('data/data-dissertation-main.csv'))
@@ -37,9 +19,13 @@ data_3 <- read_csv(here::here('data/data-first-year-scholars-cleaned.csv'))
 ## Score and categorize the bIPF in each of the 3 data sets:
 source(here::here('src/00-config/score-bipf.R'))
 
+## Set global Stan Monte Carlo Markov Chain (MCMC) options:
+source(here::here('src/00-config/program-mcmc.R'))
+
 
 # 1. DESCRIBE THE SAMPLES ------------------------------------------------------
 ## Create demographic tables for the 3 samples
+source(here::here('src/01-describe-sample/helper-functions.R'))
 source(here::here('src/01-describe-sample/demographic-table-1.R'))
 source(here::here('src/01-describe-sample/demographic-table-2.R'))
 source(here::here('src/01-describe-sample/demographic-table-3.R'))
@@ -74,11 +60,12 @@ source(here::here('src/03-examine-variables/plot-bivariate.R'))
 ## Select the needed variables, scale the data, and handle issues such as non-variance and missingness
 
 ## Prepare the Data by Standardizing continuous variables, removing non-variance, centering dummy variables
-source(here::here('src/05-pre-processing/recipes.R'))
+source(here::here('src/05-pre-processing/recipes-1.R'))
+source(here::here('src/05-pre-processing/recipes-2.R'))
+source(here::here('src/05-pre-processing/recipes-3.R'))
 
 
 
-# STUDY 1 ----------------------------------------------------------------------
 
 # 6. PRIORS ----------------------------------------------------------------------
 ## Specify priors and adjust them through prior predictive checks
@@ -99,17 +86,18 @@ source(here::here('src/06-priors/study-1/prior-predictive-check.R'))
 
 
 ### Study 2
-#### Plot the priors
-source(here::here('src/06-priors/study-2/plot-priors.R'))
+source(here::here('src/06-priors/study-2/plot-priors.R')) #### Plot the priors
+source(here::here("src/06-priors/study-2/specify-priors.R")) #### Specify the priors
+source(here::here("src/06-priors/study-2/sample-priors.R")) #### Sample from the Prior Distributions
+source(here::here('src/06-priors/study-2/prior-predictive-check.R')) #### Prior Predictive Check
 
-#### Specify the priors
-source(here::here("src/06-priors/study-2/specify-priors.R"))
 
-#### Sample from the Prior Distributions
-source(here::here("src/06-priors/study-2/sample-priors.R"))
+### Study 3
+source(here::here('src/06-priors/study-3/plot-priors.R')) #### Plot the priors
+source(here::here("src/06-priors/study-3/specify-priors.R")) #### Specify the priors
+source(here::here("src/06-priors/study-3/sample-priors.R")) #### Sample from the Prior Distributions
+source(here::here('src/06-priors/study-3/prior-predictive-check.R')) #### Prior Predictive Check
 
-#### Prior Predictive Check
-source(here::here('src/06-priors/study-2/prior-predictive-check.R'))
 
 
 
@@ -152,13 +140,47 @@ source(here::here('src/07-modeling/study-3/01-fit-model-interact.R'))
 
 # POSTERIOR DISTRIBUTION ----------------------------------------------------
 
-### Plot the posterior probability
+### Study 1
+#### Plot the posterior probability
+source(here::here('src/08-posterior/'))
 
-### Summarize the posterior probability
+#### Summarize the posterior probability
+source(here::here('src/08-posterior/'))
+
+#### Marginal effects
+source(here::here('src/08-posterior/'))
+
+#### Model predictions
+source(here::here('src/08-posterior/'))
 
 
+### Study 2
+#### Plot the posterior probability
+source(here::here('src/08-posterior/'))
+
+#### Summarize the posterior probability
+source(here::here('src/08-posterior/'))
+
+#### Marginal effects
+source(here::here('src/08-posterior/'))
+
+#### Model predictions
+source(here::here('src/08-posterior/'))
 
 
-# PREDICTIONS -------------------------------------------------------------
+### Study 3
+#### Plot the posterior probability
+source(here::here('src/08-posterior/'))
+
+#### Summarize the posterior probability
+source(here::here('src/08-posterior/'))
+
+#### Marginal effects
+source(here::here('src/08-posterior/'))
+
+#### Model predictions
+source(here::here('src/08-posterior/'))
+
+
 
 

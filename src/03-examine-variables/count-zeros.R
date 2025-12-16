@@ -1,3 +1,6 @@
+
+
+
 data_1 %>% 
   mutate(bipf_zero = ifelse(bipf_total == 0, 1, 0)) %>% 
   count(bipf_zero) %>% 

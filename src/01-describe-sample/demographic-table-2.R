@@ -1,36 +1,5 @@
 
-
-
-# Creates a helper function to count the percentage of demographics
-
-count_perc <-
-  function(x, sort){
-    x = 
-      x %>% 
-      count(sort = sort) %>% 
-      ungroup() %>% 
-      mutate(perc = n / sum(n) * 100) %>% 
-      rename(category = 1)
-    
-    if(!is.character(x$category)){
-      x = x %>% mutate(category = as.character(category))
-    }
-    
-    return(x)
-    
-  }
-
-create_percentage_table <- function(data){
-  
-  data %>% 
-    tidyr::pivot_longer(everything(), names_to = 'category', values_to = 'response') %>% 
-    group_by(category) %>% 
-    summarize(total = n(), n = sum(response, na.rm = T), perc = n/total * 100) %>% 
-    select(!total)
-}
-
-
-
+# Create demographic tables -----------------------------------------------
 demographic_table_2 <-
   bind_rows( 
     
@@ -41,7 +10,7 @@ demographic_table_2 <-
                cut(data_2$years_of_age, 
                    breaks = c(18, 34.5, 54.5, 64.5, 74.5, 100))) %>% 
       count(category) %>% 
-      mutate(perc = n / sum(n) * 100, 
+      mutate(perc = n / sum(n), 
              category = c("18 to 34",
                           "35 to 54",
                           "55 to 64",
@@ -57,27 +26,12 @@ demographic_table_2 <-
       mutate(variable = "Branch"),
     
     
-    # Disability -------------------------------------------------------------------------
-      data_2 %>% 
-      group_by(disability) %>% 
-      count_perc(TRUE) %>% 
-      mutate(variable = "VA Disability Status",
-             category = ifelse(category == 0, "No", "Yes")),
-    
-    
-    # Discharge Reason --------------------------------------------------------
-      data_2 %>% 
-      group_by(discharge_reason) %>% 
-      count_perc(TRUE) %>% 
-      mutate(variable = "Discharge Reason"),
-    
-    
     # Education ----------------------------------------------------------------
       data_2 %>% 
       group_by(education) %>% 
       count(sort = F) %>% 
       ungroup() %>% 
-      mutate(perc = n / sum(n) * 100) %>% 
+      mutate(perc = n / sum(n)) %>% 
       rename(category = 1) %>% 
       mutate(variable = "Education Level"),
     
@@ -94,21 +48,7 @@ demographic_table_2 <-
                           "Combat Support",
                           "Any of the above",
                           "None of the above")),
-    
-    # Military Family ---------------------------------------------------------
-      data_2 %>% 
-      select(starts_with('military_family') & !ends_with('total')) %>% 
-      create_percentage_table() %>% 
-      slice(c(5,6,7,2,4,1,3)) %>% 
-      mutate(variable = "Military Family",
-             category = c("Parent", 
-                          "Sibling", 
-                          "Spouse", 
-                          "Child", 
-                          "Other family member", 
-                          "Any of the above", 
-                          "None of the above")),
-    
+  
     
     # Race ----------------------------------------------------------------------
       data_2 %>% 
@@ -136,7 +76,7 @@ demographic_table_2 <-
       select(service_era_init) %>% 
       tidyr::pivot_longer(everything(), names_to = 'category', values_to = 'response') %>% 
       count(response) %>% 
-      mutate(perc = n/sum(n) * 100) %>% 
+      mutate(perc = n/sum(n)) %>% 
       rename(category = 1) %>% 
       mutate(variable = "Initial Service Era"),
     
@@ -158,6 +98,8 @@ demographic_table_2 <-
       count_perc(sort = TRUE) %>% 
       mutate(variable = "Sexual Orientation"),
     
+
+# Years of Service --------------------------------------------------------
     years_service =
       data_2 %>% 
       select(years_service) %>% 
@@ -166,7 +108,7 @@ demographic_table_2 <-
                    breaks = c(0, 4.9, 9.9, 14.9, 19.9, 30))) %>% 
       count(group) %>% 
       ungroup() %>% 
-      mutate(perc = n / sum(n) * 100,
+      mutate(perc = n / sum(n),
              category = c("0 to 4",
                           "5 to 9",
                           "10 to 14",
@@ -175,6 +117,8 @@ demographic_table_2 <-
              variable = "Years of Service") %>% 
       select(category, !group),
     
+
+# Years of Separation -----------------------------------------------------
     years_seperation =
       data_2 %>% 
       select(years_separation) %>% 
@@ -183,7 +127,7 @@ demographic_table_2 <-
                    breaks = c(-1, 9.9, 19.9, 29.9, 39.9, 49.9, 100))) %>% 
       count(group) %>% 
       ungroup() %>% 
-      mutate(perc = n / sum(n) * 100,
+      mutate(perc = n / sum(n),
              category = c("0 to 9",
                           "10 to 19",
                           "20 to 29",
@@ -202,10 +146,3 @@ demographic_table_2 <-
 
 # Print -------------------------------------------------------------------
 demographic_table_2 %>% print(n = 100)
-
-# Save --------------------------------------------------------------------
-demographic_table_2 %>% readr::write_csv(here::here('output/demographic-table-2.csv'))
-
-# Message -----------------------------------------------------------------
-message('Demographic table saved to `output/demographic-table-2.csv`')
-

@@ -1,0 +1,28 @@
+,,Sample 2,,Sample 3,
+Variable,Category,n,%,n,%
+Gender,Male,164,72%,98,68%
+,Female,64,28%,46,32%
+,Non-Binary,0,0%,1,1%
+Age,18 to 34,12,5%,27,19%
+,35 to 54,61,27%,80,55%
+,55 to 64,45,20%,28,19%
+,65 to 74,52,23%,6,4%
+,75 and older,58,25%,4,3%
+Race/Ethnicity,White,181,79%,105,72%
+,Black or African American,23,10%,20,14%
+,Multiple,10,4%,11,8%
+,"Hispanic, Latino, or Spanish origin",8,4%,3,2%
+,"Some other race, ethnicity, or origin",3,1%,1,1%
+,Asian,2,1%,5,3%
+,American Indian or Alaska Native,1,0%,0,0%
+Education Level,High school diploma or equivalent,34,15%,7,5%
+,Some college,62,27%,37,26%
+,Associates degree,39,17%,16,11%
+,Bachelors degree,55,24%,47,32%
+,Masters degree,33,14%,29,20%
+,Applied or professional doctorate,4,2%,3,2%
+,Doctorate,1,0%,6,4%
+Sexual Orientation,Straight,209,92%,,
+,Bisexual,10,4%,,
+,Gay,7,3%,,
+,Other,2,1%,,

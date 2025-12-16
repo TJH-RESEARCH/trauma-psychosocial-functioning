@@ -1,75 +1,61 @@
 variable,category,n,perc
-Age,18 to 34,12,5.263157894736842
-Age,35 to 54,61,26.75438596491228
-Age,55 to 64,45,19.736842105263158
-Age,65 to 74,52,22.807017543859647
-Age,75 and older,58,25.438596491228072
-Branch,Army,108,47.368421052631575
-Branch,Navy,56,24.561403508771928
-Branch,Air Force,38,16.666666666666664
-Branch,Marines,20,8.771929824561402
-Branch,Multiple,4,1.7543859649122806
-Branch,Public Health Service,2,0.8771929824561403
-VA Disability Status,No,160,70.17543859649122
-VA Disability Status,Yes,68,29.82456140350877
-Discharge Reason,Service Completed,145,63.59649122807017
-Discharge Reason,Voluntary Discharge,46,20.175438596491226
-Discharge Reason,Medical Discharge,24,10.526315789473683
-Discharge Reason,Other,11,4.824561403508771
-Discharge Reason,Not yet discharged,2,0.8771929824561403
-Education Level,Applied or professional doctorate,4,1.7543859649122806
-Education Level,Associates degree,39,17.105263157894736
-Education Level,Bachelors degree,55,24.12280701754386
-Education Level,Doctorate,1,0.43859649122807015
-Education Level,High school diploma or equivalent,34,14.912280701754385
-Education Level,Masters degree,33,14.473684210526317
-Education Level,Some college,62,27.192982456140353
-Military Experiences,Combat Depoloyment,68,29.82456140350877
-Military Experiences,Non-combat Deployment,113,49.56140350877193
-Military Experiences,Peacekeeping or Humanitarian Deployment,35,15.350877192982457
-Military Experiences,Combat Support,54,23.684210526315788
-Military Experiences,Any of the above,158,69.2982456140351
-Military Experiences,None of the above,70,30.701754385964914
-Military Family,Parent,105,46.05263157894737
-Military Family,Sibling,69,30.263157894736842
-Military Family,Spouse,34,14.912280701754385
-Military Family,Child,28,12.280701754385964
-Military Family,Other family member,50,21.929824561403507
-Military Family,Any of the above,172,75.43859649122807
-Military Family,None of the above,56,24.561403508771928
-Race/Ethnicity,White,181,79.3859649122807
-Race/Ethnicity,Black or African American,23,10.087719298245613
-Race/Ethnicity,Multiple,10,4.385964912280701
-Race/Ethnicity,"Hispanic, Latino, or Spanish origin",8,3.508771929824561
-Race/Ethnicity,"Some other race, ethnicity, or origin",3,1.3157894736842104
-Race/Ethnicity,Asian,2,0.8771929824561403
-Race/Ethnicity,American Indian or Alaska Native,1,0.43859649122807015
-Highest Paygrade Achieved,E-1 to E-3,31,13.596491228070176
-Highest Paygrade Achieved,E-4 to E-6,145,63.59649122807017
-Highest Paygrade Achieved,E-7 to E-9,25,10.964912280701753
-Highest Paygrade Achieved,W-1 to CW-5,3,1.3157894736842104
-Highest Paygrade Achieved,O-1 to O-3,15,6.578947368421052
-Highest Paygrade Achieved,O-4 to O-6,9,3.9473684210526314
-Initial Service Era,Cold War (Post-Vietnam),63,27.631578947368425
-Initial Service Era,Cold War (Pre-Vietnam),15,6.578947368421052
-Initial Service Era,Korea,1,0.43859649122807015
-Initial Service Era,Persian Gulf,33,14.473684210526317
-Initial Service Era,Post 9-11,41,17.982456140350877
-Initial Service Era,Vietnam,75,32.89473684210527
-Gender,Male,164,71.9298245614035
-Gender,Female,64,28.07017543859649
-Sexual Orientation,straight,209,91.66666666666666
-Sexual Orientation,bisexual,10,4.385964912280701
-Sexual Orientation,gay,7,3.070175438596491
-Sexual Orientation,other,2,0.8771929824561403
-Years of Service,0 to 4,89,39.03508771929825
-Years of Service,5 to 9,84,36.84210526315789
-Years of Service,10 to 14,16,7.017543859649122
-Years of Service,15 to 20,3,1.3157894736842104
-Years of Service,20 or more,36,15.789473684210526
-Years since Separation,0 to 9,26,11.403508771929824
-Years since Separation,10 to 19,36,15.789473684210526
-Years since Separation,20 to 29,38,16.666666666666664
-Years since Separation,30 to 39,48,21.052631578947366
-Years since Separation,40 to 50,34,14.912280701754385
-Years since Separation,50 or more,46,20.175438596491226
+Age,18 to 34,12,0.05263157894736842
+Age,35 to 54,61,0.2675438596491228
+Age,55 to 64,45,0.19736842105263158
+Age,65 to 74,52,0.22807017543859648
+Age,75 and older,58,0.2543859649122807
+Branch,Army,108,0.47368421052631576
+Branch,Navy,56,0.24561403508771928
+Branch,Air Force,38,0.16666666666666666
+Branch,Marines,20,0.08771929824561403
+Branch,Multiple,4,0.017543859649122806
+Branch,Public Health Service,2,0.008771929824561403
+Education Level,Applied or professional doctorate,4,0.017543859649122806
+Education Level,Associates degree,39,0.17105263157894737
+Education Level,Bachelors degree,55,0.2412280701754386
+Education Level,Doctorate,1,0.0043859649122807015
+Education Level,High school diploma or equivalent,34,0.14912280701754385
+Education Level,Masters degree,33,0.14473684210526316
+Education Level,Some college,62,0.2719298245614035
+Military Experiences,Combat Depoloyment,68,0.2982456140350877
+Military Experiences,Non-combat Deployment,113,0.4956140350877193
+Military Experiences,Peacekeeping or Humanitarian Deployment,35,0.15350877192982457
+Military Experiences,Combat Support,54,0.23684210526315788
+Military Experiences,Any of the above,158,0.6929824561403509
+Military Experiences,None of the above,70,0.30701754385964913
+Race/Ethnicity,White,181,0.793859649122807
+Race/Ethnicity,Black or African American,23,0.10087719298245613
+Race/Ethnicity,Multiple,10,0.043859649122807015
+Race/Ethnicity,"Hispanic, Latino, or Spanish origin",8,0.03508771929824561
+Race/Ethnicity,"Some other race, ethnicity, or origin",3,0.013157894736842105
+Race/Ethnicity,Asian,2,0.008771929824561403
+Race/Ethnicity,American Indian or Alaska Native,1,0.0043859649122807015
+Highest Paygrade Achieved,E-1 to E-3,31,0.13596491228070176
+Highest Paygrade Achieved,E-4 to E-6,145,0.6359649122807017
+Highest Paygrade Achieved,E-7 to E-9,25,0.10964912280701754
+Highest Paygrade Achieved,W-1 to CW-5,3,0.013157894736842105
+Highest Paygrade Achieved,O-1 to O-3,15,0.06578947368421052
+Highest Paygrade Achieved,O-4 to O-6,9,0.039473684210526314
+Initial Service Era,Cold War (Post-Vietnam),63,0.27631578947368424
+Initial Service Era,Cold War (Pre-Vietnam),15,0.06578947368421052
+Initial Service Era,Korea,1,0.0043859649122807015
+Initial Service Era,Persian Gulf,33,0.14473684210526316
+Initial Service Era,Post 9-11,41,0.17982456140350878
+Initial Service Era,Vietnam,75,0.32894736842105265
+Gender,Male,164,0.7192982456140351
+Gender,Female,64,0.2807017543859649
+Sexual Orientation,straight,209,0.9166666666666666
+Sexual Orientation,bisexual,10,0.043859649122807015
+Sexual Orientation,gay,7,0.03070175438596491
+Sexual Orientation,other,2,0.008771929824561403
+Years of Service,0 to 4,89,0.39035087719298245
+Years of Service,5 to 9,84,0.3684210526315789
+Years of Service,10 to 14,16,0.07017543859649122
+Years of Service,15 to 20,3,0.013157894736842105
+Years of Service,20 or more,36,0.15789473684210525
+Years since Separation,0 to 9,26,0.11403508771929824
+Years since Separation,10 to 19,36,0.15789473684210525
+Years since Separation,20 to 29,38,0.16666666666666666
+Years since Separation,30 to 39,48,0.21052631578947367
+Years since Separation,40 to 50,34,0.14912280701754385
+Years since Separation,50 or more,46,0.20175438596491227
