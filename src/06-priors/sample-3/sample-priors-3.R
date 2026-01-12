@@ -1,8 +1,5 @@
-library(brms)
-library(cmdstanr)
-
 # Study 3: Sample from the Prior only ------------------------------------------
-model_3_prior <- 
+model_3_hurdle_prior <- 
   brm(
     bf(
       bipf_score ~ mios_total + pcl_total + military_exp_combat + military_exp_noncombat + military_exp_support + military_exp_peacekeeping + gender_female + race_asian + race_black + race_latino + race_native + race_other + rank_e1_e3 + rank_e7_e9 + rank_w1_cw5 + rank_o1_o3 + rank_o4_o6  + service_era_cold_war + service_era_vietnam + service_era_persian_gulf + branch_air_force + branch_marines + branch_navy + branch_public_health,
@@ -15,4 +12,4 @@ model_3_prior <-
     chains = CHAINS, iter = ITER, warmup = WARMUP, seed = SEED
   )
 
-prior_summary(model_3_prior)
+prior_summary(model_3_hurdle_prior)

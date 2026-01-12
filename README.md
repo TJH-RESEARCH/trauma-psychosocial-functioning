@@ -7,15 +7,20 @@ contributors:
 
 
 ## To Do
+- checked through prior predictive check
+
 - Informative Priors for sample 3 
-- Sample plots from sample priors
+- Sample plots from sample priors/output/visuals from prior predictive checks?
+- model comparison
 - check warnings
 
-- bivariate plots: what story should be told with these? Consider their presentation more carefully.
-- update 3rd dag to include participation
 - consolidate and clean up the generative model folder
+- DAGs? with Bayesian models, the main approach is to use all the covariate you can... 
+- plot priors shape is ugly
+- title for plot priors
+
 - Assess model fits
-- output/visuals from prior predictive checks?
+- do something with the groups.R file
 
 
 ## Overview

@@ -1,30 +1,28 @@
+# Create demographic tables for Sample 2
 
-# Create demographic tables -----------------------------------------------
 demographic_table_2 <-
   bind_rows( 
     
-    # Age ---------------------------------------------------------------------
-      data_2 %>% 
-      select(years_of_age) %>% 
-      mutate(category = 
-               cut(data_2$years_of_age, 
-                   breaks = c(18, 34.5, 54.5, 64.5, 74.5, 100))) %>% 
-      count(category) %>% 
-      mutate(perc = n / sum(n), 
-             category = c("18 to 34",
-                          "35 to 54",
-                          "55 to 64",
-                          "65 to 74",
-                          "75 and older"),
-             variable = "Age"),
+    # Age ----------------------------------------------------------------------
+    data_2 %>% 
+    select(years_of_age) %>% 
+    mutate(category = 
+             cut(data_2$years_of_age, 
+                 breaks = c(18, 34.5, 54.5, 64.5, 74.5, 100))) %>% 
+    count(category) %>% 
+    mutate(perc = n / sum(n), 
+           category = c("18 to 34",
+                        "35 to 54",
+                        "55 to 64",
+                        "65 to 74",
+                        "75 and older"),
+           variable = "Age"),
     
-    
-    # Branch ------------------------------------------------------------------
+    # Branch -------------------------------------------------------------------
       data_2 %>% 
       group_by(branch) %>% 
       count_perc(TRUE) %>% 
       mutate(variable = "Branch"),
-    
     
     # Education ----------------------------------------------------------------
       data_2 %>% 
@@ -34,7 +32,6 @@ demographic_table_2 <-
       mutate(perc = n / sum(n)) %>% 
       rename(category = 1) %>% 
       mutate(variable = "Education Level"),
-    
     
     # Military Experiences ----------------------------------------------------
       data_2 %>% 
@@ -49,13 +46,11 @@ demographic_table_2 <-
                           "Any of the above",
                           "None of the above")),
   
-    
-    # Race ----------------------------------------------------------------------
+    # Race ---------------------------------------------------------------------
       data_2 %>% 
       group_by(race) %>% 
       count_perc(TRUE) %>% 
       mutate(variable = "Race/Ethnicity"),
-    
     
     # Highest Paygrade Achieved ------------------------------------------------
       data_2 %>% 
@@ -70,17 +65,16 @@ demographic_table_2 <-
                           "O-1 to O-3",
                           "O-4 to O-6")),
     
-    
-    # Service Era -------------------------------------------------------------
+    # Service Era --------------------------------------------------------------
       data_2 %>% 
       select(service_era_init) %>% 
-      tidyr::pivot_longer(everything(), names_to = 'category', values_to = 'response') %>% 
+      pivot_longer(everything(), names_to = 'category', values_to = 'response') %>% 
       count(response) %>% 
       mutate(perc = n/sum(n)) %>% 
       rename(category = 1) %>% 
       mutate(variable = "Initial Service Era"),
     
-    # Gender ----------------------------------------------------------------------
+    # Gender -------------------------------------------------------------------
       data_2 %>% 
       group_by(sex) %>% 
       count_perc(sort = TRUE) %>% 
@@ -90,17 +84,13 @@ demographic_table_2 <-
                                   .default = category
                                   )),
     
-    
-    # Sexual Orientation --------------------------------------------------------
-    sexual_orientation_sample =
+    # Sexual Orientation -------------------------------------------------------
       data_2 %>% 
       group_by(sexual_orientation) %>% 
       count_perc(sort = TRUE) %>% 
       mutate(variable = "Sexual Orientation"),
     
-
-# Years of Service --------------------------------------------------------
-    years_service =
+    # Years of Service ---------------------------------------------------------
       data_2 %>% 
       select(years_service) %>% 
       mutate(group = 
@@ -117,9 +107,7 @@ demographic_table_2 <-
              variable = "Years of Service") %>% 
       select(category, !group),
     
-
-# Years of Separation -----------------------------------------------------
-    years_seperation =
+    # Years of Separation ------------------------------------------------------
       data_2 %>% 
       select(years_separation) %>% 
       mutate(group = 
@@ -137,12 +125,11 @@ demographic_table_2 <-
              variable = "Years since Separation") %>% 
       select(category, !group)
     
-    
   ) %>% 
-  #mutate(perc = paste0(round(perc, 1), "%")) %>% 
   select(variable, everything())
 
 
-
-# Print -------------------------------------------------------------------
+# Print to console -------------------------------------------------------------
 demographic_table_2 %>% print(n = 100)
+
+# do not write to file here... that happens later with `demographic-tables-combine.R`

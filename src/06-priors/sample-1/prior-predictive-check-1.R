@@ -1,65 +1,98 @@
-library(modelr)
-library(brms)
 
-# Prior Predictive -------------------------------------------------------------
+# Prior Predictive Check
 
-## Simulate some data
+
+# Grid Data ---------------------------------------------------------------
+## Create data "grid" similar to the real data, 
+## with a sequence of values for the explanatory variable from -1.5 to 2 
+## (roughly the min and max of pcl_total in data_baked_1 -- in SD not original units)
+## and every combination of the dummy-coded covariates.
+
 data_sim_1 <-
   expand_grid(
-    pcl_total = seq(0, 3.75, by = .05), 
+    pcl_total = seq(-1.5, 2, by = .05), # Range
     status = c('service_member', 'veteran', 'civilian'),
     gender_female = c(0,1),
     birth_year = c('born_79_84', 'born_85_89', 'born_90_95', 'born_96_01', 'born_other'), 
     trauma = c(0,1)
   ) %>% 
   
-  # Dummy Variables for Categorical
   mutate(
+    ## Dummy code categorical variables
     veteran = ifelse(status == 'veteran', 1, 0),
     civilian = ifelse(status == 'civilian', 1, 0),
     born_79_84 = ifelse(birth_year == 'born_79_84', 1, 0),
     born_85_89 = ifelse(birth_year == 'born_85_89', 1, 0),
     born_90_95 = ifelse(birth_year == 'born_90_95', 1, 0),
-    born_96_01 = ifelse(birth_year == 'born_96_01', 1, 0)
+    born_96_01 = ifelse(birth_year == 'born_96_01', 1, 0),
+    
+    ## and transform the pcl_total SD to original units, saved in a separate variable
+    pcl_total_og = pcl_total * sd(data_1$pcl_total) + mean(data_1$pcl_total)
   )
+  
 
 
-# Get linear predictor on log scale
-linpred_mat <- posterior_linpred(model_1_prior, 
-                                 newdata = data_sim_1, 
-                                 dpar = "mu", 
-                                 transform = FALSE)
+# Linear Predictor --------------------------------------------------------
+## Calculate the "linear predictor" i.e.,  μ = βX + α  , on log scale
+## using the simulated grid data above and predictions from
+## the model fit to the priors only. In other words, predict this model μ given 
+## the prior specifications of β and α
+## and with X = the range of possible observable values.
+
+linpred_prior_1 <- 
+  posterior_linpred(model_1_hurdle_prior, 
+                    newdata = data_sim_1, 
+                    dpar = "mu", 
+                    transform = FALSE)
 
 # Summarize across draws to get a single estimate per row (mean of the posterior)
-data_sim_1$log_mu <- colMeans(linpred_mat)
+data_sim_1$log_mu <- colMeans(linpred_prior_1)
 
-# compute posterior mean on outcome scale
+# compute posterior mean on outcome scale (not the log scale)
 data_sim_1$mu <- exp(data_sim_1$log_mu)
 
-# Plot linear predictor (log-mu)
-ggplot(data_sim_1, aes(x = pcl_total, y = log_mu)) +
-  geom_point(alpha = 0.75) +
-  labs(y = "Linear Predictor (log-mu)")
 
-# Plot linear predictor (log-mu)
-ggplot(data_sim_1, aes(x = pcl_total, y = mu)) +
-  geom_point(alpha = 0.75) +
+# Plot linear predictor (Response Scale) ---------------------------------------
+plot_prior_predictive_1 <-
+ggplot(data_sim_1, aes(x = pcl_total_og, y = mu)) +
+  geom_smooth(method = 'loess', color = colors_tam[2]) +
   labs(
     title = "Sample from weakly informative prior",
-    subtitle = "With beta around 0, the effect should be flat. Assume most people have a baseline functioning around 10 without any PTSD",
-    y = "Linear Predictor (outcome scale)") +
-  lims(y = c(0,100)) + # to put on the scale of the outcome variable 0-100
+    subtitle = "With beta around 0, the effect should be flat.",
+    x = "PCL Total", 
+    y = "Linear Predictor (μ)",
+    caption = "This basically assumes most people would have a dysfunction around 10<br>if none of the variables (explanatory or covariates) had a consistent effect."
+    ) +
+  lims(y = c(0,100), x = c(0,80)) +  # to put on the scale of the outcome variable 0-100
+  theme_scatter
 
-  
-## Prior draws for coefficients. 
-as_draws_df(model_1_prior) %>%
+
+## Print to console ------------------------------------------------------------
+plot_prior_predictive_1 %>% print()
+
+
+## Save to file ----------------------------------------------------------------
+ggsave(plot = plot_prior_predictive_1, file = here::here("output/plot-prior-predictive-1.jpg"), width = 6, height = 4)
+
+
+# Plot prior draws for coefficients  -------------------------------------------
+plot_prior_draws_1 <-
+  as_draws_df(model_1_hurdle_prior) %>%
   select(starts_with("b_")) %>%
   pivot_longer(cols = everything(), names_to = "term", values_to = "value") %>%
   ggplot(aes(x = value)) +
   geom_histogram(bins = 50) +
   facet_wrap(~term, scales = "free") +
-  labs(title = "Prior Draws for Coefficients")
+  labs(title = "Prior Draws for Coefficients") +
+  lims(x = c(-12, 12), y = c(0, 3500)) + 
+  theme_scatter
 
+
+# Print to console --------------------------------------------------------
+plot_prior_draws_1 %>% print()
+
+# Save to file ------------------------------------------------------------
+ggsave(plot = plot_prior_draws_1, file = here::here("output/plot-prior-draws-1.jpg"), width = 8, height = 8)
 
 
 

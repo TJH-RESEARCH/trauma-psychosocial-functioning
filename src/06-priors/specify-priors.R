@@ -1,5 +1,4 @@
-
-library(brms)
+# Declare different kinds of prior distributions to use in the models
 
 
 # Weakly Informative Priors -----------------------------------------------

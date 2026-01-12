@@ -1,5 +1,6 @@
+# Examine the covariates
 
-# Impairment level by Military Status
+## Sample 1: Does impairment level vary by Military Status?
 data_1 %>% 
   mutate(military_status = 
            case_when(

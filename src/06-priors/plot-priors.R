@@ -1,5 +1,4 @@
-
-# Plot Prior Distributions
+# Plot the raw Prior Distributions to understand them
 
 n <- 1e5
 
@@ -11,31 +10,31 @@ priors <-
     # Non-zero (nz) process -------------------------------------------------------------------
     
     ## Weakly informative priors
-    nz_coef_weak = rnorm(n, mean = 0, sd = 2),
-    nz_intercept_weak = rnorm(n, mean = 2.3, sd = 1),
+    nz_coef_Weak = rnorm(n, mean = 0, sd = 2),
+    nz_intercept_Weak = rnorm(n, mean = 2.3, sd = 1),
     
     ## Vague priors
-    nz_coef_vague = rnorm(n, mean = 0, sd = 10),
-    nz_intercept_vauge = rnorm(n, mean = 2.3, sd = 10),
+    nz_coef_Vague = rnorm(n, mean = 0, sd = 10),
+    nz_intercept_Vauge = rnorm(n, mean = 2.3, sd = 10),
     
     ## Informative priors
-    nz_coef_inform = rnorm(n, mean = 0, sd = 2),
-    nz_intercept_inform = rnorm(n, mean = 2.3, sd = 1),
+    nz_coef_Informative = rnorm(n, mean = 0, sd = 2),
+    nz_intercept_Informative = rnorm(n, mean = 2.3, sd = 1),
     
     
     # Zero process (zp) -------------------------------------------------------------------
     
     ## Weakly informative priors
-    zp_coef_weak = rnorm(n, mean = 0, sd = 1),
-    zp_intercept_weak = rnorm(n, mean = 0, sd = 1),
+    zp_coef_Weak = rnorm(n, mean = 0, sd = 1),
+    zp_intercept_Weak = rnorm(n, mean = 0, sd = 1),
     
     ## Vauge priors
-    zp_coef_vague = rnorm(n, mean = 0, sd = 10),
-    zp_intercept_vague = rnorm(n, mean = 0, sd = 10),
+    zp_coef_Vague = rnorm(n, mean = 0, sd = 10),
+    zp_intercept_Vague = rnorm(n, mean = 0, sd = 10),
     
     ## Informative priors
-    zp_coef_inform = rnorm(n, mean = 0, sd = 1),
-    zp_intercept_inform = rnorm(n, mean = 0, sd = 1),
+    zp_coef_Informative = rnorm(n, mean = 0, sd = 1),
+    zp_intercept_Informative = rnorm(n, mean = 0, sd = 1),
     
     
     # Shape -------------------------------------------------------------------
@@ -55,32 +54,55 @@ priors <-
 # Plot --------------------------------------------------------------------
 
 ## Plot Non-zero Process Coefficient Prior
-priors %>% 
+plot_priors_nonzero <-
+  priors %>% 
   select(contains("coef")) %>% 
   pivot_longer(everything()) %>% 
+  mutate(name = str_replace(name, "nz_coef_", "Non-Zero "),
+         name = str_replace(name, "zp_coef_", "Zero-Process ")) %>% 
   ggplot(aes(value)) +
-  geom_density(fill = 'red', alpha = .25) +
+  geom_density(fill = colors_tam[4], linewidth = .2, alpha = .25) +
+  labs(x = NULL, y = "Density", subtitle = "Coefficients") +
   lims(x = c(-20, 20)) +
-  facet_wrap(~name)
+  facet_wrap(~name) +
+  theme_scatter
 
 ## Plot Non-zero Process Intercept Prior
-priors %>% 
+plot_priors_zero <-
+  priors %>% 
   select(contains("intercept")) %>% 
   pivot_longer(everything()) %>% 
+  mutate(name = str_replace(name, "nz_intercept_", "Non-Zero "),
+         name = str_replace(name, "zp_intercept_", "Zero-Process ")) %>% 
   ggplot(aes(value)) +
-  geom_density(fill = 'green', alpha = .25) +
+  geom_density(fill = colors_tam[7], linewidth = .2, alpha = .25) +
+  labs(x = NULL, y = "Density", subtitle = "Intercepts") +
   lims(x = c(-20, 20)) +
-  facet_wrap(~name)
+  facet_wrap(~name) +
+  theme_scatter
 
 
-## Plot Shape Parameter Prior... not much to see hear
-priors %>% 
+## Plot Shape Parameter Prior... not much to see here. this is just a meaningless term that is needed to make gammar regression work
+plot_priors_shape <-
+  priors %>% 
   select(contains("shape")) %>% 
   pivot_longer(everything()) %>% 
   ggplot(aes(value)) +
-  geom_density(fill = 'blue', alpha = .25) +
-  #lims(x = c(-100, 100)) +
-  facet_wrap(~name)
+  geom_density(fill = colors_tam[4], color = colors_tam[4], linewidth = .5, alpha = .25) +
+  labs(x = NULL, y = "Density") +
+  facet_wrap(~name) +
+  theme_scatter
 
 
+# Combine the plots ------------------------------------------------------------
+plot_priors_combo <-
+  plot_priors_nonzero / plot_priors_zero + plot_layout(axis_titles = "collect")
 
+
+# Print to console -------------------------------------------------------------
+plot_priors_combo %>% print()
+plot_priors_shape %>% print()
+
+# Save to file -----------------------------------------------------------------
+ggsave(plot = plot_priors_combo, file = here::here("output/plot-priors.jpg"), width = 6, height = 8)
+ggsave(plot = plot_priors_shape, file = here::here("output/plot-priors-shape.jpg"), width = 6, height = 4)

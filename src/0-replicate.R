@@ -1,35 +1,37 @@
 # Run this entire script to replicate the analysis
 
 
+
 # 0. CONFIGURATION -------------------------------------------------------------
-
 ## Load packages:
-library(tidyverse)
+library(tidyverse)          # Data manipulation
 
-library(cmdstanr)
-library(tidybayes)
-library(posterior)
-library(marginaleffects)
-library(ggdist)
+library(lavaan)             # Internal consistency
 
-library(ggtext)
-library(scales)
-library(MetBrewer)
-library(patchwork)
+library(cmdstanr)           # MCMC sampler
+library(brms)               # Interface to Stan
+library(tidybayes)          # working with brms outputs
+library(posterior)          # Working with Bayesian posteriors
+library(marginaleffects)    # Calculating marginal effects
+library(ggdist)             # Plotting Bayesian posteriors
+library(bayesplot)          # Posterior predictive plots
+library(modelr)             # Data grids for model predictions
 
+library(recipes)            # Model pre-processing
 
-
-
-
-
+library(ggtext)             # Fonts
+library(scales)             # Axis labels
+library(MetBrewer)          # Color palettes
+library(patchwork)          # Combining plots
+library(ggdag)              # Plotting DAGs
+library(dagitty)            # Creating DAGs
 
 ## Loads the themes for visualizations:
-source(here::here('src/00-config/themes.R'))
-source(here::here('src/00-config/theme-marginal-fx.R'))
-source(here::here('src/00-config/theme-posterior.R'))
-source(here::here('src/00-config/theme-ppc.R'))
-source(here::here('src/00-config/theme-preds.R'))
-source(here::here('src/00-config/color-palettes.R'))
+source(here::here('src/00-config/theme-custom.R'))    # Custom theme for plots
+source(here::here('src/00-config/theme-histogram.R')) # Custom theme for histograms
+source(here::here('src/00-config/theme-scatter.R'))   # Custom theme for scatter plots
+source(here::here('src/00-config/theme-ppc.R'))       # Custom theme for Posterior Predictive Checks
+source(here::here('src/00-config/color-palettes.R'))  # Color palette
 
 ## Load the data sets:
 data_1 <- read_csv(here::here('data/data-moore-dissertation.csv'))
@@ -43,9 +45,12 @@ source(here::here('src/00-config/score-bipf.R'))
 source(here::here('src/00-config/program-mcmc.R'))
 
 
+
 # 1. DESCRIBE THE SAMPLES ------------------------------------------------------
-## Create demographic tables for the 3 samples
+## Save the sample size
 source(here::here('src/01-describe-sample/sample-size.R'))
+
+## Create demographic tables for the 3 samples
 source(here::here('src/01-describe-sample/helper-functions.R'))
 source(here::here('src/01-describe-sample/demographic-table-1.R'))
 source(here::here('src/01-describe-sample/demographic-table-2.R'))
@@ -53,28 +58,33 @@ source(here::here('src/01-describe-sample/demographic-table-3.R'))
 source(here::here('src/01-describe-sample/demographic-tables-combine.R'))
 
 
+
 # 2. EXAMINE MEASURES -----------------------------------------------------
 ## Examine the internal consistency of the PCL-5 and bIPF measures
-source(here::here('src/02-examine-measures/consistency.R'))
+source(here::here('src/02-examine-measures/internal-consistency.R'))
+
+## Impute the missing value for Sample 3, MIOS Item #9
 source(here::here('src/02-examine-measures/impute.R'))
+
 
 
 # 3. EXAMINE VARIABLES ----------------------------------------------------
 ## Examine the univariate and bivariate distributions of the variables
-
 source(here::here('src/03-examine-variables/plot-univariate.R'))
-source(here::here('src/03-examine-variables/count-zeros.R'))
 source(here::here('src/03-examine-variables/plot-bivariate.R'))
+
+## Count the number of zeros in the outcome variable
+source(here::here('src/03-examine-variables/count-zeros.R'))
+
+## Examine covariates
 source(here::here('src/03-examine-variables/groups.R'))
 
 
 # 4. GENERATIVE MODELS -------------------------------------------------------
-## Create graphical causal models and simulate fake data from them
-
-## Draw DAGs 
+## Draw DAGs (graphical causal models)
 #source(here::here('src/01-generative-models/dags.R'))
 
-## Simulations
+
 
 
 
@@ -84,7 +94,7 @@ source(here::here('src/03-examine-variables/groups.R'))
 ## Prepare the Data by Standardizing continuous variables, removing non-variance, centering dummy variables
 source(here::here('src/05-pre-processing/recipes-1.R'))
 source(here::here('src/05-pre-processing/recipes-2.R'))
-source(here::here('src/05-pre-processing/recipes-3.R'))
+source(here::here('src/05-pre-processing/recipes-3.R')) # includes the interaction model
 
 
 

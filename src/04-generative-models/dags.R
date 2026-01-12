@@ -1,6 +1,3 @@
-library(tidyverse)
-library(ggdag)
-library(dagitty)
 
 # Study 1
 ## individual characteristics influence a person's funcitoning, risk for trauma exposure, likelihood of joining the military, and risk for post-traumatic stress
@@ -37,8 +34,7 @@ dag_1 |> adjustmentSets()
 # Study 2 -----------------------------------------------------------------
 
 
-
-# For Military OSI
+## For Military OSI
 dag_1 <-
   
   dagify('PF' ~ 'MI' + 'PTSD' + 'OSI' + 'Ind',

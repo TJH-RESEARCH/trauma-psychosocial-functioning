@@ -1,7 +1,4 @@
 variable,category,n,perc
-Military Status,Veteran,44,0.24581005586592178
-Military Status,Service Member,46,0.2569832402234637
-Military Status,Civilian,89,0.4972067039106145
 Branch,Air Force,7,0.03910614525139665
 Branch,Army,63,0.35195530726256985
 Branch,Marine Corps,10,0.055865921787709494

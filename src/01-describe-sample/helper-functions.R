@@ -3,7 +3,7 @@
 
 count_perc <-
   function(x, sort){
-    x = 
+    x <- 
       x %>% 
       count(sort = sort) %>% 
       ungroup() %>% 
@@ -17,10 +17,13 @@ count_perc <-
   }
 
 
-create_percentage_table <- function(data){
-  data %>% 
+create_percentage_table <- function(x){
+  x <- 
+    x %>% 
     tidyr::pivot_longer(everything(), names_to = 'category', values_to = 'response') %>% 
     group_by(category) %>% 
     summarize(total = n(), n = sum(response, na.rm = T), perc = n/total) %>% 
     select(!total)
+  
+  return(x)
 }

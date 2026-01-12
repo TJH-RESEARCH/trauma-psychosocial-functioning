@@ -1,4 +1,7 @@
 variable,category,n,perc
+Military Status,Veteran,44,0.24581005586592178
+Military Status,Service Member,46,0.2569832402234637
+Military Status,Civilian,89,0.4972067039106145
 Gender,Female,85,0.4748603351955307
 Gender,Male,94,0.5251396648044693
 Birth Year,1979 - 1984,56,0.3128491620111732

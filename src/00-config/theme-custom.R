@@ -1,14 +1,10 @@
-# Theme for prior posterior check plots
-theme_ppc <-
+theme_custom <-
   theme(
-    # Put the legend within the plot panel
-    legend.position = c(.925,.2),
-    
-    # Hide the panel border
-    panel.border = element_blank(),
+    # Remove the legend
+    legend.position = 'none',
     
     # Panel customization
-    panel.background = element_rect(fill = "white",colour = "white"),
+    panel.background = element_rect(fill = "white", color = "white"),
     panel.grid.major.x = element_line(color = "#e9e9e9", linewidth = .3),
     panel.grid.minor.x = element_line(color = "#e9e9e9", linewidth = .1),
     panel.grid.major.y = element_blank(),
@@ -25,4 +21,3 @@ theme_ppc <-
     plot.subtitle = element_markdown(size = 12, color = "#3e3e3e"),
     plot.caption = element_markdown(hjust = 0, color = "#7e7e7e")
   )
-

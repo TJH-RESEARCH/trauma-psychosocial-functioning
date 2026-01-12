@@ -1,5 +1,6 @@
+# This file declares the predictor and outcome variables for Sample 2
 
-# Data Set 2 --------------------------------------------------------------
+# Recipe -----------------------------------------------------------------------
 ## Declare the outcome variable and potential explanatory variables
 recipe_2 <-
   recipes::recipe(bipf_score + bipf_category ~ 
@@ -60,8 +61,11 @@ recipe_2 <-
   ## Scale the continuous predictor
   step_scale(mios_total, factor = 1)
 
-## Print the recipe
-recipe_2 %>% prep(., data_2) 
 
-## "Bake" the recipe i.e., save a prepared dataset with the above transformations
-data_baked_2 <- recipe_2 %>% prep(., data_2) %>% bake(., NULL)
+# Print the recipe ------------------------------------------------------------
+recipe_2 %>% prep(., data_2)
+
+
+# "Bake" the recipe ----------------------------------------------------------
+## i.e., save a prepared dataset with the above transformations:
+data_baked_2 <- recipe_2  %>% prep(., data_2) %>% bake(., NULL) 
