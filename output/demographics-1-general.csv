@@ -1,37 +1,37 @@
 variable,category,n,perc
-Gender,Female,101,0.45495495495495497
-Gender,Male,121,0.545045045045045
-Birth Year,1979 - 1984,61,0.2747747747747748
-Birth Year,1985 - 1989,49,0.22072072072072071
-Birth Year,1990 - 1995,30,0.13513513513513514
-Birth Year,1996 - 2001,48,0.21621621621621623
-Birth Year,Other,34,0.15315315315315314
-Education Level,Less than high school degree,36,0.16216216216216217
-Education Level,High school graduate,35,0.15765765765765766
-Education Level,Associate degree,34,0.15315315315315314
-Education Level,Bachelor's degree,31,0.13963963963963963
-Education Level,Some college,61,0.2747747747747748
-Education Level,Master's degree,15,0.06756756756756757
-Education Level,Professional degree,4,0.018018018018018018
-Education Level,Doctoral degree,6,0.02702702702702703
-Annual Income,"$10,000 - $20,000",18,0.08108108108108109
-Annual Income,"$20,000 - $35,000",22,0.0990990990990991
-Annual Income,"$35,000 - $50,000",50,0.22522522522522523
-Annual Income,"$50,000 - $100,000",38,0.17117117117117117
-Annual Income,"< $10,000",52,0.23423423423423423
-Annual Income,"> $100,000",40,0.18018018018018017
-Annual Income,NA,2,0.009009009009009009
-Employment Status,Full Time,123,0.5540540540540541
-Employment Status,Part Time,36,0.16216216216216217
-Employment Status,No regular employment,20,0.09009009009009009
-Employment Status,Unemployment,40,0.18018018018018017
-Employment Status,NA,3,0.013513513513513514
-Marital Status,Currently married,98,0.44144144144144143
-Marital Status,"Never married, not in a relationship now",68,0.3063063063063063
-Marital Status,Not married but currently in a relationship and not living with a partner,20,0.09009009009009009
-Marital Status,Not married but currently in a relationship and living with a partner,18,0.08108108108108109
-Marital Status,Currently separated or divorced,14,0.06306306306306306
-Marital Status,Widowed,1,0.0045045045045045045
-Marital Status,NA,3,0.013513513513513514
-History of Head Injury,No,67,0.30180180180180183
-History of Head Injury,Yes,155,0.6981981981981982
+Gender,Female,85,0.4748603351955307
+Gender,Male,94,0.5251396648044693
+Birth Year,1979 - 1984,56,0.3128491620111732
+Birth Year,1985 - 1989,43,0.24022346368715083
+Birth Year,1990 - 1995,26,0.1452513966480447
+Birth Year,1996 - 2001,21,0.11731843575418995
+Birth Year,Other,33,0.18435754189944134
+Education Level,Less than high school degree,34,0.18994413407821228
+Education Level,High school graduate,23,0.12849162011173185
+Education Level,Associate degree,32,0.1787709497206704
+Education Level,Bachelor's degree,25,0.13966480446927373
+Education Level,Some college,43,0.24022346368715083
+Education Level,Master's degree,15,0.08379888268156424
+Education Level,Professional degree,3,0.01675977653631285
+Education Level,Doctoral degree,4,0.0223463687150838
+Annual Income,"$10,000 - $20,000",15,0.08379888268156424
+Annual Income,"$20,000 - $35,000",15,0.08379888268156424
+Annual Income,"$35,000 - $50,000",47,0.26256983240223464
+Annual Income,"$50,000 - $100,000",29,0.16201117318435754
+Annual Income,"< $10,000",39,0.21787709497206703
+Annual Income,"> $100,000",32,0.1787709497206704
+Annual Income,NA,2,0.0111731843575419
+Employment Status,Full Time,111,0.6201117318435754
+Employment Status,Part Time,22,0.12290502793296089
+Employment Status,No regular employment,13,0.07262569832402235
+Employment Status,Unemployment,30,0.16759776536312848
+Employment Status,NA,3,0.01675977653631285
+Marital Status,Currently married,89,0.4972067039106145
+Marital Status,"Never married, not in a relationship now",47,0.26256983240223464
+Marital Status,Not married but currently in a relationship and living with a partner,15,0.08379888268156424
+Marital Status,Not married but currently in a relationship and not living with a partner,14,0.0782122905027933
+Marital Status,Currently separated or divorced,11,0.061452513966480445
+Marital Status,Widowed,1,0.00558659217877095
+Marital Status,NA,2,0.0111731843575419
+History of Head Injury,No,37,0.20670391061452514
+History of Head Injury,Yes,142,0.7932960893854749

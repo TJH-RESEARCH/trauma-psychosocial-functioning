@@ -1,4 +1,3 @@
-
 # Run this entire script to replicate the analysis
 
 
@@ -6,10 +5,31 @@
 
 ## Load packages:
 library(tidyverse)
+
 library(cmdstanr)
+library(tidybayes)
+library(posterior)
+library(marginaleffects)
+library(ggdist)
+
+library(ggtext)
+library(scales)
+library(MetBrewer)
+library(patchwork)
+
+
+
+
+
+
 
 ## Loads the themes for visualizations:
 source(here::here('src/00-config/themes.R'))
+source(here::here('src/00-config/theme-marginal-fx.R'))
+source(here::here('src/00-config/theme-posterior.R'))
+source(here::here('src/00-config/theme-ppc.R'))
+source(here::here('src/00-config/theme-preds.R'))
+source(here::here('src/00-config/color-palettes.R'))
 
 ## Load the data sets:
 data_1 <- read_csv(here::here('data/data-moore-dissertation.csv'))
@@ -25,6 +45,7 @@ source(here::here('src/00-config/program-mcmc.R'))
 
 # 1. DESCRIBE THE SAMPLES ------------------------------------------------------
 ## Create demographic tables for the 3 samples
+source(here::here('src/01-describe-sample/sample-size.R'))
 source(here::here('src/01-describe-sample/helper-functions.R'))
 source(here::here('src/01-describe-sample/demographic-table-1.R'))
 source(here::here('src/01-describe-sample/demographic-table-2.R'))
@@ -44,6 +65,7 @@ source(here::here('src/02-examine-measures/impute.R'))
 source(here::here('src/03-examine-variables/plot-univariate.R'))
 source(here::here('src/03-examine-variables/count-zeros.R'))
 source(here::here('src/03-examine-variables/plot-bivariate.R'))
+source(here::here('src/03-examine-variables/groups.R'))
 
 
 # 4. GENERATIVE MODELS -------------------------------------------------------
@@ -66,121 +88,117 @@ source(here::here('src/05-pre-processing/recipes-3.R'))
 
 
 
-
 # 6. PRIORS ----------------------------------------------------------------------
 ## Specify priors and adjust them through prior predictive checks
 ## in practice, this was an iterative process
 
-### Study 1
-#### Plot the priors
-source(here::here('src/06-priors/study-1/plot-priors.R'))
+#### Specify the priors used across the studies
+source(here::here("src/06-priors/specify-priors.R"))
 
-#### Specify the priors
-source(here::here("src/06-priors/study-1/specify-priors.R"))
+### Plot priors used across studies
+source(here::here('src/06-priors/plot-priors.R'))
 
-#### Sample from the Prior Distributions
-source(here::here("src/06-priors/study-1/sample-priors.R"))
-  
-#### Prior Predictive Check
-source(here::here('src/06-priors/study-1/prior-predictive-check.R'))
+### Sample 1
+source(here::here("src/06-priors/sample-1/sample-priors-1.R")) #### Sample from the Prior Distributions
+source(here::here('src/06-priors/sample-1/prior-predictive-check-1.R')) #### Prior Predictive Check
 
+### Sample 2
+source(here::here("src/06-priors/sample-2/sample-priors-2.R")) #### Sample from the Prior Distributions
+source(here::here('src/06-priors/sample-2/prior-predictive-check-2.R')) #### Prior Predictive Check
 
-### Study 2
-source(here::here('src/06-priors/study-2/plot-priors.R')) #### Plot the priors
-source(here::here("src/06-priors/study-2/specify-priors.R")) #### Specify the priors
-source(here::here("src/06-priors/study-2/sample-priors.R")) #### Sample from the Prior Distributions
-source(here::here('src/06-priors/study-2/prior-predictive-check.R')) #### Prior Predictive Check
-
-
-### Study 3
-source(here::here('src/06-priors/study-3/plot-priors.R')) #### Plot the priors
-source(here::here("src/06-priors/study-3/specify-priors.R")) #### Specify the priors
-source(here::here("src/06-priors/study-3/sample-priors.R")) #### Sample from the Prior Distributions
-source(here::here('src/06-priors/study-3/prior-predictive-check.R')) #### Prior Predictive Check
-
-
+### Sample 3
+source(here::here("src/06-priors/sample-3/sample-priors-3.R")) #### Sample from the Prior Distributions
+source(here::here('src/06-priors/sample-3/prior-predictive-check-3.R')) #### Prior Predictive Check
 
 
 ## FIT MODELS  -----------------------------------------------------------------
 
-### Study 1
+### Sample 1
 #### Fit the model 
-source(here::here('src/07-modeling/study-1/01-fit-model-hurdle.R'))
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1.R'))
 
 #### Check the MCMC diagnostics
-source(here::here('src/07-modeling/study-1/02-diagnostics.R'))
+source(here::here('src/07-modeling/sample-1/diagnostics-hurdle-1.R'))
 
-#### Posterior predictive check
-source(here::here('src/07-modeling/study-1/03-posterior-predictive-check.R'))
+### Sample 2
+source(here::here('src/07-modeling/sample-2/fit-model-hurdle-2.R'))
+source(here::here('src/07-modeling/sample-2/diagnostics-hurdle-2.R'))
+
+### Sample 3
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3.R'))
+source(here::here('src/07-modeling/sample-3/diagnostics-hurdle-3.R'))
+
+source(here::here('src/07-modeling/sample-3-interact/fit-model-interact-3.R'))
+
 
 ### Sensitivity Analysis & Model Comparison
 
 #### fit same model but with improper flat priors
-source(here::here('src/04-models/study-1/04-fit-improper-hurdle.R'))
+source(here::here('src/07-modeling/sample-1-improper/fit-hurdle-1-improper.R'))
 
 #### try to fit the same model but with a vague prior
-source(here::here('src/04-models/study-1/05-fit-vague-hurdle.R'))
+source(here::here('src/07-modeling/sample-1-vague/fit-hurdle-1-vague.R'))
 
-#### Compare the preferred model to the vague and flat prior models
-source(here::here('src/04-models/study-1/06-compare-models.R'))
+### Compare Models
+source(here::here('src/07-modeling/compare-models.R'))
 
-
-### Study 2
-#### Fit the model 
-source(here::here('src/07-modeling/study-2/01-fit-model-hurdle.R'))
-
-
-### Study 3
-#### Fit the model 
-source(here::here('src/07-modeling/study-3/01-fit-model-hurdle.R'))
-source(here::here('src/07-modeling/study-3/01-fit-model-interact.R'))
 
 
 
 
 # POSTERIOR DISTRIBUTION ----------------------------------------------------
 
-### Study 1
-#### Plot the posterior probability
-source(here::here('src/08-posterior/'))
+### Sample 1
+
+#### Posterior predictive check
+source(here::here('src/08-posterior/sample-1/posterior-predictive-check-1.R'))
 
 #### Summarize the posterior probability
-source(here::here('src/08-posterior/'))
+source(here::here('src/08-posterior/sample-1/summarize-posterior-1.R'))
+
+#### Plot the posterior probability
+source(here::here('src/08-posterior/sample-1/plot-posterior-1.R'))
+
+#### Conditional Effects (Predictions)
+source(here::here('src/08-posterior/sample-1/conditional-effects-1.R'))
 
 #### Marginal effects
-source(here::here('src/08-posterior/'))
-
-#### Model predictions
-source(here::here('src/08-posterior/'))
+source(here::here('src/08-posterior/sample-1/marginal-effects-1.R'))
 
 
-### Study 2
-#### Plot the posterior probability
-source(here::here('src/08-posterior/'))
+### Sample 2
+#### Posterior predictive check
+source(here::here('src/08-posterior/sample-2/posterior-predictive-check-2.R'))
 
 #### Summarize the posterior probability
-source(here::here('src/08-posterior/'))
+source(here::here('src/08-posterior/sample-2/summarize-posterior-2.R'))
+
+#### Plot the posterior probability
+source(here::here('src/08-posterior/sample-2/plot-posterior-2.R'))
+
+#### Conditional Effects (Predictions)
+source(here::here('src/08-posterior/sample-2/conditional-effects-2.R'))
 
 #### Marginal effects
-source(here::here('src/08-posterior/'))
-
-#### Model predictions
-source(here::here('src/08-posterior/'))
+source(here::here('src/08-posterior/sample-2/marginal-effects-2.R'))
 
 
-### Study 3
-#### Plot the posterior probability
-source(here::here('src/08-posterior/'))
+
+### Sample 3
+#### Posterior predictive check
+source(here::here('src/08-posterior/sample-3/posterior-predictive-check-3.R'))
 
 #### Summarize the posterior probability
-source(here::here('src/08-posterior/'))
+source(here::here('src/08-posterior/sample-3/summarize-posterior-3.R'))
+
+#### Plot the posterior probability
+source(here::here('src/08-posterior/sample-3/plot-posterior-3.R'))
+
+#### Conditional Effects (Predictions)
+source(here::here('src/08-posterior/sample-3/conditional-effects-3.R'))
 
 #### Marginal effects
-source(here::here('src/08-posterior/'))
-
-#### Model predictions
-source(here::here('src/08-posterior/'))
-
+source(here::here('src/08-posterior/sample-3/marginal-effects-3.R'))
 
 
 

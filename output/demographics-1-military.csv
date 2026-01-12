@@ -1,40 +1,40 @@
 variable,category,n,perc
-Military Status,Veteran,62,0.27927927927927926
-Military Status,Service Member,67,0.30180180180180183
-Military Status,Civilian,93,0.4189189189189189
-Branch,Air Force,7,0.03153153153153153
-Branch,Army,83,0.3738738738738739
-Branch,Marine Corps,10,0.04504504504504504
-Branch,Navy,13,0.05855855855855856
-Branch,Never Served,93,0.4189189189189189
-Branch,Other,16,0.07207207207207207
-Highest Paygrade Achieved,E-1 to E-3,33,0.14864864864864866
-Highest Paygrade Achieved,E-4 to E-6,27,0.12162162162162163
-Highest Paygrade Achieved,E-7 to E-9,22,0.0990990990990991
-Highest Paygrade Achieved,Never served,116,0.5225225225225225
-Highest Paygrade Achieved,O-1 (WO-1) to O-3 (CW-2),13,0.05855855855855856
-Highest Paygrade Achieved,O-4 (CWO-3) to O-6 (CW-5),11,0.04954954954954955
-Years of Service,10-15 years,11,0.04954954954954955
-Years of Service,15-20 years,9,0.04054054054054054
-Years of Service,2-4 years,36,0.16216216216216217
-Years of Service,20+ years,9,0.04054054054054054
-Years of Service,5-10 years,31,0.13963963963963963
-Years of Service,< 1 year,16,0.07207207207207207
-Years of Service,NA,110,0.4954954954954955
-Times Deployed,1,21,0.0945945945945946
-Times Deployed,2,22,0.0990990990990991
-Times Deployed,3,12,0.05405405405405406
-Times Deployed,4,6,0.02702702702702703
-Times Deployed,5 or more,5,0.02252252252252252
-Times Deployed,Not applicable,154,0.6936936936936937
-Times Deployed,NA,2,0.009009009009009009
-MOS,"Combat Arms (i.e., Infantry, Armor, Field Artillery, Special Forces)",29,0.13063063063063063
-MOS,"Combat Service Support (i.e, Quartermaster, Transportation, Finance)",11,0.04954954954954955
-MOS,"Combat Support (i.e., Engineer, Military Police including Security Forces, Signal Corps)",29,0.13063063063063063
-MOS,"Logistics & Maintenance (Maintenance, Fuels, Logistics, Transportation, Munitions)",7,0.03153153153153153
-MOS,Medical - Other,15,0.06756756756756757
-MOS,Not Applicable,119,0.536036036036036
-MOS,"Operations (i.e., Aircrew, Cyber, Command & Control, Intel, Safety, Weather)",7,0.03153153153153153
-MOS,"Support (Cyber Support, Engineering, Force Support, Public Affairs, Security Forces)",5,0.02252252252252252
-Previous Deployment,No,67,0.30180180180180183
-Previous Deployment,Yes,155,0.6981981981981982
+Military Status,Veteran,44,0.24581005586592178
+Military Status,Service Member,46,0.2569832402234637
+Military Status,Civilian,89,0.4972067039106145
+Branch,Air Force,7,0.03910614525139665
+Branch,Army,63,0.35195530726256985
+Branch,Marine Corps,10,0.055865921787709494
+Branch,Navy,10,0.055865921787709494
+Branch,Never Served,89,0.4972067039106145
+Highest Paygrade Achieved,E-1 to E-3,27,0.15083798882681565
+Highest Paygrade Achieved,E-4 to E-6,25,0.13966480446927373
+Highest Paygrade Achieved,E-7 to E-9,17,0.09497206703910614
+Highest Paygrade Achieved,Never served,89,0.4972067039106145
+Highest Paygrade Achieved,O-1 (WO-1) to O-3 (CW-2),11,0.061452513966480445
+Highest Paygrade Achieved,O-4 (CWO-3) to O-6 (CW-5),10,0.055865921787709494
+Years of Service,10-15 years,10,0.055865921787709494
+Years of Service,15-20 years,8,0.0446927374301676
+Years of Service,2-5 years,27,0.15083798882681565
+Years of Service,20+ years,9,0.05027932960893855
+Years of Service,5-10 years,29,0.16201117318435754
+Years of Service,< 1 year,7,0.03910614525139665
+Years of Service,NA,89,0.4972067039106145
+Times Deployed,1,20,0.11173184357541899
+Times Deployed,2,21,0.11731843575418995
+Times Deployed,3,12,0.0670391061452514
+Times Deployed,4,5,0.027932960893854747
+Times Deployed,5 or more,3,0.01675977653631285
+Times Deployed,Not applicable,116,0.6480446927374302
+Times Deployed,NA,2,0.0111731843575419
+MOS,"Combat Arms (i.e., Infantry, Armor, Field Artillery, Special Forces)",27,0.15083798882681565
+MOS,"Combat Service Support (i.e, Quartermaster, Transportation, Finance)",10,0.055865921787709494
+MOS,"Combat Support (i.e., Engineer, Military Police including Security Forces, Signal Corps)",25,0.13966480446927373
+MOS,"Logistics & Maintenance (Maintenance, Fuels, Logistics, Transportation, Munitions)",6,0.0335195530726257
+MOS,Medical - Other,14,0.0782122905027933
+MOS,Not Applicable,89,0.4972067039106145
+MOS,"Operations (i.e., Aircrew, Cyber, Command & Control, Intel, Safety, Weather)",6,0.0335195530726257
+MOS,"Support (Cyber Support, Engineering, Force Support, Public Affairs, Security Forces)",2,0.0111731843575419
+Previous Deployment,No,29,0.16201117318435754
+Previous Deployment,Yes,61,0.3407821229050279
+Previous Deployment,NA,89,0.4972067039106145

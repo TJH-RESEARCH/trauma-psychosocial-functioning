@@ -126,6 +126,7 @@ demographic_table_1 <-
       
   # Deployed ----------------------------------------------------------------
   data_1 |> 
+    mutate(deployed_yorn = ifelse(civilian == 1, NA, deployed_yorn)) %>% 
     count(deployed_yorn)|> 
     mutate(perc = n / sum(n),
            variable = 'Previous Deployment') |> 

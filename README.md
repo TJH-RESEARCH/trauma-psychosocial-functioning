@@ -7,13 +7,15 @@ contributors:
 
 
 ## To Do
-- Demographics table: add survey 3. All on same table? Create output file. Check that the calculation of separation years is accurate for survey 2.
-- Univariate plots: theme to ensure they tell the story of zero-inflation
+- Informative Priors for sample 3 
+- Sample plots from sample priors
+- check warnings
+
 - bivariate plots: what story should be told with these? Consider their presentation more carefully.
 - update 3rd dag to include participation
 - consolidate and clean up the generative model folder
-- update recipes to reflect the manuscript.
 - Assess model fits
+- output/visuals from prior predictive checks?
 
 
 ## Overview

@@ -83,6 +83,8 @@ categorize_bipf <-
               ordered = TRUE
             )
         )
+    
+    return(data_x)
 }
 
 
