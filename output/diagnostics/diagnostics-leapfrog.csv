@@ -1,0 +1,122 @@
+sample,model,prior,controls,n_leapfrog__,n
+Sample 1,Hurdle,Weakly Informative,Controls,3,2
+Sample 1,Hurdle,Weakly Informative,Controls,7,4133
+Sample 1,Hurdle,Weakly Informative,Controls,11,1
+Sample 1,Hurdle,Weakly Informative,Controls,15,11434
+Sample 1,Hurdle,Weakly Informative,Controls,23,137
+Sample 1,Hurdle,Weakly Informative,Controls,31,282
+Sample 1,Hurdle,Weakly Informative,Controls,35,1
+Sample 1,Hurdle,Weakly Informative,Controls,39,5
+Sample 1,Hurdle,Weakly Informative,Controls,47,5
+Sample 1,Hurdle,Improper,Controls,7,1229
+Sample 1,Hurdle,Improper,Controls,15,12478
+Sample 1,Hurdle,Improper,Controls,23,236
+Sample 1,Hurdle,Improper,Controls,31,1954
+Sample 1,Hurdle,Improper,Controls,39,10
+Sample 1,Hurdle,Improper,Controls,47,69
+Sample 1,Hurdle,Improper,Controls,55,3
+Sample 1,Hurdle,Improper,Controls,63,21
+Sample 1,Hurdle,Vague,Controls,7,326
+Sample 1,Hurdle,Vague,Controls,15,11174
+Sample 1,Hurdle,Vague,Controls,23,111
+Sample 1,Hurdle,Vague,Controls,31,4201
+Sample 1,Hurdle,Vague,Controls,39,10
+Sample 1,Hurdle,Vague,Controls,47,118
+Sample 1,Hurdle,Vague,Controls,55,6
+Sample 1,Hurdle,Vague,Controls,63,51
+Sample 1,Hurdle,Vague,Controls,79,3
+Sample 1,Hurdle,Weakly Informative,Bivariate,1,22
+Sample 1,Hurdle,Weakly Informative,Bivariate,3,2714
+Sample 1,Hurdle,Weakly Informative,Bivariate,5,29
+Sample 1,Hurdle,Weakly Informative,Bivariate,7,12921
+Sample 1,Hurdle,Weakly Informative,Bivariate,11,25
+Sample 1,Hurdle,Weakly Informative,Bivariate,13,1
+Sample 1,Hurdle,Weakly Informative,Bivariate,15,285
+Sample 1,Hurdle,Weakly Informative,Bivariate,23,3
+Sample 1,Hurdle,Improper,Bivariate,1,5
+Sample 1,Hurdle,Improper,Bivariate,3,970
+Sample 1,Hurdle,Improper,Bivariate,5,16
+Sample 1,Hurdle,Improper,Bivariate,7,7841
+Sample 1,Hurdle,Improper,Bivariate,9,2
+Sample 1,Hurdle,Improper,Bivariate,11,240
+Sample 1,Hurdle,Improper,Bivariate,15,6875
+Sample 1,Hurdle,Improper,Bivariate,19,5
+Sample 1,Hurdle,Improper,Bivariate,23,21
+Sample 1,Hurdle,Improper,Bivariate,27,1
+Sample 1,Hurdle,Improper,Bivariate,31,24
+Sample 1,Hurdle,Vague,Bivariate,1,5
+Sample 1,Hurdle,Vague,Bivariate,3,970
+Sample 1,Hurdle,Vague,Bivariate,5,16
+Sample 1,Hurdle,Vague,Bivariate,7,7841
+Sample 1,Hurdle,Vague,Bivariate,9,2
+Sample 1,Hurdle,Vague,Bivariate,11,240
+Sample 1,Hurdle,Vague,Bivariate,15,6875
+Sample 1,Hurdle,Vague,Bivariate,19,5
+Sample 1,Hurdle,Vague,Bivariate,23,21
+Sample 1,Hurdle,Vague,Bivariate,27,1
+Sample 1,Hurdle,Vague,Bivariate,31,24
+Sample 2,Hurdle,Weakly Informative,Controls,7,1036
+Sample 2,Hurdle,Weakly Informative,Controls,15,14849
+Sample 2,Hurdle,Weakly Informative,Controls,23,14
+Sample 2,Hurdle,Weakly Informative,Controls,31,101
+Sample 2,Hurdle,Improper,Controls,127,1011
+Sample 2,Hurdle,Improper,Controls,255,14927
+Sample 2,Hurdle,Improper,Controls,383,4
+Sample 2,Hurdle,Improper,Controls,511,58
+Sample 2,Hurdle,Vague,Controls,7,19
+Sample 2,Hurdle,Vague,Controls,15,15397
+Sample 2,Hurdle,Vague,Controls,31,583
+Sample 2,Hurdle,Vague,Controls,63,1
+Sample 3,Adjusted,Weakly Informative,Controls,7,35
+Sample 3,Adjusted,Weakly Informative,Controls,15,15965
+Sample 3,Adjusted,Improper,Controls,127,3187
+Sample 3,Adjusted,Improper,Controls,255,12663
+Sample 3,Adjusted,Improper,Controls,383,54
+Sample 3,Adjusted,Improper,Controls,511,94
+Sample 3,Adjusted,Improper,Controls,767,2
+Sample 3,Adjusted,Vague,Controls,31,9937
+Sample 3,Adjusted,Vague,Controls,63,6030
+Sample 3,Adjusted,Vague,Controls,95,23
+Sample 3,Adjusted,Vague,Controls,127,10
+Sample 3,MIOS,Weakly Informative,Controls,127,3187
+Sample 3,MIOS,Weakly Informative,Controls,255,12663
+Sample 3,MIOS,Weakly Informative,Controls,383,54
+Sample 3,MIOS,Weakly Informative,Controls,511,94
+Sample 3,MIOS,Weakly Informative,Controls,767,2
+Sample 3,MIOS,Improper,Controls,127,3187
+Sample 3,MIOS,Improper,Controls,255,12663
+Sample 3,MIOS,Improper,Controls,383,54
+Sample 3,MIOS,Improper,Controls,511,94
+Sample 3,MIOS,Improper,Controls,767,2
+Sample 3,MIOS,Vague,Controls,127,3187
+Sample 3,MIOS,Vague,Controls,255,12663
+Sample 3,MIOS,Vague,Controls,383,54
+Sample 3,MIOS,Vague,Controls,511,94
+Sample 3,MIOS,Vague,Controls,767,2
+Sample 3,PCL,Weakly Informative,Controls,127,3187
+Sample 3,PCL,Weakly Informative,Controls,255,12663
+Sample 3,PCL,Weakly Informative,Controls,383,54
+Sample 3,PCL,Weakly Informative,Controls,511,94
+Sample 3,PCL,Weakly Informative,Controls,767,2
+Sample 3,PCL,Improper,Controls,127,3187
+Sample 3,PCL,Improper,Controls,255,12663
+Sample 3,PCL,Improper,Controls,383,54
+Sample 3,PCL,Improper,Controls,511,94
+Sample 3,PCL,Improper,Controls,767,2
+Sample 3,PCL,Vague,Controls,127,3187
+Sample 3,PCL,Vague,Controls,255,12663
+Sample 3,PCL,Vague,Controls,383,54
+Sample 3,PCL,Vague,Controls,511,94
+Sample 3,PCL,Vague,Controls,767,2
+Sample 3,Interaction,Weakly Informative,Controls,7,66
+Sample 3,Interaction,Weakly Informative,Controls,15,15933
+Sample 3,Interaction,Weakly Informative,Controls,31,1
+Sample 3,Interaction,Improper,Controls,127,3666
+Sample 3,Interaction,Improper,Controls,255,12170
+Sample 3,Interaction,Improper,Controls,383,71
+Sample 3,Interaction,Improper,Controls,511,93
+Sample 3,Interaction,Vague,Controls,15,2
+Sample 3,Interaction,Vague,Controls,31,7184
+Sample 3,Interaction,Vague,Controls,63,8769
+Sample 3,Interaction,Vague,Controls,95,33
+Sample 3,Interaction,Vague,Controls,127,12

@@ -11,3 +11,6 @@ sample_size %>% print(n = 3)
 
 # Write to file  
 sample_size %>% write_csv(here::here("output/sample-size.csv"))
+
+# Remove object from environment
+rm(sample_size)

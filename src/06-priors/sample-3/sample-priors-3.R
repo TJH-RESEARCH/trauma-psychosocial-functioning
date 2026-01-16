@@ -9,7 +9,8 @@ model_3_hurdle_prior <-
     family = hurdle_gamma(),
     prior = weakly_informative_priors,
     sample_prior = 'only',
-    chains = CHAINS, iter = ITER, warmup = WARMUP, seed = SEED
+    chains = CHAINS, iter = ITER, warmup = WARMUP, seed = SEED,
+    file = "models/hurdle-3-prior"
   )
 
 prior_summary(model_3_hurdle_prior)

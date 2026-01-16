@@ -5,7 +5,6 @@
 # Gather the tables ------------------------------------------------------------
 demographic_tables_2_3 <-
   bind_rows(
-    #demographic_table_1 %>% mutate(survey = '1'),
     demographic_table_2 %>% mutate(survey = '2'),
     demographic_table_3 %>% mutate(survey = '3')
     ) %>% 
@@ -40,8 +39,12 @@ demographics_military_2_3 %>% print(n = 300)
 
 
 # Save to file -----------------------------------------------------------------
-demographics_general_2_3 %>% readr::write_csv(here::here('output/demographics-2-3-general.csv'))
-demographics_military_2_3 %>% readr::write_csv(here::here('output/demographics-2-3-military.csv'))
+demographics_general_2_3 %>% readr::write_csv(here::here('output/demographics/demographics-2-3-general.csv'))
+demographics_military_2_3 %>% readr::write_csv(here::here('output/demographics/demographics-2-3-military.csv'))
 
-
+# Remove object from environment
+rm(demographic_table_2)
+rm(demographic_table_3)
+rm(demographics_general_2_3)
+rm(demographics_military_2_3)
 

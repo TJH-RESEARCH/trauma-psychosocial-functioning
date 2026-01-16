@@ -1,0 +1,22 @@
+sample,model,prior,controls,divergent__,n
+Sample 1,Hurdle,Weakly Informative,Controls,0,16000
+Sample 1,Hurdle,Improper,Controls,0,16000
+Sample 1,Hurdle,Vague,Controls,0,16000
+Sample 1,Hurdle,Weakly Informative,Bivariate,0,16000
+Sample 1,Hurdle,Improper,Bivariate,0,16000
+Sample 1,Hurdle,Vague,Bivariate,0,16000
+Sample 2,Hurdle,Weakly Informative,Controls,0,16000
+Sample 2,Hurdle,Improper,Controls,0,16000
+Sample 2,Hurdle,Vague,Controls,0,16000
+Sample 3,Adjusted,Weakly Informative,Controls,0,16000
+Sample 3,Adjusted,Improper,Controls,0,16000
+Sample 3,Adjusted,Vague,Controls,0,16000
+Sample 3,MIOS,Weakly Informative,Controls,0,16000
+Sample 3,MIOS,Improper,Controls,0,16000
+Sample 3,MIOS,Vague,Controls,0,16000
+Sample 3,PCL,Weakly Informative,Controls,0,16000
+Sample 3,PCL,Improper,Controls,0,16000
+Sample 3,PCL,Vague,Controls,0,16000
+Sample 3,Interaction,Weakly Informative,Controls,0,16000
+Sample 3,Interaction,Improper,Controls,0,16000
+Sample 3,Interaction,Vague,Controls,0,16000

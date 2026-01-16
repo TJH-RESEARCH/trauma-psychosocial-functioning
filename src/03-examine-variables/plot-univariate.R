@@ -45,3 +45,7 @@ plot_histogram %>% print()
 
 # Write to file ----------------------------------------------------------------
 ggsave(plot = plot_histogram, file = here::here("output/plot-histogram.jpg"), width = 6, height = 6)
+
+# Remove objects from environment -----------------------------------------
+rm(plot_bipf_1, plot_bipf_2, plot_bipf_3, plot_histogram)
+

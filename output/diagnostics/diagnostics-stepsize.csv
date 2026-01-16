@@ -1,0 +1,85 @@
+sample,model,prior,controls,stepsize__,n
+Sample 1,Hurdle,Weakly Informative,Controls,0.36268266,4000
+Sample 1,Hurdle,Weakly Informative,Controls,0.36917161,4000
+Sample 1,Hurdle,Weakly Informative,Controls,0.37024004,4000
+Sample 1,Hurdle,Weakly Informative,Controls,0.38024506,4000
+Sample 1,Hurdle,Improper,Controls,0.27590988,4000
+Sample 1,Hurdle,Improper,Controls,0.28158313,4000
+Sample 1,Hurdle,Improper,Controls,0.28935387,4000
+Sample 1,Hurdle,Improper,Controls,0.31044158,4000
+Sample 1,Hurdle,Vague,Controls,0.23344978,4000
+Sample 1,Hurdle,Vague,Controls,0.23868159,4000
+Sample 1,Hurdle,Vague,Controls,0.25453305,4000
+Sample 1,Hurdle,Vague,Controls,0.25895885,4000
+Sample 1,Hurdle,Weakly Informative,Bivariate,0.49904616,4000
+Sample 1,Hurdle,Weakly Informative,Bivariate,0.51012923,4000
+Sample 1,Hurdle,Weakly Informative,Bivariate,0.61732956,4000
+Sample 1,Hurdle,Weakly Informative,Bivariate,0.6284296,4000
+Sample 1,Hurdle,Improper,Bivariate,0.35095544,4000
+Sample 1,Hurdle,Improper,Bivariate,0.39193898,4000
+Sample 1,Hurdle,Improper,Bivariate,0.39269289,4000
+Sample 1,Hurdle,Improper,Bivariate,0.41093376,4000
+Sample 1,Hurdle,Vague,Bivariate,0.35095544,4000
+Sample 1,Hurdle,Vague,Bivariate,0.39193898,4000
+Sample 1,Hurdle,Vague,Bivariate,0.39269289,4000
+Sample 1,Hurdle,Vague,Bivariate,0.41093376,4000
+Sample 2,Hurdle,Weakly Informative,Controls,0.31554625,4000
+Sample 2,Hurdle,Weakly Informative,Controls,0.33884018,4000
+Sample 2,Hurdle,Weakly Informative,Controls,0.36407046,4000
+Sample 2,Hurdle,Weakly Informative,Controls,0.394377,4000
+Sample 2,Hurdle,Improper,Controls,0.014410105,4000
+Sample 2,Hurdle,Improper,Controls,0.018128755,4000
+Sample 2,Hurdle,Improper,Controls,0.018701048,4000
+Sample 2,Hurdle,Improper,Controls,0.020312924,4000
+Sample 2,Hurdle,Vague,Controls,0.23002817,4000
+Sample 2,Hurdle,Vague,Controls,0.24725561,4000
+Sample 2,Hurdle,Vague,Controls,0.27907305,4000
+Sample 2,Hurdle,Vague,Controls,0.29261416,4000
+Sample 3,Adjusted,Weakly Informative,Controls,0.30885556,4000
+Sample 3,Adjusted,Weakly Informative,Controls,0.3226303,4000
+Sample 3,Adjusted,Weakly Informative,Controls,0.32515599,4000
+Sample 3,Adjusted,Weakly Informative,Controls,0.32845491,4000
+Sample 3,Adjusted,Improper,Controls,0.018914935,4000
+Sample 3,Adjusted,Improper,Controls,0.019233482,4000
+Sample 3,Adjusted,Improper,Controls,0.020988212,4000
+Sample 3,Adjusted,Improper,Controls,0.021446228,4000
+Sample 3,Adjusted,Vague,Controls,0.08991416,4000
+Sample 3,Adjusted,Vague,Controls,0.10568619,4000
+Sample 3,Adjusted,Vague,Controls,0.10735724,4000
+Sample 3,Adjusted,Vague,Controls,0.11280039,4000
+Sample 3,MIOS,Weakly Informative,Controls,0.018914935,4000
+Sample 3,MIOS,Weakly Informative,Controls,0.019233482,4000
+Sample 3,MIOS,Weakly Informative,Controls,0.020988212,4000
+Sample 3,MIOS,Weakly Informative,Controls,0.021446228,4000
+Sample 3,MIOS,Improper,Controls,0.018914935,4000
+Sample 3,MIOS,Improper,Controls,0.019233482,4000
+Sample 3,MIOS,Improper,Controls,0.020988212,4000
+Sample 3,MIOS,Improper,Controls,0.021446228,4000
+Sample 3,MIOS,Vague,Controls,0.018914935,4000
+Sample 3,MIOS,Vague,Controls,0.019233482,4000
+Sample 3,MIOS,Vague,Controls,0.020988212,4000
+Sample 3,MIOS,Vague,Controls,0.021446228,4000
+Sample 3,PCL,Weakly Informative,Controls,0.018914935,4000
+Sample 3,PCL,Weakly Informative,Controls,0.019233482,4000
+Sample 3,PCL,Weakly Informative,Controls,0.020988212,4000
+Sample 3,PCL,Weakly Informative,Controls,0.021446228,4000
+Sample 3,PCL,Improper,Controls,0.018914935,4000
+Sample 3,PCL,Improper,Controls,0.019233482,4000
+Sample 3,PCL,Improper,Controls,0.020988212,4000
+Sample 3,PCL,Improper,Controls,0.021446228,4000
+Sample 3,PCL,Vague,Controls,0.018914935,4000
+Sample 3,PCL,Vague,Controls,0.019233482,4000
+Sample 3,PCL,Vague,Controls,0.020988212,4000
+Sample 3,PCL,Vague,Controls,0.021446228,4000
+Sample 3,Interaction,Weakly Informative,Controls,0.30300381,4000
+Sample 3,Interaction,Weakly Informative,Controls,0.31692959,4000
+Sample 3,Interaction,Weakly Informative,Controls,0.33279738,4000
+Sample 3,Interaction,Weakly Informative,Controls,0.34197158,4000
+Sample 3,Interaction,Improper,Controls,0.019599327,4000
+Sample 3,Interaction,Improper,Controls,0.020838773,4000
+Sample 3,Interaction,Improper,Controls,0.021405036,4000
+Sample 3,Interaction,Improper,Controls,0.022243912,4000
+Sample 3,Interaction,Vague,Controls,0.090122006,4000
+Sample 3,Interaction,Vague,Controls,0.094719024,4000
+Sample 3,Interaction,Vague,Controls,0.098007964,4000
+Sample 3,Interaction,Vague,Controls,0.11479911,4000

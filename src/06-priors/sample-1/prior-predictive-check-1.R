@@ -92,8 +92,10 @@ plot_prior_draws_1 <-
 plot_prior_draws_1 %>% print()
 
 # Save to file ------------------------------------------------------------
-ggsave(plot = plot_prior_draws_1, file = here::here("output/plot-prior-draws-1.jpg"), width = 8, height = 8)
+ggsave(plot = plot_prior_draws_1, file = here::here("output/priors/plot-prior-draws-1.jpg"), width = 8, height = 8)
 
+# Remove objects from environment -----------------------------------------
+rm(plot_prior_draws_1, data_sim_1, plot_prior_predictive_1, linpred_prior_1)
 
 
 

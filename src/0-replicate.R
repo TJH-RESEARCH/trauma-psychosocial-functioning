@@ -123,92 +123,86 @@ source(here::here('src/06-priors/sample-3/prior-predictive-check-3.R')) #### Pri
 
 ## FIT MODELS  -----------------------------------------------------------------
 
-### Sample 1
-#### Fit the model 
-source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1.R'))
+### Sample 1 - Hurdle - Full Controls
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1-improper.R'))   # Fit the model 
 
-#### Check the MCMC diagnostics
-source(here::here('src/07-modeling/sample-1/diagnostics-hurdle-1.R'))
+### Sample 1 - Hurdle - Bivariate
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1-bi.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1-bi-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-1/fit-model-hurdle-1-bi-improper.R'))   # Fit the model 
 
-### Sample 2
-source(here::here('src/07-modeling/sample-2/fit-model-hurdle-2.R'))
-source(here::here('src/07-modeling/sample-2/diagnostics-hurdle-2.R'))
+### Sample 2 - Hurdle
+source(here::here('src/07-modeling/sample-2/fit-model-hurdle-2.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-2/fit-model-hurdle-2-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-2/fit-model-hurdle-2-improper.R'))   # Fit the model 
 
-### Sample 3
-source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3.R'))
-source(here::here('src/07-modeling/sample-3/diagnostics-hurdle-3.R'))
+### Sample 3 - Hurdle Adjusted
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-adjust.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-adjust-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-adjust-improper.R'))   # Fit the model 
 
-source(here::here('src/07-modeling/sample-3-interact/fit-model-interact-3.R'))
+### Sample 3 - Hurdle MIOS
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-mios.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-mios-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-mios-improper.R'))   # Fit the model 
+
+### Sample 3 - Hurdle PCL
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-pcl.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-pcl-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-pcl-improper.R'))   # Fit the model 
+
+### Sample 3 - Hurdle with Interaction
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-interact.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-interact-vague.R'))   # Fit the model 
+source(here::here('src/07-modeling/sample-3/fit-model-hurdle-3-interact-improper.R'))   # Fit the model 
 
 
-### Sensitivity Analysis & Model Comparison
+# MCMC SAMPLING DIAGNOSTICS -----------------------------------------------
+## Helper Function
+source(here::here('src/08-diagnostics/model-labels.R'))
 
-#### fit same model but with improper flat priors
-source(here::here('src/07-modeling/sample-1-improper/fit-hurdle-1-improper.R'))
+## Divergent Draws
+source(here::here('src/08-diagnostics/divergent-draws.R'))
 
-#### try to fit the same model but with a vague prior
-source(here::here('src/07-modeling/sample-1-vague/fit-hurdle-1-vague.R'))
+## ESS
+source(here::here('src/08-diagnostics/ess.R'))
 
-### Compare Models
-source(here::here('src/07-modeling/compare-models.R'))
+## Leapfrog
+source(here::here('src/08-diagnostics/leapfrog.R'))
 
+## Step Size
+source(here::here('src/08-diagnostics/step-size.R'))
 
+## Plot Acceptance
+source(here::here('src/08-diagnostics/plot-acceptance.R'))
 
+## Plot Catepillar
+source(here::here('src/08-diagnostics/plot-caterpillar.R'))
+
+## Plot Trace Rank
+source(here::here('src/08-diagnostics/plot-trace-rank.R'))
 
 
 # POSTERIOR DISTRIBUTION ----------------------------------------------------
 
-### Sample 1
+## Posterior Predictive Check
+source(here::here('src/09-posterior/posterior-predictive-check.R'))
 
-#### Posterior predictive check
-source(here::here('src/08-posterior/sample-1/posterior-predictive-check-1.R'))
+## Model Comparison
+#source(here::here('src/07-modeling/compare-models.R'))
 
-#### Summarize the posterior probability
-source(here::here('src/08-posterior/sample-1/summarize-posterior-1.R'))
+## Posterior Distributions
+source(here::here('src/09-posterior/posterior.R'))
 
-#### Plot the posterior probability
-source(here::here('src/08-posterior/sample-1/plot-posterior-1.R'))
+## Summarize the posterior probability
+source(here::here('src/09-posterior/summarize-posterior.R'))
 
-#### Conditional Effects (Predictions)
-source(here::here('src/08-posterior/sample-1/conditional-effects-1.R'))
+## Conditional Effects
+source(here::here('src/09-posterior/conditional-effects.R'))
 
-#### Marginal effects
-source(here::here('src/08-posterior/sample-1/marginal-effects-1.R'))
-
-
-### Sample 2
-#### Posterior predictive check
-source(here::here('src/08-posterior/sample-2/posterior-predictive-check-2.R'))
-
-#### Summarize the posterior probability
-source(here::here('src/08-posterior/sample-2/summarize-posterior-2.R'))
-
-#### Plot the posterior probability
-source(here::here('src/08-posterior/sample-2/plot-posterior-2.R'))
-
-#### Conditional Effects (Predictions)
-source(here::here('src/08-posterior/sample-2/conditional-effects-2.R'))
-
-#### Marginal effects
-source(here::here('src/08-posterior/sample-2/marginal-effects-2.R'))
-
-
-
-### Sample 3
-#### Posterior predictive check
-source(here::here('src/08-posterior/sample-3/posterior-predictive-check-3.R'))
-
-#### Summarize the posterior probability
-source(here::here('src/08-posterior/sample-3/summarize-posterior-3.R'))
-
-#### Plot the posterior probability
-source(here::here('src/08-posterior/sample-3/plot-posterior-3.R'))
-
-#### Conditional Effects (Predictions)
-source(here::here('src/08-posterior/sample-3/conditional-effects-3.R'))
-
-#### Marginal effects
-source(here::here('src/08-posterior/sample-3/marginal-effects-3.R'))
-
+## Marginal Effects
+source(here::here('src/09-posterior/marginal-effects.R'))
 
 

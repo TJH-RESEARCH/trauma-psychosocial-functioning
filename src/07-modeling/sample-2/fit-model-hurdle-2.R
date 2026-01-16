@@ -1,5 +1,3 @@
-library(brms)
-library(tidybayes)
 
 # Hurdle gamma model -----------------------------------------------------------
 model_2_hurdle <- 
@@ -97,38 +95,15 @@ model_2_hurdle <-
     family = hurdle_gamma(),
     
     # PRIOR OPTIONS
-    prior = c(
-      # for the non-zero process, in log for 0-100 outcome
-      prior(normal(0, 2), class = b),
-      prior(normal(2.3, 1), class = Intercept), # baseline around 10 on the 0-100 scale
-      
-      # for the zero process: probability of being 0. Log odds intercept, log variables, for binary outcome
-      prior(normal(0, 1), class = Intercept, dpar = hu),  # hurdle intercept. 
-      prior(normal(0, 1), class = b, dpar = hu),          # logistic coefficients
-      
-      # Shape
-      prior(lognormal(log(20), 0.5), class = shape)
-    ),
+    prior = weakly_informative_priors,
     sample_prior = 'no',
     
     # Stan options
     chains = CHAINS, iter = ITER, warmup = WARMUP, seed = SEED,
-    backend = "cmdstanr"
+    backend = "cmdstanr",
+    
+    # Save the model to avoid refitting
+    file = here::here("models/hurdle-2")
   )
 
-
-# Get Draws ---------------------------------------------------------------
-draws_hurdle_2 <- model_2_hurdle %>% tidy_draws()
-
-
-# Check Rhat and Effective Sample Size -----------------------------------------
-draws_hurdle_2 %>% count(divergent__)
-draws_hurdle_2 %>% count(n_leapfrog__)
-draws_hurdle_2 %>% count(stepsize__)
-draws_hurdle_2 %>% ggplot(aes(accept_stat__)) + geom_density()
-bayestestR::effective_sample(model_2_hurdle)
-bayestestR::diagnostic_draws(model_2_hurdle)
-
-
-broom.mixed::tidy(model_2_hurdle) %>% count(term) %>% print(n = 300)
 

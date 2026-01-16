@@ -26,3 +26,7 @@ table_zeros %>% print(n = 6)
 
 # Save to file -----------------------------------------------------------------
 table_zeros %>% write_csv(here::here("output/table-zeros.csv"))
+
+# Remove objects from environment -----------------------------------------
+rm(table_zeros)
+

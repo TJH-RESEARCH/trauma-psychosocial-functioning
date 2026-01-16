@@ -104,5 +104,10 @@ plot_priors_combo %>% print()
 plot_priors_shape %>% print()
 
 # Save to file -----------------------------------------------------------------
-ggsave(plot = plot_priors_combo, file = here::here("output/plot-priors.jpg"), width = 6, height = 8)
-ggsave(plot = plot_priors_shape, file = here::here("output/plot-priors-shape.jpg"), width = 6, height = 4)
+ggsave(plot = plot_priors_combo, file = here::here("output/priors/plot-priors.jpg"), width = 6, height = 8)
+ggsave(plot = plot_priors_shape, file = here::here("output/priors/plot-priors-shape.jpg"), width = 6, height = 4)
+
+# Remove objects from environment -----------------------------------------
+rm(plot_priors_combo, plot_priors_shape, plot_priors_nonzero, 
+   plot_priors_zero, n, priors)
+

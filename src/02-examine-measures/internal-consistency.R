@@ -80,3 +80,11 @@ internal_consistency %>%
 
 # Save to file  ----------------------------------------------------------------
 internal_consistency %>% write_csv(here::here('output/internal-consistency.csv'))
+
+
+# Remove objects from environment -----------------------------------------
+rm(internal_consistency, model_pcl, model_bipf, model_mios, model_mios_3,
+   fit_pcl_1, fit_pcl_3, fit_bipf_1, fit_bipf_2, fit_bipf_3, 
+   fit_mios_2, fit_mios_3)
+
+

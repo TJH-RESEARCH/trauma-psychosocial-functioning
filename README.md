@@ -7,19 +7,23 @@ contributors:
 
 
 ## To Do
-- checked through prior predictive check
+- stop repeating code ... merge diagnostics into one file, grouped by each diagnostic stat
+- model comparison... save results, check warnings
+- Extra ppcheck models... interpret and save 
+- Average Marginal Effects numeric results
+
+- missing data in Sample 3 PCL
+
+- consistency in names (e.g., hurdle vs. zero-process vs. lostic; gamma vs. non-zero)
 
 - Informative Priors for sample 3 
-- Sample plots from sample priors/output/visuals from prior predictive checks?
-- model comparison
-- check warnings
+- consolidate and clean up the generative model folder. DAGs? with Bayesian models, the main approach is to use all the covariates you can... 
 
-- consolidate and clean up the generative model folder
-- DAGs? with Bayesian models, the main approach is to use all the covariate you can... 
+- check warnings in results section
+
 - plot priors shape is ugly
 - title for plot priors
 
-- Assess model fits
 - do something with the groups.R file
 
 

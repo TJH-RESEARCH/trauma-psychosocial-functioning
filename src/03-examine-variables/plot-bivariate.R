@@ -62,11 +62,16 @@ plot_bivariate_3b %>% print()
 
 
 
-# Combine Plots -----------------------------------------------------------
+# Combine Plots ----------------------------------------------------------------
 plot_bivariate <-
 (plot_bivariate_1 + plot_bivariate_2) /
 (plot_bivariate_3b + plot_bivariate_3a)
 
-# Write to file
-ggsave(here::here("output/plot-bivariate.jpg"), width = 6, height = 8)
+# Write to file ----------------------------------------------------------------
+ggsave(plot = plot_bivariate, file = here::here("output/plot-bivariate.jpg"), width = 6, height = 8)
+
+
+# Remove objects from environment ----------------------------------------------
+rm(plot_bivariate, plot_bivariate_1, plot_bivariate_2, 
+   plot_bivariate_3b, plot_bivariate_3a)
 

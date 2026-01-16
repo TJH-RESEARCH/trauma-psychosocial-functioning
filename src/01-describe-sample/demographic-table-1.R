@@ -149,8 +149,10 @@ demographics_general_1 %>% print(n = 100)
 demographics_military_1 %>% print(n = 100)
 
 # Save to file -----------------------------------------------------------------
-demographics_general_1 %>% write_csv(here::here('output/demographics-1-general.csv'))
-demographics_military_1 %>% write_csv(here::here('output/demographics-1-military.csv'))
+demographics_general_1 %>% write_csv(here::here('output/demographics/demographics-1-general.csv'))
+demographics_military_1 %>% write_csv(here::here('output/demographics/demographics-1-military.csv'))
 
-
+# Remove objects from environment
+rm(demographics_general_1)
+rm(demographics_military_1)
 

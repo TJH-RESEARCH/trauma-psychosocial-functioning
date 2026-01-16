@@ -1,0 +1,472 @@
+Parameter,ESS,ESS_tail,sample,model,prior,controls
+b_Intercept,13608,11939,Sample 1,Hurdle,Weakly Informative,Controls
+b_pcl_total,15973,12420,Sample 1,Hurdle,Weakly Informative,Controls
+b_veteran,17122,13224,Sample 1,Hurdle,Weakly Informative,Controls
+b_civilian,17377,12528,Sample 1,Hurdle,Weakly Informative,Controls
+b_gender_female,20345,12044,Sample 1,Hurdle,Weakly Informative,Controls
+b_born_79_84,12519,12337,Sample 1,Hurdle,Weakly Informative,Controls
+b_born_85_89,13547,13303,Sample 1,Hurdle,Weakly Informative,Controls
+b_born_90_95,12811,12295,Sample 1,Hurdle,Weakly Informative,Controls
+b_born_96_01,13313,12373,Sample 1,Hurdle,Weakly Informative,Controls
+b_trauma,15816,12564,Sample 1,Hurdle,Weakly Informative,Controls
+b_Intercept,12506,12014,Sample 1,Hurdle,Improper,Controls
+b_pcl_total,16906,11960,Sample 1,Hurdle,Improper,Controls
+b_veteran,16930,11863,Sample 1,Hurdle,Improper,Controls
+b_civilian,19474,12684,Sample 1,Hurdle,Improper,Controls
+b_gender_female,23615,11842,Sample 1,Hurdle,Improper,Controls
+b_born_79_84,11089,11701,Sample 1,Hurdle,Improper,Controls
+b_born_85_89,12448,11528,Sample 1,Hurdle,Improper,Controls
+b_born_90_95,11243,12527,Sample 1,Hurdle,Improper,Controls
+b_born_96_01,11346,12608,Sample 1,Hurdle,Improper,Controls
+b_trauma,16677,11955,Sample 1,Hurdle,Improper,Controls
+b_Intercept,10158,11317,Sample 1,Hurdle,Vague,Controls
+b_pcl_total,13826,11559,Sample 1,Hurdle,Vague,Controls
+b_veteran,14631,11584,Sample 1,Hurdle,Vague,Controls
+b_civilian,15865,12563,Sample 1,Hurdle,Vague,Controls
+b_gender_female,19179,12880,Sample 1,Hurdle,Vague,Controls
+b_born_79_84,8873,10953,Sample 1,Hurdle,Vague,Controls
+b_born_85_89,10120,11337,Sample 1,Hurdle,Vague,Controls
+b_born_90_95,9460,11986,Sample 1,Hurdle,Vague,Controls
+b_born_96_01,9598,11058,Sample 1,Hurdle,Vague,Controls
+b_trauma,13321,11610,Sample 1,Hurdle,Vague,Controls
+b_Intercept,18213,11388,Sample 1,Hurdle,Weakly Informative,Bivariate
+b_pcl_total,19060,11975,Sample 1,Hurdle,Weakly Informative,Bivariate
+b_Intercept,14729,11106,Sample 1,Hurdle,Improper,Bivariate
+b_pcl_total,13542,11436,Sample 1,Hurdle,Improper,Bivariate
+b_Intercept,14729,11106,Sample 1,Hurdle,Vague,Bivariate
+b_pcl_total,13542,11436,Sample 1,Hurdle,Vague,Bivariate
+b_Intercept,21807,12967,Sample 2,Hurdle,Weakly Informative,Controls
+b_mios_total,19113,12998,Sample 2,Hurdle,Weakly Informative,Controls
+b_pc_ptsd_positive_screen,23793,13013,Sample 2,Hurdle,Weakly Informative,Controls
+b_military_exp_combat,24627,13546,Sample 2,Hurdle,Weakly Informative,Controls
+b_military_exp_noncombat,20339,14192,Sample 2,Hurdle,Weakly Informative,Controls
+b_military_exp_support,22956,13589,Sample 2,Hurdle,Weakly Informative,Controls
+b_military_exp_peacekeeping,22428,12627,Sample 2,Hurdle,Weakly Informative,Controls
+b_sex_female,23630,13139,Sample 2,Hurdle,Weakly Informative,Controls
+b_sexual_orientation_gay,19839,13642,Sample 2,Hurdle,Weakly Informative,Controls
+b_sexual_orientation_bi,22780,13492,Sample 2,Hurdle,Weakly Informative,Controls
+b_race_asian,18845,12951,Sample 2,Hurdle,Weakly Informative,Controls
+b_race_black,21401,13845,Sample 2,Hurdle,Weakly Informative,Controls
+b_race_latino,24378,12520,Sample 2,Hurdle,Weakly Informative,Controls
+b_race_native,21002,13193,Sample 2,Hurdle,Weakly Informative,Controls
+b_race_other,23957,13615,Sample 2,Hurdle,Weakly Informative,Controls
+b_rank_e1_e3,22892,12609,Sample 2,Hurdle,Weakly Informative,Controls
+b_rank_e7_e9,24959,13940,Sample 2,Hurdle,Weakly Informative,Controls
+b_rank_w1_cw5,22385,13590,Sample 2,Hurdle,Weakly Informative,Controls
+b_rank_o1_o3,23250,12546,Sample 2,Hurdle,Weakly Informative,Controls
+b_rank_o4_o6,22291,13143,Sample 2,Hurdle,Weakly Informative,Controls
+b_service_era_korea,25744,12075,Sample 2,Hurdle,Weakly Informative,Controls
+b_service_era_cold_war,22394,12533,Sample 2,Hurdle,Weakly Informative,Controls
+b_service_era_vietnam,21301,12521,Sample 2,Hurdle,Weakly Informative,Controls
+b_service_era_persian_gulf,22327,13432,Sample 2,Hurdle,Weakly Informative,Controls
+b_branch_air_force,24869,13219,Sample 2,Hurdle,Weakly Informative,Controls
+b_branch_marines,27125,13580,Sample 2,Hurdle,Weakly Informative,Controls
+b_branch_navy,22533,13514,Sample 2,Hurdle,Weakly Informative,Controls
+b_branch_public_health,23155,11727,Sample 2,Hurdle,Weakly Informative,Controls
+b_Intercept,11849,11616,Sample 2,Hurdle,Improper,Controls
+b_mios_total,10336,11054,Sample 2,Hurdle,Improper,Controls
+b_pc_ptsd_positive_screen,13018,10589,Sample 2,Hurdle,Improper,Controls
+b_military_exp_combat,13030,11321,Sample 2,Hurdle,Improper,Controls
+b_military_exp_noncombat,11195,11203,Sample 2,Hurdle,Improper,Controls
+b_military_exp_support,12891,11828,Sample 2,Hurdle,Improper,Controls
+b_military_exp_peacekeeping,11971,11571,Sample 2,Hurdle,Improper,Controls
+b_sex_female,13204,11636,Sample 2,Hurdle,Improper,Controls
+b_sexual_orientation_gay,10953,10861,Sample 2,Hurdle,Improper,Controls
+b_sexual_orientation_bi,13192,9805,Sample 2,Hurdle,Improper,Controls
+b_race_asian,11142,10832,Sample 2,Hurdle,Improper,Controls
+b_race_black,12226,11124,Sample 2,Hurdle,Improper,Controls
+b_race_latino,14670,11221,Sample 2,Hurdle,Improper,Controls
+b_race_native,12135,11045,Sample 2,Hurdle,Improper,Controls
+b_race_other,13264,9905,Sample 2,Hurdle,Improper,Controls
+b_rank_e1_e3,13671,11309,Sample 2,Hurdle,Improper,Controls
+b_rank_e7_e9,12342,11378,Sample 2,Hurdle,Improper,Controls
+b_rank_w1_cw5,13139,11407,Sample 2,Hurdle,Improper,Controls
+b_rank_o1_o3,12809,11246,Sample 2,Hurdle,Improper,Controls
+b_rank_o4_o6,11880,10547,Sample 2,Hurdle,Improper,Controls
+b_service_era_korea,13667,9322,Sample 2,Hurdle,Improper,Controls
+b_service_era_cold_war,11568,11260,Sample 2,Hurdle,Improper,Controls
+b_service_era_vietnam,11184,10311,Sample 2,Hurdle,Improper,Controls
+b_service_era_persian_gulf,12251,11585,Sample 2,Hurdle,Improper,Controls
+b_branch_air_force,13153,11248,Sample 2,Hurdle,Improper,Controls
+b_branch_marines,15312,11508,Sample 2,Hurdle,Improper,Controls
+b_branch_navy,12797,11590,Sample 2,Hurdle,Improper,Controls
+b_branch_public_health,13238,9978,Sample 2,Hurdle,Improper,Controls
+b_Intercept,15823,12151,Sample 2,Hurdle,Vague,Controls
+b_mios_total,13647,12940,Sample 2,Hurdle,Vague,Controls
+b_pc_ptsd_positive_screen,17646,12894,Sample 2,Hurdle,Vague,Controls
+b_military_exp_combat,15963,13696,Sample 2,Hurdle,Vague,Controls
+b_military_exp_noncombat,13669,13269,Sample 2,Hurdle,Vague,Controls
+b_military_exp_support,16852,12152,Sample 2,Hurdle,Vague,Controls
+b_military_exp_peacekeeping,14624,12425,Sample 2,Hurdle,Vague,Controls
+b_sex_female,16754,13287,Sample 2,Hurdle,Vague,Controls
+b_sexual_orientation_gay,14271,13023,Sample 2,Hurdle,Vague,Controls
+b_sexual_orientation_bi,16545,12240,Sample 2,Hurdle,Vague,Controls
+b_race_asian,14275,11561,Sample 2,Hurdle,Vague,Controls
+b_race_black,15028,12804,Sample 2,Hurdle,Vague,Controls
+b_race_latino,19554,12223,Sample 2,Hurdle,Vague,Controls
+b_race_native,14857,11993,Sample 2,Hurdle,Vague,Controls
+b_race_other,16929,11186,Sample 2,Hurdle,Vague,Controls
+b_rank_e1_e3,17736,13130,Sample 2,Hurdle,Vague,Controls
+b_rank_e7_e9,17463,12725,Sample 2,Hurdle,Vague,Controls
+b_rank_w1_cw5,16536,12371,Sample 2,Hurdle,Vague,Controls
+b_rank_o1_o3,16852,11692,Sample 2,Hurdle,Vague,Controls
+b_rank_o4_o6,15678,11895,Sample 2,Hurdle,Vague,Controls
+b_service_era_korea,17662,10128,Sample 2,Hurdle,Vague,Controls
+b_service_era_cold_war,15693,12653,Sample 2,Hurdle,Vague,Controls
+b_service_era_vietnam,14384,13015,Sample 2,Hurdle,Vague,Controls
+b_service_era_persian_gulf,15264,12481,Sample 2,Hurdle,Vague,Controls
+b_branch_air_force,16365,11431,Sample 2,Hurdle,Vague,Controls
+b_branch_marines,20158,12023,Sample 2,Hurdle,Vague,Controls
+b_branch_navy,16467,13473,Sample 2,Hurdle,Vague,Controls
+b_branch_public_health,16943,11312,Sample 2,Hurdle,Vague,Controls
+b_Intercept,27874,13053,Sample 3,Adjusted,Weakly Informative,Controls
+b_pcl_total,21382,13311,Sample 3,Adjusted,Weakly Informative,Controls
+b_mios_total,23015,13603,Sample 3,Adjusted,Weakly Informative,Controls
+b_military_exp_combat,22782,13808,Sample 3,Adjusted,Weakly Informative,Controls
+b_military_exp_noncombat,21262,13638,Sample 3,Adjusted,Weakly Informative,Controls
+b_military_exp_support,26412,11888,Sample 3,Adjusted,Weakly Informative,Controls
+b_military_exp_peacekeeping,27041,13443,Sample 3,Adjusted,Weakly Informative,Controls
+b_gender_female,25437,13016,Sample 3,Adjusted,Weakly Informative,Controls
+b_gender_nonbinary,31839,12514,Sample 3,Adjusted,Weakly Informative,Controls
+b_foreign_born,30329,11203,Sample 3,Adjusted,Weakly Informative,Controls
+b_race_asian,20272,13490,Sample 3,Adjusted,Weakly Informative,Controls
+b_race_black,26175,13066,Sample 3,Adjusted,Weakly Informative,Controls
+b_race_latino,28600,13300,Sample 3,Adjusted,Weakly Informative,Controls
+b_race_native,21756,12952,Sample 3,Adjusted,Weakly Informative,Controls
+b_race_pacific,21356,14139,Sample 3,Adjusted,Weakly Informative,Controls
+b_race_other,30086,11223,Sample 3,Adjusted,Weakly Informative,Controls
+b_rank_e1_e3,23457,13460,Sample 3,Adjusted,Weakly Informative,Controls
+b_rank_e7_e9,31888,13382,Sample 3,Adjusted,Weakly Informative,Controls
+b_rank_w1_cw5,29935,12895,Sample 3,Adjusted,Weakly Informative,Controls
+b_rank_o1_o3,20781,13471,Sample 3,Adjusted,Weakly Informative,Controls
+b_rank_o4_o6,24036,12371,Sample 3,Adjusted,Weakly Informative,Controls
+b_service_era_cold_war,27406,12940,Sample 3,Adjusted,Weakly Informative,Controls
+b_service_era_vietnam,22453,13057,Sample 3,Adjusted,Weakly Informative,Controls
+b_service_era_persian_gulf,27589,13478,Sample 3,Adjusted,Weakly Informative,Controls
+b_branch_air_force,27496,12933,Sample 3,Adjusted,Weakly Informative,Controls
+b_branch_coast_guard,18783,13484,Sample 3,Adjusted,Weakly Informative,Controls
+b_branch_marines,26110,13323,Sample 3,Adjusted,Weakly Informative,Controls
+b_branch_navy,22314,13168,Sample 3,Adjusted,Weakly Informative,Controls
+b_branch_public_health,22204,12491,Sample 3,Adjusted,Weakly Informative,Controls
+b_Intercept,15207,10769,Sample 3,Adjusted,Improper,Controls
+b_pcl_total,11294,10405,Sample 3,Adjusted,Improper,Controls
+b_mios_total,12391,11656,Sample 3,Adjusted,Improper,Controls
+b_military_exp_combat,12955,10843,Sample 3,Adjusted,Improper,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,Adjusted,Improper,Controls
+b_military_exp_support,14128,11513,Sample 3,Adjusted,Improper,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,Adjusted,Improper,Controls
+b_gender_female,13842,10998,Sample 3,Adjusted,Improper,Controls
+b_gender_nonbinary,15870,10775,Sample 3,Adjusted,Improper,Controls
+b_foreign_born,14381,9985,Sample 3,Adjusted,Improper,Controls
+b_race_asian,12783,10938,Sample 3,Adjusted,Improper,Controls
+b_race_black,15386,11288,Sample 3,Adjusted,Improper,Controls
+b_race_latino,16340,11351,Sample 3,Adjusted,Improper,Controls
+b_race_native,11110,10833,Sample 3,Adjusted,Improper,Controls
+b_race_pacific,11383,11107,Sample 3,Adjusted,Improper,Controls
+b_race_other,14311,9556,Sample 3,Adjusted,Improper,Controls
+b_rank_e1_e3,12369,11598,Sample 3,Adjusted,Improper,Controls
+b_rank_e7_e9,15083,11391,Sample 3,Adjusted,Improper,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,Adjusted,Improper,Controls
+b_rank_o1_o3,11492,10129,Sample 3,Adjusted,Improper,Controls
+b_rank_o4_o6,13482,10650,Sample 3,Adjusted,Improper,Controls
+b_service_era_cold_war,15361,12030,Sample 3,Adjusted,Improper,Controls
+b_service_era_vietnam,14048,11956,Sample 3,Adjusted,Improper,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,Adjusted,Improper,Controls
+b_branch_air_force,14707,12378,Sample 3,Adjusted,Improper,Controls
+b_branch_coast_guard,10982,10796,Sample 3,Adjusted,Improper,Controls
+b_branch_marines,15341,10936,Sample 3,Adjusted,Improper,Controls
+b_branch_navy,12923,12245,Sample 3,Adjusted,Improper,Controls
+b_branch_public_health,12557,10312,Sample 3,Adjusted,Improper,Controls
+b_Intercept,16137,11888,Sample 3,Adjusted,Vague,Controls
+b_pcl_total,11304,10914,Sample 3,Adjusted,Vague,Controls
+b_mios_total,12249,11431,Sample 3,Adjusted,Vague,Controls
+b_military_exp_combat,14818,12288,Sample 3,Adjusted,Vague,Controls
+b_military_exp_noncombat,12354,12029,Sample 3,Adjusted,Vague,Controls
+b_military_exp_support,16190,12526,Sample 3,Adjusted,Vague,Controls
+b_military_exp_peacekeeping,13898,11639,Sample 3,Adjusted,Vague,Controls
+b_gender_female,14882,12147,Sample 3,Adjusted,Vague,Controls
+b_gender_nonbinary,16416,10698,Sample 3,Adjusted,Vague,Controls
+b_foreign_born,17320,10636,Sample 3,Adjusted,Vague,Controls
+b_race_asian,12434,11845,Sample 3,Adjusted,Vague,Controls
+b_race_black,16564,12204,Sample 3,Adjusted,Vague,Controls
+b_race_latino,15613,12184,Sample 3,Adjusted,Vague,Controls
+b_race_native,12480,11967,Sample 3,Adjusted,Vague,Controls
+b_race_pacific,12071,11963,Sample 3,Adjusted,Vague,Controls
+b_race_other,17174,10417,Sample 3,Adjusted,Vague,Controls
+b_rank_e1_e3,12537,11939,Sample 3,Adjusted,Vague,Controls
+b_rank_e7_e9,16005,11416,Sample 3,Adjusted,Vague,Controls
+b_rank_w1_cw5,17967,10827,Sample 3,Adjusted,Vague,Controls
+b_rank_o1_o3,12038,12010,Sample 3,Adjusted,Vague,Controls
+b_rank_o4_o6,14145,10942,Sample 3,Adjusted,Vague,Controls
+b_service_era_cold_war,15722,11866,Sample 3,Adjusted,Vague,Controls
+b_service_era_vietnam,13142,12321,Sample 3,Adjusted,Vague,Controls
+b_service_era_persian_gulf,16040,12948,Sample 3,Adjusted,Vague,Controls
+b_branch_air_force,16455,12340,Sample 3,Adjusted,Vague,Controls
+b_branch_coast_guard,12083,11725,Sample 3,Adjusted,Vague,Controls
+b_branch_marines,14960,12151,Sample 3,Adjusted,Vague,Controls
+b_branch_navy,12903,11863,Sample 3,Adjusted,Vague,Controls
+b_branch_public_health,12719,11450,Sample 3,Adjusted,Vague,Controls
+b_Intercept,15207,10769,Sample 3,MIOS,Weakly Informative,Controls
+b_pcl_total,11294,10405,Sample 3,MIOS,Weakly Informative,Controls
+b_mios_total,12391,11656,Sample 3,MIOS,Weakly Informative,Controls
+b_military_exp_combat,12955,10843,Sample 3,MIOS,Weakly Informative,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,MIOS,Weakly Informative,Controls
+b_military_exp_support,14128,11513,Sample 3,MIOS,Weakly Informative,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,MIOS,Weakly Informative,Controls
+b_gender_female,13842,10998,Sample 3,MIOS,Weakly Informative,Controls
+b_gender_nonbinary,15870,10775,Sample 3,MIOS,Weakly Informative,Controls
+b_foreign_born,14381,9985,Sample 3,MIOS,Weakly Informative,Controls
+b_race_asian,12783,10938,Sample 3,MIOS,Weakly Informative,Controls
+b_race_black,15386,11288,Sample 3,MIOS,Weakly Informative,Controls
+b_race_latino,16340,11351,Sample 3,MIOS,Weakly Informative,Controls
+b_race_native,11110,10833,Sample 3,MIOS,Weakly Informative,Controls
+b_race_pacific,11383,11107,Sample 3,MIOS,Weakly Informative,Controls
+b_race_other,14311,9556,Sample 3,MIOS,Weakly Informative,Controls
+b_rank_e1_e3,12369,11598,Sample 3,MIOS,Weakly Informative,Controls
+b_rank_e7_e9,15083,11391,Sample 3,MIOS,Weakly Informative,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,MIOS,Weakly Informative,Controls
+b_rank_o1_o3,11492,10129,Sample 3,MIOS,Weakly Informative,Controls
+b_rank_o4_o6,13482,10650,Sample 3,MIOS,Weakly Informative,Controls
+b_service_era_cold_war,15361,12030,Sample 3,MIOS,Weakly Informative,Controls
+b_service_era_vietnam,14048,11956,Sample 3,MIOS,Weakly Informative,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,MIOS,Weakly Informative,Controls
+b_branch_air_force,14707,12378,Sample 3,MIOS,Weakly Informative,Controls
+b_branch_coast_guard,10982,10796,Sample 3,MIOS,Weakly Informative,Controls
+b_branch_marines,15341,10936,Sample 3,MIOS,Weakly Informative,Controls
+b_branch_navy,12923,12245,Sample 3,MIOS,Weakly Informative,Controls
+b_branch_public_health,12557,10312,Sample 3,MIOS,Weakly Informative,Controls
+b_Intercept,15207,10769,Sample 3,MIOS,Improper,Controls
+b_pcl_total,11294,10405,Sample 3,MIOS,Improper,Controls
+b_mios_total,12391,11656,Sample 3,MIOS,Improper,Controls
+b_military_exp_combat,12955,10843,Sample 3,MIOS,Improper,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,MIOS,Improper,Controls
+b_military_exp_support,14128,11513,Sample 3,MIOS,Improper,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,MIOS,Improper,Controls
+b_gender_female,13842,10998,Sample 3,MIOS,Improper,Controls
+b_gender_nonbinary,15870,10775,Sample 3,MIOS,Improper,Controls
+b_foreign_born,14381,9985,Sample 3,MIOS,Improper,Controls
+b_race_asian,12783,10938,Sample 3,MIOS,Improper,Controls
+b_race_black,15386,11288,Sample 3,MIOS,Improper,Controls
+b_race_latino,16340,11351,Sample 3,MIOS,Improper,Controls
+b_race_native,11110,10833,Sample 3,MIOS,Improper,Controls
+b_race_pacific,11383,11107,Sample 3,MIOS,Improper,Controls
+b_race_other,14311,9556,Sample 3,MIOS,Improper,Controls
+b_rank_e1_e3,12369,11598,Sample 3,MIOS,Improper,Controls
+b_rank_e7_e9,15083,11391,Sample 3,MIOS,Improper,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,MIOS,Improper,Controls
+b_rank_o1_o3,11492,10129,Sample 3,MIOS,Improper,Controls
+b_rank_o4_o6,13482,10650,Sample 3,MIOS,Improper,Controls
+b_service_era_cold_war,15361,12030,Sample 3,MIOS,Improper,Controls
+b_service_era_vietnam,14048,11956,Sample 3,MIOS,Improper,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,MIOS,Improper,Controls
+b_branch_air_force,14707,12378,Sample 3,MIOS,Improper,Controls
+b_branch_coast_guard,10982,10796,Sample 3,MIOS,Improper,Controls
+b_branch_marines,15341,10936,Sample 3,MIOS,Improper,Controls
+b_branch_navy,12923,12245,Sample 3,MIOS,Improper,Controls
+b_branch_public_health,12557,10312,Sample 3,MIOS,Improper,Controls
+b_Intercept,15207,10769,Sample 3,MIOS,Vague,Controls
+b_pcl_total,11294,10405,Sample 3,MIOS,Vague,Controls
+b_mios_total,12391,11656,Sample 3,MIOS,Vague,Controls
+b_military_exp_combat,12955,10843,Sample 3,MIOS,Vague,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,MIOS,Vague,Controls
+b_military_exp_support,14128,11513,Sample 3,MIOS,Vague,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,MIOS,Vague,Controls
+b_gender_female,13842,10998,Sample 3,MIOS,Vague,Controls
+b_gender_nonbinary,15870,10775,Sample 3,MIOS,Vague,Controls
+b_foreign_born,14381,9985,Sample 3,MIOS,Vague,Controls
+b_race_asian,12783,10938,Sample 3,MIOS,Vague,Controls
+b_race_black,15386,11288,Sample 3,MIOS,Vague,Controls
+b_race_latino,16340,11351,Sample 3,MIOS,Vague,Controls
+b_race_native,11110,10833,Sample 3,MIOS,Vague,Controls
+b_race_pacific,11383,11107,Sample 3,MIOS,Vague,Controls
+b_race_other,14311,9556,Sample 3,MIOS,Vague,Controls
+b_rank_e1_e3,12369,11598,Sample 3,MIOS,Vague,Controls
+b_rank_e7_e9,15083,11391,Sample 3,MIOS,Vague,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,MIOS,Vague,Controls
+b_rank_o1_o3,11492,10129,Sample 3,MIOS,Vague,Controls
+b_rank_o4_o6,13482,10650,Sample 3,MIOS,Vague,Controls
+b_service_era_cold_war,15361,12030,Sample 3,MIOS,Vague,Controls
+b_service_era_vietnam,14048,11956,Sample 3,MIOS,Vague,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,MIOS,Vague,Controls
+b_branch_air_force,14707,12378,Sample 3,MIOS,Vague,Controls
+b_branch_coast_guard,10982,10796,Sample 3,MIOS,Vague,Controls
+b_branch_marines,15341,10936,Sample 3,MIOS,Vague,Controls
+b_branch_navy,12923,12245,Sample 3,MIOS,Vague,Controls
+b_branch_public_health,12557,10312,Sample 3,MIOS,Vague,Controls
+b_Intercept,15207,10769,Sample 3,PCL,Weakly Informative,Controls
+b_pcl_total,11294,10405,Sample 3,PCL,Weakly Informative,Controls
+b_mios_total,12391,11656,Sample 3,PCL,Weakly Informative,Controls
+b_military_exp_combat,12955,10843,Sample 3,PCL,Weakly Informative,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,PCL,Weakly Informative,Controls
+b_military_exp_support,14128,11513,Sample 3,PCL,Weakly Informative,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,PCL,Weakly Informative,Controls
+b_gender_female,13842,10998,Sample 3,PCL,Weakly Informative,Controls
+b_gender_nonbinary,15870,10775,Sample 3,PCL,Weakly Informative,Controls
+b_foreign_born,14381,9985,Sample 3,PCL,Weakly Informative,Controls
+b_race_asian,12783,10938,Sample 3,PCL,Weakly Informative,Controls
+b_race_black,15386,11288,Sample 3,PCL,Weakly Informative,Controls
+b_race_latino,16340,11351,Sample 3,PCL,Weakly Informative,Controls
+b_race_native,11110,10833,Sample 3,PCL,Weakly Informative,Controls
+b_race_pacific,11383,11107,Sample 3,PCL,Weakly Informative,Controls
+b_race_other,14311,9556,Sample 3,PCL,Weakly Informative,Controls
+b_rank_e1_e3,12369,11598,Sample 3,PCL,Weakly Informative,Controls
+b_rank_e7_e9,15083,11391,Sample 3,PCL,Weakly Informative,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,PCL,Weakly Informative,Controls
+b_rank_o1_o3,11492,10129,Sample 3,PCL,Weakly Informative,Controls
+b_rank_o4_o6,13482,10650,Sample 3,PCL,Weakly Informative,Controls
+b_service_era_cold_war,15361,12030,Sample 3,PCL,Weakly Informative,Controls
+b_service_era_vietnam,14048,11956,Sample 3,PCL,Weakly Informative,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,PCL,Weakly Informative,Controls
+b_branch_air_force,14707,12378,Sample 3,PCL,Weakly Informative,Controls
+b_branch_coast_guard,10982,10796,Sample 3,PCL,Weakly Informative,Controls
+b_branch_marines,15341,10936,Sample 3,PCL,Weakly Informative,Controls
+b_branch_navy,12923,12245,Sample 3,PCL,Weakly Informative,Controls
+b_branch_public_health,12557,10312,Sample 3,PCL,Weakly Informative,Controls
+b_Intercept,15207,10769,Sample 3,PCL,Improper,Controls
+b_pcl_total,11294,10405,Sample 3,PCL,Improper,Controls
+b_mios_total,12391,11656,Sample 3,PCL,Improper,Controls
+b_military_exp_combat,12955,10843,Sample 3,PCL,Improper,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,PCL,Improper,Controls
+b_military_exp_support,14128,11513,Sample 3,PCL,Improper,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,PCL,Improper,Controls
+b_gender_female,13842,10998,Sample 3,PCL,Improper,Controls
+b_gender_nonbinary,15870,10775,Sample 3,PCL,Improper,Controls
+b_foreign_born,14381,9985,Sample 3,PCL,Improper,Controls
+b_race_asian,12783,10938,Sample 3,PCL,Improper,Controls
+b_race_black,15386,11288,Sample 3,PCL,Improper,Controls
+b_race_latino,16340,11351,Sample 3,PCL,Improper,Controls
+b_race_native,11110,10833,Sample 3,PCL,Improper,Controls
+b_race_pacific,11383,11107,Sample 3,PCL,Improper,Controls
+b_race_other,14311,9556,Sample 3,PCL,Improper,Controls
+b_rank_e1_e3,12369,11598,Sample 3,PCL,Improper,Controls
+b_rank_e7_e9,15083,11391,Sample 3,PCL,Improper,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,PCL,Improper,Controls
+b_rank_o1_o3,11492,10129,Sample 3,PCL,Improper,Controls
+b_rank_o4_o6,13482,10650,Sample 3,PCL,Improper,Controls
+b_service_era_cold_war,15361,12030,Sample 3,PCL,Improper,Controls
+b_service_era_vietnam,14048,11956,Sample 3,PCL,Improper,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,PCL,Improper,Controls
+b_branch_air_force,14707,12378,Sample 3,PCL,Improper,Controls
+b_branch_coast_guard,10982,10796,Sample 3,PCL,Improper,Controls
+b_branch_marines,15341,10936,Sample 3,PCL,Improper,Controls
+b_branch_navy,12923,12245,Sample 3,PCL,Improper,Controls
+b_branch_public_health,12557,10312,Sample 3,PCL,Improper,Controls
+b_Intercept,15207,10769,Sample 3,PCL,Vague,Controls
+b_pcl_total,11294,10405,Sample 3,PCL,Vague,Controls
+b_mios_total,12391,11656,Sample 3,PCL,Vague,Controls
+b_military_exp_combat,12955,10843,Sample 3,PCL,Vague,Controls
+b_military_exp_noncombat,11539,10998,Sample 3,PCL,Vague,Controls
+b_military_exp_support,14128,11513,Sample 3,PCL,Vague,Controls
+b_military_exp_peacekeeping,14616,11560,Sample 3,PCL,Vague,Controls
+b_gender_female,13842,10998,Sample 3,PCL,Vague,Controls
+b_gender_nonbinary,15870,10775,Sample 3,PCL,Vague,Controls
+b_foreign_born,14381,9985,Sample 3,PCL,Vague,Controls
+b_race_asian,12783,10938,Sample 3,PCL,Vague,Controls
+b_race_black,15386,11288,Sample 3,PCL,Vague,Controls
+b_race_latino,16340,11351,Sample 3,PCL,Vague,Controls
+b_race_native,11110,10833,Sample 3,PCL,Vague,Controls
+b_race_pacific,11383,11107,Sample 3,PCL,Vague,Controls
+b_race_other,14311,9556,Sample 3,PCL,Vague,Controls
+b_rank_e1_e3,12369,11598,Sample 3,PCL,Vague,Controls
+b_rank_e7_e9,15083,11391,Sample 3,PCL,Vague,Controls
+b_rank_w1_cw5,15060,10156,Sample 3,PCL,Vague,Controls
+b_rank_o1_o3,11492,10129,Sample 3,PCL,Vague,Controls
+b_rank_o4_o6,13482,10650,Sample 3,PCL,Vague,Controls
+b_service_era_cold_war,15361,12030,Sample 3,PCL,Vague,Controls
+b_service_era_vietnam,14048,11956,Sample 3,PCL,Vague,Controls
+b_service_era_persian_gulf,17010,11083,Sample 3,PCL,Vague,Controls
+b_branch_air_force,14707,12378,Sample 3,PCL,Vague,Controls
+b_branch_coast_guard,10982,10796,Sample 3,PCL,Vague,Controls
+b_branch_marines,15341,10936,Sample 3,PCL,Vague,Controls
+b_branch_navy,12923,12245,Sample 3,PCL,Vague,Controls
+b_branch_public_health,12557,10312,Sample 3,PCL,Vague,Controls
+b_Intercept,28596,13892,Sample 3,Interaction,Weakly Informative,Controls
+b_pcl_total,21049,12698,Sample 3,Interaction,Weakly Informative,Controls
+b_mios_total,21823,13726,Sample 3,Interaction,Weakly Informative,Controls
+b_pcl_total_x_mios_total,25036,12589,Sample 3,Interaction,Weakly Informative,Controls
+b_military_exp_combat,24322,13619,Sample 3,Interaction,Weakly Informative,Controls
+b_military_exp_noncombat,21422,13522,Sample 3,Interaction,Weakly Informative,Controls
+b_military_exp_support,25011,13206,Sample 3,Interaction,Weakly Informative,Controls
+b_military_exp_peacekeeping,27123,13677,Sample 3,Interaction,Weakly Informative,Controls
+b_gender_female,23761,13470,Sample 3,Interaction,Weakly Informative,Controls
+b_gender_nonbinary,30481,12360,Sample 3,Interaction,Weakly Informative,Controls
+b_foreign_born,34456,12040,Sample 3,Interaction,Weakly Informative,Controls
+b_race_asian,22581,13358,Sample 3,Interaction,Weakly Informative,Controls
+b_race_black,29314,13293,Sample 3,Interaction,Weakly Informative,Controls
+b_race_latino,27337,13370,Sample 3,Interaction,Weakly Informative,Controls
+b_race_native,21426,13470,Sample 3,Interaction,Weakly Informative,Controls
+b_race_pacific,20412,13713,Sample 3,Interaction,Weakly Informative,Controls
+b_race_other,29315,11539,Sample 3,Interaction,Weakly Informative,Controls
+b_rank_e1_e3,22675,12380,Sample 3,Interaction,Weakly Informative,Controls
+b_rank_e7_e9,28090,12360,Sample 3,Interaction,Weakly Informative,Controls
+b_rank_w1_cw5,31140,13003,Sample 3,Interaction,Weakly Informative,Controls
+b_rank_o1_o3,20994,13908,Sample 3,Interaction,Weakly Informative,Controls
+b_rank_o4_o6,27869,13747,Sample 3,Interaction,Weakly Informative,Controls
+b_service_era_cold_war,25681,12249,Sample 3,Interaction,Weakly Informative,Controls
+b_service_era_vietnam,23261,13146,Sample 3,Interaction,Weakly Informative,Controls
+b_service_era_persian_gulf,29155,13197,Sample 3,Interaction,Weakly Informative,Controls
+b_branch_air_force,28080,13757,Sample 3,Interaction,Weakly Informative,Controls
+b_branch_coast_guard,18424,13209,Sample 3,Interaction,Weakly Informative,Controls
+b_branch_marines,27249,13087,Sample 3,Interaction,Weakly Informative,Controls
+b_branch_navy,21892,14084,Sample 3,Interaction,Weakly Informative,Controls
+b_branch_public_health,23011,13395,Sample 3,Interaction,Weakly Informative,Controls
+b_Intercept,14801,11766,Sample 3,Interaction,Improper,Controls
+b_pcl_total,11774,11019,Sample 3,Interaction,Improper,Controls
+b_mios_total,12203,11376,Sample 3,Interaction,Improper,Controls
+b_pcl_total_x_mios_total,14904,11103,Sample 3,Interaction,Improper,Controls
+b_military_exp_combat,14079,11627,Sample 3,Interaction,Improper,Controls
+b_military_exp_noncombat,11953,11273,Sample 3,Interaction,Improper,Controls
+b_military_exp_support,15104,11216,Sample 3,Interaction,Improper,Controls
+b_military_exp_peacekeeping,14554,11441,Sample 3,Interaction,Improper,Controls
+b_gender_female,13718,11894,Sample 3,Interaction,Improper,Controls
+b_gender_nonbinary,15216,9775,Sample 3,Interaction,Improper,Controls
+b_foreign_born,16495,10292,Sample 3,Interaction,Improper,Controls
+b_race_asian,12685,10725,Sample 3,Interaction,Improper,Controls
+b_race_black,14971,10855,Sample 3,Interaction,Improper,Controls
+b_race_latino,14430,11338,Sample 3,Interaction,Improper,Controls
+b_race_native,11854,10765,Sample 3,Interaction,Improper,Controls
+b_race_pacific,12001,10755,Sample 3,Interaction,Improper,Controls
+b_race_other,14085,9331,Sample 3,Interaction,Improper,Controls
+b_rank_e1_e3,12880,11371,Sample 3,Interaction,Improper,Controls
+b_rank_e7_e9,14813,12020,Sample 3,Interaction,Improper,Controls
+b_rank_w1_cw5,15652,10168,Sample 3,Interaction,Improper,Controls
+b_rank_o1_o3,11486,10705,Sample 3,Interaction,Improper,Controls
+b_rank_o4_o6,13576,10944,Sample 3,Interaction,Improper,Controls
+b_service_era_cold_war,14863,12123,Sample 3,Interaction,Improper,Controls
+b_service_era_vietnam,13725,11663,Sample 3,Interaction,Improper,Controls
+b_service_era_persian_gulf,15175,10808,Sample 3,Interaction,Improper,Controls
+b_branch_air_force,15395,11969,Sample 3,Interaction,Improper,Controls
+b_branch_coast_guard,11538,11019,Sample 3,Interaction,Improper,Controls
+b_branch_marines,15062,11948,Sample 3,Interaction,Improper,Controls
+b_branch_navy,13110,11383,Sample 3,Interaction,Improper,Controls
+b_branch_public_health,11922,10615,Sample 3,Interaction,Improper,Controls
+b_Intercept,18880,13616,Sample 3,Interaction,Vague,Controls
+b_pcl_total,14909,11969,Sample 3,Interaction,Vague,Controls
+b_mios_total,15546,12728,Sample 3,Interaction,Vague,Controls
+b_pcl_total_x_mios_total,18115,12439,Sample 3,Interaction,Vague,Controls
+b_military_exp_combat,15088,11684,Sample 3,Interaction,Vague,Controls
+b_military_exp_noncombat,13190,11573,Sample 3,Interaction,Vague,Controls
+b_military_exp_support,16999,12069,Sample 3,Interaction,Vague,Controls
+b_military_exp_peacekeeping,15175,12362,Sample 3,Interaction,Vague,Controls
+b_gender_female,16770,12603,Sample 3,Interaction,Vague,Controls
+b_gender_nonbinary,17340,10652,Sample 3,Interaction,Vague,Controls
+b_foreign_born,19197,9892,Sample 3,Interaction,Vague,Controls
+b_race_asian,13805,11760,Sample 3,Interaction,Vague,Controls
+b_race_black,16981,12461,Sample 3,Interaction,Vague,Controls
+b_race_latino,17898,12705,Sample 3,Interaction,Vague,Controls
+b_race_native,14593,12380,Sample 3,Interaction,Vague,Controls
+b_race_pacific,13890,11749,Sample 3,Interaction,Vague,Controls
+b_race_other,17441,9975,Sample 3,Interaction,Vague,Controls
+b_rank_e1_e3,14109,12336,Sample 3,Interaction,Vague,Controls
+b_rank_e7_e9,17000,12275,Sample 3,Interaction,Vague,Controls
+b_rank_w1_cw5,17638,11132,Sample 3,Interaction,Vague,Controls
+b_rank_o1_o3,13078,12247,Sample 3,Interaction,Vague,Controls
+b_rank_o4_o6,16340,12189,Sample 3,Interaction,Vague,Controls
+b_service_era_cold_war,17589,12227,Sample 3,Interaction,Vague,Controls
+b_service_era_vietnam,15147,12609,Sample 3,Interaction,Vague,Controls
+b_service_era_persian_gulf,18130,12959,Sample 3,Interaction,Vague,Controls
+b_branch_air_force,16718,12409,Sample 3,Interaction,Vague,Controls
+b_branch_coast_guard,13410,12430,Sample 3,Interaction,Vague,Controls
+b_branch_marines,17126,12718,Sample 3,Interaction,Vague,Controls
+b_branch_navy,13562,12277,Sample 3,Interaction,Vague,Controls
+b_branch_public_health,14042,11363,Sample 3,Interaction,Vague,Controls
